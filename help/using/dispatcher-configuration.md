@@ -2,7 +2,7 @@
 title: 設定 Dispatcher
 description: 了解如何設定 Dispatcher。了解對 IPv4 和 IPv6 的支援、設定檔案、環境變數、為執行個體命名、定義陣列、識別虛擬主機等。
 exl-id: 91159de3-4ccb-43d3-899f-9806265ff132
-source-git-commit: 410346694a134c0f32a24de905623655f15269b4
+source-git-commit: 336e69a4635c9822a97bbffd0b1410807012f9e7
 workflow-type: ht
 source-wordcount: '8857'
 ht-degree: 100%
@@ -1885,3 +1885,4 @@ HTTP 方法不是 GET 或 HEAD。Dispatcher 假設輸出會包含不應該快取
 遠端伺服器傳回 `Dispatcher: no_cache` 標頭，禁止 Dispatcher 快取輸出。
 * **not cacheable: response content length is zero**
 回應的內容長度為零；Dispatcher 不會建立長度為零的檔案。
+
