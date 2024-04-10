@@ -2,10 +2,10 @@
 title: 設定 Dispatcher
 description: 了解如何設定 Dispatcher。了解對 IPv4 和 IPv6 的支援、設定檔案、環境變數、為執行個體命名、定義陣列、識別虛擬主機等。
 exl-id: 91159de3-4ccb-43d3-899f-9806265ff132
-source-git-commit: 336e69a4635c9822a97bbffd0b1410807012f9e7
+source-git-commit: 002458d52df4680ded5cb84a8119bc000e3ca88a
 workflow-type: tm+mt
 source-wordcount: '8857'
-ht-degree: 100%
+ht-degree: 99%
 
 ---
 
@@ -1324,7 +1324,7 @@ GET /mypage.html?nocache=true&willbecached=true
 >
 >Dispatcher 版本 **4.1.11** 可使用此功能。
 
-`/headers` 屬性可讓您定義將由 Dispatcher 快取的 HTTP 標題類型。初次請求未快取的資源時，符合其中一個設定值 (請參閱底下的設定範例) 的所有標題都會儲存在快取檔案旁邊的另一個檔案中。後續請求快取的資源時，儲存的標題會新增到回應中。
+`/headers` 屬性可讓您定義將由 Dispatcher 快取的 HTTP 標題類型。初次請求未快取的資源時，符合其中一個設定值 (請參閱底下的設定範例) 的所有標題都會儲存在快取檔案旁邊的另一個檔案中。後續請求快取的資源時，儲存的標頭會新增到回應中。
 
 下面顯示的是預設設定中的範例：
 
