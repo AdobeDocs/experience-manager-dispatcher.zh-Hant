@@ -3,9 +3,9 @@ title: 設定 Dispatcher
 description: 了解如何設定 Dispatcher。了解對 IPv4 和 IPv6 的支援、設定檔案、環境變數、為執行個體命名、定義陣列、識別虛擬主機等。
 exl-id: 91159de3-4ccb-43d3-899f-9806265ff132
 source-git-commit: 002458d52df4680ded5cb84a8119bc000e3ca88a
-workflow-type: tm+mt
+workflow-type: ht
 source-wordcount: '8857'
-ht-degree: 99%
+ht-degree: 100%
 
 ---
 
@@ -213,7 +213,7 @@ AEM 和 Dispatcher 的所有元素都可以安裝在 IPv4 和 IPv6 網路上。�
 
 >[!CAUTION]
 >
->`/homepage` 參數 (僅限 IIS) 不再有效。您應該改用 [IIS URL Rewrite 模組](https://learn.microsoft.com/en-us/iis/extensions/url-rewrite-module/using-the-url-rewrite-module)。
+>`/homepage` 參數 (僅限 IIS) 不再有效。您應該改用 [IIS URL Rewrite 模組](https://learn.microsoft.com/zh-tw/iis/extensions/url-rewrite-module/using-the-url-rewrite-module)。
 >
 >如果您使用 Apache，則應該使用 `mod_rewrite` 模組。請參閱 Apache 網站文件以取得 `mod_rewrite` 的相關資訊 (例如 [Apache 2.4](https://httpd.apache.org/docs/current/mod/mod_rewrite.html))。在使用 `mod_rewrite` 時，建議最好使用標幟 &#39;passthrough|PT&#39; (傳遞給下一個處理常式)，以強制重寫引擎將內部 `uri` 結構的 `request_rec` 欄位設定為 `filename` 欄位的值。
 
