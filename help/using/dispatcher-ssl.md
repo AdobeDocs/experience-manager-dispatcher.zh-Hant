@@ -1,28 +1,24 @@
 ---
 title: 搭配 Dispatcher 使用 SSL
-seo-title: Using SSL with Dispatcher
 description: 了解如何設定 Dispatcher 以便使用 SSL 連線與 AEM 通訊。
-seo-description: Learn how to configure Dispatcher to communicate with AEM using SSL connections.
-uuid: 1a8f448c-d3d8-4798-a5cb-9579171171ed
 contentOwner: User
 products: SG_EXPERIENCEMANAGER/DISPATCHER
 topic-tags: dispatcher
 content-type: reference
-discoiquuid: 771cfd85-6c26-4ff2-a3fe-dff8d8f7920b
 index: y
 internal: n
 snippet: y
 exl-id: ec378409-ddb7-4917-981d-dbf2198aca98
-source-git-commit: e87af532ee3268f0a45679e20031c3febc02de58
+source-git-commit: 2d90738d01fef6e37a2c25784ed4d1338c037c23
 workflow-type: tm+mt
-source-wordcount: '1355'
-ht-degree: 100%
+source-wordcount: '1302'
+ht-degree: 90%
 
 ---
 
 # 搭配 Dispatcher 使用 SSL {#using-ssl-with-dispatcher}
 
-在 Dispatcher 與轉譯器電腦之間使用 SSL 連線：
+在Dispatcher和轉譯電腦之間使用SSL連線：
 
 * [單向 SSL](#use-ssl-when-dispatcher-connects-to-aem)
 * [雙向 SSL](#configuring-mutual-ssl-between-dispatcher-and-aem)
@@ -37,9 +33,9 @@ ht-degree: 100%
 
 在設定 Dispatcher 之前，請設定 AEM 或 CQ 使用 SSL：
 
-* AEM 6.2：[啟用透過 SSL 的 HTTP](https://experienceleague.adobe.com/docs/experience-manager-release-information/aem-release-updates/previous-updates/aem-previous-versions.html?lang=zh-Hant)
-* AEM 6.1：[啟用透過 SSL 的 HTTP](https://experienceleague.adobe.com/docs/experience-manager-release-information/aem-release-updates/previous-updates/aem-previous-versions.html?lang=zh-Hant)
-* AEM 舊版：請參閱[此頁面](https://experienceleague.adobe.com/docs/experience-manager-release-information/aem-release-updates/previous-updates/aem-previous-versions.html?lang=zh-Hant)。
+* AEM 6.2：[啟用透過 SSL 的 HTTP](https://experienceleague.adobe.com/en/docs/experience-manager-release-information/aem-release-updates/previous-updates/aem-previous-versions)
+* AEM 6.1：[啟用透過 SSL 的 HTTP](https://experienceleague.adobe.com/en/docs/experience-manager-release-information/aem-release-updates/previous-updates/aem-previous-versions)
+* AEM 舊版：請參閱[此頁面](https://experienceleague.adobe.com/en/docs/experience-manager-release-information/aem-release-updates/previous-updates/aem-previous-versions)。
 
 ### 與 SSL 相關的請求標頭 {#ssl-related-request-headers}
 
@@ -133,14 +129,14 @@ X-Forwarded-SSL-Session-ID: 814825E8CD055B4C166C2EF6D75E1D0FE786FFB29DEB6DE1E239
 
 若要設定雙向 SSL，請執行以下步驟：
 
-1. [安裝](dispatcher-install.md)您的平台適用的最新版 Dispatcher。 使用支援 SSL 的 Dispatcher 二進位檔案 (SSL 位在檔案名稱中，例如 dispatcher-apache2.4-linux-x86-64-ssl10-4.1.7.tar)。
+1. [安裝](dispatcher-install.md)您的平台適用的最新版 Dispatcher。 使用支援SSL的Dispatcher二進位檔(SSL位在檔案名稱中，例如 `dispatcher-apache2.4-linux-x86-64-ssl10-4.1.7.tar`)。
 1. [建立或取得 CA 簽署的憑證](dispatcher-ssl.md#main-pars-title-3)，該憑證適用於 Dispatcher 和轉譯器執行個體。
 1. [建立包含轉譯器憑證的金鑰儲存區](dispatcher-ssl.md#main-pars-title-6)並設定轉譯器的 HTTP 服務。
 1. [設定 Dispatcher 網頁伺服器模組](dispatcher-ssl.md#main-pars-title-4)以供雙向 SSL 使用。
 
 ### 建立或取得 CA 簽署的憑證 {#creating-or-obtaining-ca-signed-certificates}
 
-建立或取得 CA 簽署的憑證，該憑證用來驗證發佈執行個體和 Dispatcher。
+建立或取得CA簽署的憑證，該憑證用來驗證發佈執行個體和Dispatcher。
 
 #### 建立您的 CA {#creating-your-ca}
 
@@ -161,10 +157,10 @@ X-Forwarded-SSL-Session-ID: 814825E8CD055B4C166C2EF6D75E1D0FE786FFB29DEB6DE1E239
 
 使用 OpenSSL 建立要傳送給第三方 CA 或透過您的 CA 簽署的憑證請求。
 
-當您建立憑證時，OpenSSL 會使用一般名稱屬性來識別憑證持有者。 對於轉譯器執行個體的憑證，如果您將 Dispatcher 設定為只有在其符合發佈執行個體的主機名稱時才接受憑證，請使用執行個體電腦的主機名稱當作一般名稱。 (請參閱 [DispatcherCheckPeerCN](dispatcher-ssl.md#main-pars-title-11) 屬性。)
+當您建立憑證時，OpenSSL 會使用一般名稱屬性來識別憑證持有者。 對於轉譯器執行個體的憑證，如果您設定Dispatcher接受憑證，請使用執行個體電腦的主機名稱當作一般名稱。 只有在符合發佈執行個體的主機名稱時，才執行此動作。 請參閱 [DispatcherCheckPeerCN](dispatcher-ssl.md#main-pars-title-11) 屬性。
 
 1. 開啟終端機，並將目前目錄切換到包含您的 OpenSSL 程式庫的 CH.sh 檔案的目錄。
-1. 輸入以下命令，然後在收到提示時提供值。 必要時，請使用發佈執行個體的主機名稱當作一般名稱。 主機名稱是轉譯器的 IP 位址的 DNS 可解析名稱：
+1. 輸入以下命令，然後在收到提示時提供值。 如有必要，請使用發佈執行個體的主機名稱當作一般名稱。 主機名稱是轉譯器的 IP 位址的 DNS 可解析名稱：
 
    ```shell
    ./CA.sh -newreq
@@ -178,7 +174,7 @@ X-Forwarded-SSL-Session-ID: 814825E8CD055B4C166C2EF6D75E1D0FE786FFB29DEB6DE1E239
    ./CA.sh -sign
    ```
 
-   在包含您的 CA 管理檔案的目錄中建立兩個名為 `newcert.pem` 和 `newkey.pem` 的檔案。 這兩個檔案分別是適用於轉譯器電腦的公開憑證和私密金鑰。
+   在包含您的 CA 管理檔案的目錄中建立兩個名為 `newcert.pem` 和 `newkey.pem` 的檔案。 這兩個檔案分別是轉譯電腦的公開憑證和私密金鑰。
 
 1. 將 `newcert.pem` 重新命名為 `rendercert.pem`，並將 `newkey.pem` 重新命名為 `renderkey.pem`。
 1. 重複步驟 2 和 3，為 Dispatcher 模組建立憑證和公開金鑰。 務必使用 Dispatcher 執行個體專屬的一般名稱。
@@ -251,11 +247,11 @@ Last Modified Date: 2014-08-12T13:11:21.401-0400
 
 #### 設定轉譯器執行個體 {#configuring-the-render-instance}
 
-若要設定轉譯器執行個體的 SSL 服務來使用 SSL，請依照&#x200B;*在發佈執行個體上啟用 SSL*&#x200B;一節中的指示來使用轉譯器憑證：
+若要設定轉譯器執行個體的HTTP服務來使用SSL，請使用轉譯器憑證，並依照以下說明操作： *`Enable SSL on the Publish Instance`* 區段：
 
-* AEM 6.2：[啟用透過 SSL 的 HTTP](https://experienceleague.adobe.com/docs/experience-manager-release-information/aem-release-updates/previous-updates/aem-previous-versions.html?lang=zh-Hant)
-* AEM 6.1：[啟用透過 SSL 的 HTTP](https://experienceleague.adobe.com/docs/experience-manager-release-information/aem-release-updates/previous-updates/aem-previous-versions.html?lang=zh-Hant)
-* AEM 舊版：請參閱[此頁面。](https://experienceleague.adobe.com/docs/experience-manager-release-information/aem-release-updates/previous-updates/aem-previous-versions.html?lang=zh-Hant)
+* AEM 6.2：[啟用透過 SSL 的 HTTP](https://experienceleague.adobe.com/en/docs/experience-manager-release-information/aem-release-updates/previous-updates/aem-previous-versions)
+* AEM 6.1：[啟用透過 SSL 的 HTTP](https://experienceleague.adobe.com/en/docs/experience-manager-release-information/aem-release-updates/previous-updates/aem-previous-versions)
+* AEM 舊版：請參閱[此頁面。](https://experienceleague.adobe.com/en/docs/experience-manager-release-information/aem-release-updates/previous-updates/aem-previous-versions)
 
 ### 為 Dispatcher 模組設定 SSL {#configuring-ssl-for-the-dispatcher-module}
 
