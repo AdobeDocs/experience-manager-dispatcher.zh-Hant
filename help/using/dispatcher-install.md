@@ -1,15 +1,15 @@
 ---
 title: 安裝 Dispatcher
-description: 瞭解如何在Microsoft&reg； Internet Information Server、Apache Web Server和Sun Java&trade； Web Server-iPlanet上安裝Dispatcher模組。
+description: 了解如何在 Microsoft&reg; Internet Information Server、Apache Web Server 和 Sun Java&trade; Web Server-iPlanet 上安裝 Dispatcher 模組。
 contentOwner: User
 converted: true
 topic-tags: dispatcher
 content-type: reference
 exl-id: 9375d1c0-8d9e-46cb-9810-fa4162a8c1ba
 source-git-commit: 2d90738d01fef6e37a2c25784ed4d1338c037c23
-workflow-type: tm+mt
+workflow-type: ht
 source-wordcount: '3751'
-ht-degree: 58%
+ht-degree: 100%
 
 ---
 
@@ -27,13 +27,13 @@ Comment Type: draft
 
 >[!NOTE]
 >
->Adobe Experience Manager 6.5需要Dispatcher版本4.3.2或更新版本。 舉例來說，Dispatcher 版本與 AEM 無關，但 Dispatcher 版本 4.3.2 也與 Adobe Experience Manager 6.4 相容。
+>Adobe Experience Manager 6.5 需要 Dispatcher 版本 4.3.2 或更高版本。 舉例來說，Dispatcher 版本與 AEM 無關，但 Dispatcher 版本 4.3.2 也與 Adobe Experience Manager 6.4 相容。
 
 以下是使用的檔案命名慣例：
 
 `dispatcher-<web-server>-<operating-system>-<dispatcher-version-number>.<file-format>`
 
-例如， `dispatcher-apache2.4-linux-x86_64-ssl-4.3.1.tar.gz` 此檔案包含適用於Linux® i686上執行的Apache 2.4網頁伺服器的Dispatcher版本4.3.1，而且會使用 **tar** 格式。
+例如，`dispatcher-apache2.4-linux-x86_64-ssl-4.3.1.tar.gz` 檔案包含 Linux® i686 上執行的 Apache 2.4 網頁伺服器適用的 Dispatcher 版本 4.3.1，而且會使用 **tar** 格式封裝。
 
 下表列出每部網頁伺服器的檔案名稱中所使用的網頁伺服器識別碼：
 
@@ -45,11 +45,11 @@ Comment Type: draft
 
 >[!CAUTION]
 >
->請務必安裝您的平台適用的最新版Dispatcher。 每年都會升級您的Dispatcher執行個體來使用最新版本，以充分利用產品改良功能。
+>您務必要安裝自己平台適用的最新版 Dispatcher。 每年升級您的 Dispatcher 執行個體以使用最新版本，才能充分利用產品改良功能。
 
 >[!NOTE]
 >
->明確地從版本4.3.3升級到版本4.3.4的客戶應該注意到為不可快取的內容設定快取標頭的方式具有不同的行為。 若要進一步瞭解這項變更，請參閱 [發行說明](/help/using/release-notes.md#nov) 頁面。
+>明確地從版本 4.3.3 升級到版本 4.3.4 的客戶應會注意到，為無法快取的內容設定快取標頭的方式具有不同的行為。 若要進一步了解這項變更，參閱[發行說明](/help/using/release-notes.md#nov)頁面。
 
 每個封存都包含以下檔案：
 
@@ -60,7 +60,7 @@ Comment Type: draft
 
 >[!NOTE]
 >
->在開始安裝之前，請檢視讀我檔案中的任何最新變更/平台專屬說明。
+>在開始安裝前，查看讀我檔案中的任何最新變更/平台專屬說明。
 
 <!-- 
 
@@ -90,8 +90,8 @@ Comment Type: draft
 
 如需如何安裝此網頁伺服器的資訊，請參閱以下資源：
 
-* Microsoft®自己的Internet Information Server檔案
-* [「官方Microsoft® IIS網站」](https://www.iis.net/)
+* Microsoft® 自己的 Internet Information Server 相關文件
+* [「Microsoft® IIS 官方網站」](https://www.iis.net/)
 
 ### 必要 IIS 元件 {#required-iis-components}
 
@@ -99,11 +99,11 @@ IIS 版本 8.5 和 10 需要安裝以下 IIS 元件：
 
 * ISAPI 擴充程式
 
-此外，您也必須新增網頁伺服器 (IIS) 角色。 使用「伺服器管理員」新增角色和元件。
+此外，您也必須新增網頁伺服器 (IIS) 角色。 使用伺服器管理員新增角色和元件。
 
-## Microsoft® IIS — 安裝Dispatcher模組 {#microsoft-iis-installing-the-dispatcher-module}
+## Microsoft® IIS - 安裝 Dispatcher 模組 {#microsoft-iis-installing-the-dispatcher-module}
 
-Microsoft® Internet Information System的所需封存檔為：
+Microsoft® Internet Information System 所需的封存檔為：
 
 * `dispatcher-iis-<operating-system>-<dispatcher-release-number>.zip`
 
@@ -115,7 +115,7 @@ ZIP 檔案包含以下檔案：
 | `disp_iis.ini` | IIS 適用的設定檔。 此範例可根據您的需求進行更新。 **注意**：ini 檔案必須具有與 dll 相同的 name-root。 |
 | `dispatcher.any` | Dispatcher 的設定檔範例。 |
 | `author_dispatcher.any` | 搭配編寫執行個體使用的 Dispatcher 適用的設定檔範例。 |
-| 讀我檔案 | 包含安裝指示和最新資訊的讀我檔案。 **注意**：請在開始安裝前檢視此檔案。 |
+| 讀我檔案 | 包含安裝指示和最新資訊的讀我檔案。 **注意**：在開始安裝前查看此檔案。 |
 | 變更記錄 | 列出目前和過去的版本中已修正的問題的變更記錄檔案。 |
 
 使用以下程序，將 Dispatcher 檔案複製到正確的位置。
@@ -130,9 +130,9 @@ ZIP 檔案包含以下檔案：
       * 編寫執行個體：`author_dispatcher.any`
       * 發佈執行個體：`dispatcher.any`
 
-## Microsoft® IIS — 設定Dispatcher INI檔案 {#microsoft-iis-configure-the-dispatcher-ini-file}
+## Microsoft® IIS - 設定 Dispatcher INI 檔案 {#microsoft-iis-configure-the-dispatcher-ini-file}
 
-若要設定Dispatcher安裝，請編輯 `disp_iis.ini` 檔案。 `.ini` 檔案的基本格式如下：
+若要設定 Dispatcher 的安裝，請編輯 `disp_iis.ini` 檔案。 `.ini` 檔案的基本格式如下：
 
 ```xml
 [main]
@@ -147,11 +147,11 @@ replaceauthorization=0|1
 | 參數 | 說明 |
 |--- |--- |
 | configpath | 本機檔案系統內的 `dispatcher.any` 位置 (絕對路徑)。 |
-| logfile | `dispatcher.log` 檔案的位置。 如果未設定，則記錄訊息會移至Windows事件記錄檔。 |
-| loglevel | 定義用來將訊息輸出到事件記錄檔的記錄層級。 可以在記錄檔的記錄層級指定下列值： <br/>0 — 僅錯誤訊息。 <br/>1 - 錯誤和警告。 <br/>2 — 錯誤、警告和資訊訊息 <br/>3 — 錯誤、警告、資訊訊息和偵錯訊息。 <br/>**注意**：在安裝和測試期間將記錄層級設為3，然後在生產環境執行時則設為0。 |
+| logfile | `dispatcher.log` 檔案的位置。 如果未設定此屬性，則記錄訊息會記錄到 Windows 事件記錄檔。 |
+| loglevel | 定義用來將訊息輸出到事件記錄檔的記錄層級。 可以在記錄檔案的記錄層級指定下列值：<br/>0 - 僅限錯誤訊息。 <br/>1 - 錯誤和警告。 <br/>2 - 錯誤、警告和資訊訊息 <br/>3 - 錯誤、警告、資訊訊息和偵錯訊息。 <br/>**注意**：在安裝和測試期間將記錄層級設為 3，然後在生產環境執行時則設為 0。 |
 | replaceauthorization | 指定如何處理 HTTP 請求中的授權標頭。 以下是有效的值：<br/>0 - 不修改 Authorization 標頭。 <br/>1 - 將任何名為「Authorization」的標頭 (「Basic」除外) 替換為其 `Basic <IIS:LOGON\_USER>` 同等標頭。<br/> |
 | servervariables | 定義如何處理伺服器變數。<br/>0 - IIS 伺服器變數既不會傳送給 Dispatcher 也不會傳送給 AEM。 <br/>1 - 所有 IIS 伺服器變數 (例如 `LOGON\_USER, QUERY\_STRING, ...`) 都會傳送給 Dispatcher，連同請求標頭一起傳送 (如果未快取也會傳送給 AEM 執行個體)。 <br/>伺服器變數包括 `AUTH\_USER, LOGON\_USER, HTTPS\_KEYSIZE` 和其他許多變數。 請參閱 IIS 文件以取得完整變數清單，連同詳細資料。 |
-| enable_chunked_transfer | 定義是要啟用(1)還是停用(0)使用者端回應的區塊傳輸。 預設值為 0。 |
+| enable_chunked_transfer | 定義是要啟用 (1) 還是停用 (0) 用戶端回應的區塊傳輸。 預設值為 0。 |
 
 設定範例：
 
@@ -163,18 +163,18 @@ servervariables=1
 replaceauthorization=0
 ```
 
-### 設定Microsoft® IIS {#configuring-microsoft-iis}
+### 設定 Microsoft® IIS {#configuring-microsoft-iis}
 
-設定 IIS 以整合 Dispatcher ISAPI 模組。 在IIS中，您會使用萬用字元應用程式對應。
+設定 IIS 以整合 Dispatcher ISAPI 模組。 在 IIS 中，您會使用萬用字元應用程式對應。
 
 ### 設定匿名存取 - IIS 8.5 和 10 {#configuring-anonymous-access-iis-and}
 
-編寫執行個體上的預設 Flush 複寫代理程式已設定為不隨著清除請求傳送安全性認證。 因此，您使用Dispatcher快取的網站必須允許匿名存取。
+編寫執行個體上的預設 Flush 複寫代理程式已設定為不隨著清除請求傳送安全性認證。 因此，您要用作 Dispatcher 快取的網站必須允許匿名存取。
 
-如果您的網站使用驗證方法，則必須適當地設定 Flush 複寫代理程式。
+如果您的網站使用驗證方法，則必須正確地設定 Flush 複寫代理程式。
 
 1. 開啟 IIS 管理員，然後選取您要用作 Dispatcher 快取的網站。
-1. 使用「功能檢視」模式，在IIS區段中按兩下「驗證」。
+1. 使用「功能檢視」模式，在 IIS 區段中按兩下「驗證」。
 1. 如果未啟用「匿名驗證」，請選取「匿名驗證」，然後在「動作」區域中按一下「啟用」。
 
 ### 整合 Dispatcher ISAPI 模組 - IIS 8.5 和 10 {#integrating-the-dispatcher-isapi-module-iis-and}
@@ -183,8 +183,8 @@ replaceauthorization=0
 
 1. 開啟 IIS 管理員。
 1. 選取您要用作 Dispatcher 快取的網站。
-1. 使用「功能檢視」模式，在IIS區段中按兩下「處理常式對應」。
-1. 在「處理常式對應」頁面的「動作」面板中，按一下「新增萬用字元指令碼對應」，新增下列屬性值，然後按一下「確定」：
+1. 使用「功能檢視」模式，在 IIS 區段中按兩下「處理常式對應」。
+1. 在「處理常式對應」頁面的「動作」面板中，按一下「新增萬用字元指令碼對應」，新增以下屬性值，然後按一下「確定」：
 
    * 請求路徑：&#42;
    * 可執行檔：disp_iis.dll 檔案的絕對路徑，例如 `C:\inetpub\Scripts\disp_iis.dll`。
@@ -192,9 +192,9 @@ replaceauthorization=0
 
 1. 在出現的對話框中，若要將 disp_iis.dll 程式庫新增到 ISAPI 和 CGI 限制清單，請按一下「是」。
 
-   對於IIS 7.0和7.5，此設定是完整的。 如果您要設定 IIS 8.0，請繼續進行其餘步驟。
+   對於 IIS 7.0 和 7.5，這是完整的設定。 如果您要設定 IIS 8.0，請繼續進行其餘步驟。
 
-1. (IIS 8.0)在處理常式對應清單中，選取您建立的處理常式對應，然後在「動作」區域中按一下「編輯」。
+1. (IIS 8.0) 在處理常式對應清單中，選取您建立的處理常式對應，然後在「動作」區域中按一下「編輯」。
 1. (IIS 8.0) 在「編輯指令碼對應」對話框中，按一下「要求限制」按鈕。
 1. (IIS 8.0) 若要確保處理常式是用於尚未快取的檔案和資料夾，請取消選取「只有當要求對應到下列項目時才啟動處理常式」，然後按一下「確定」。
 1. (IIS 8.0) 在「編輯指令碼對應」對話框中，按一下「確定」。
@@ -208,14 +208,14 @@ replaceauthorization=0
 
    當您在完成下一個步驟時，持續開啟此對話框。
 
-1. 在IIS管理員中，選取您用作Dispatcher快取的IIS網站，然後在視窗右側按一下「進階設定」。
+1. 在 IIS 管理員中，選取您用作 Dispatcher 快取的 IIS 網站，然後在視窗右側按一下「進階設定」。
 1. 選取「應用程式集區」屬性的值，並將其複製到剪貼簿。
 1. 返回開啟的對話框。 在「輸入物件名稱來選取」對話框中，輸入 `IIS AppPool\`，然後貼上剪貼簿的內容。 該值看起來應該像下面的範例：
 
    `IIS AppPool\DefaultAppPool`
 
 1. 按一下「檢查名稱」按鈕。 當 Windows 解析使用者帳戶時，按一下「確定」。
-1. 在Dispatcher資料夾的「許可權」對話方塊中，選取您剛才新增的帳戶，並為該帳戶啟用所有許可權  **完全控制除外** 並按一下「確定」。 按一下「確定」，以便關閉資料夾的「內容」對話方塊。
+1. 在 Dispatcher 資料夾的「權限」對話框中，選取您剛才新增的帳戶，並為該帳戶啟用&#x200B;**完全控制以外**&#x200B;的所有權限，然後按一下「確定」。 按一下「確定」，即可關閉該資料夾的「內容」對話框。
 
 ### 登錄 JSON Mime 類型 - IIS 8.5 和 10 {#registering-the-json-mime-type-iis-and}
 
@@ -236,25 +236,25 @@ replaceauthorization=0
 
 ### 將 IIS 訊息記錄到檔案中 - IIS 8.5 和 10 {#logging-iis-messages-to-a-file-iis-and}
 
-使用以下程序，將 Dispatcher 記錄訊息寫入記錄檔，而不是 Windows 事件記錄檔。 設定Dispatcher使用記錄檔，並為IIS提供該檔案的寫入許可權。
+使用以下程序，將 Dispatcher 記錄訊息寫入記錄檔，而不是 Windows 事件記錄檔。 設定 Dispatcher 使用記錄檔，並為 IIS 提供該檔案的寫入權限。
 
 1. 使用 Windows 檔案總管可在名為 `dispatcher` 的資料夾底下建立 IIS 安裝的記錄資料夾。 在典型的安裝中，此資料夾的路徑為 `C:\inetpub\logs\dispatcher`。
 
-1. 以滑鼠右鍵按一下Dispatcher資料夾，然後按一下「屬性」。
+1. 以滑鼠右鍵按一下 Dispatcher 資料夾，然後按一下「內容」。
 1. 在「安全性」索引標籤上，按一下「編輯」，然後在「權限」對話框中按一下「新增」。 隨即開啟一個對話框供您選取使用者帳戶。 按一下「位置」按鈕，並選取您的電腦名稱，然後按一下「確定」。
 
    當您在完成下一個步驟時，持續開啟此對話框。
 
-1. 在IIS管理員中，選取您用作Dispatcher快取的IIS網站，然後在視窗右側按一下「進階設定」。
+1. 在 IIS 管理員中，選取您用作 Dispatcher 快取的 IIS 網站，然後在視窗右側按一下「進階設定」。
 1. 選取「應用程式集區」屬性的值，並將其複製到剪貼簿。
 1. 返回開啟的對話框。 在「輸入物件名稱來選取」對話框中，輸入 `IIS AppPool\`，然後貼上剪貼簿的內容。 該值看起來應該像下面的範例：
 
    `IIS AppPool\DefaultAppPool`
 
 1. 按一下「檢查名稱」按鈕。 當 Windows 解析使用者帳戶時，按一下「確定」。
-1. 在Dispatcher資料夾的「許可權」對話方塊中，選取您剛才新增的帳戶，並為該帳戶啟用所有許可權 **除了完全控制之外，** 並按一下「確定」。 按一下「確定」，以便關閉資料夾的「內容」對話方塊。
+1. 在 Dispatcher 資料夾的「權限」對話框中，選取您剛才新增的帳戶，並為該帳戶啟用&#x200B;**完全控制以外**&#x200B;的所有權限，然後按一下「確定」。 按一下「確定」，即可關閉該資料夾的「內容」對話框。
 1. 使用文字編輯器開啟 `disp_iis.ini` 檔案。
-1. 若要設定記錄檔的位置，請新增類似下列範例的一行文字，然後儲存檔案：
+1. 若要設定記錄檔的位置，可新增類似以下範例的一行文字，然後儲存該檔案：
 
    ```xml
    logfile=C:\inetpub\logs\dispatcher\dispatcher.log
@@ -262,16 +262,16 @@ replaceauthorization=0
 
 ### 後續步驟 {#next-steps}
 
-在您可以開始使用Dispatcher之前，您必須知道以下內容：
+在您可以開始使用 Dispatcher 之前，您必須知道以下事項：
 
 * [設定](dispatcher-configuration.md) Dispatcher
-* [設定AEM](page-invalidate.md) 以搭配Dispatcher使用。
+* [設定 AEM](page-invalidate.md) 以搭配 Dispatcher 使用。
 
 ## Apache Web Server {#apache-web-server}
 
 >[!CAUTION]
 >
->兩者下的安裝指示 **Windows** 和 **UNIX®** 這裡有相關說明。 執行步驟時請小心。
+>這裡有涵蓋 **Windows** 和 **UNIX®** 底下的安裝指示。 在執行步驟時務必謹慎。
 
 ### 安裝 Apache Web Server {#installing-apache-web-server}
 
@@ -279,7 +279,7 @@ replaceauthorization=0
 
 >[!CAUTION]
 >
->如果您正在編譯來源檔案以建立Apache二進位檔，請務必開啟 **`dynamic modules support`**. 您可以使用任何 **--enable-shared** 選項進行此操作。 至少應包含 `mod_so` 模組。
+>如果您正在編譯來源檔案以建立 Apache 二進位檔，請務必開啟 **`dynamic modules support`**。您可以使用任何 **--enable-shared** 選項進行此操作。 至少需要包含 `mod_so` 模組。
 >
 >Apache Web Server 安裝手冊中可以找到更多資訊。
 
@@ -290,18 +290,18 @@ replaceauthorization=0
 Dispatcher 會以下列形式提供：
 
 * **Windows**：動態連結程式庫 (DLL)
-* **UNIX®**：動態共用物件(DSO)
+* **UNIX®**：動態共用物件 (DSO)
 
-安裝封存檔案包含以下檔案 — 取決於您選取的是Windows還是UNIX®：
+安裝封存檔案包含以下檔案 - 這取決於您已選取 Windows 還是 UNIX®：
 
 | 檔案 | 說明 |
 |--- |--- |
 | disp_apache&lt;x.y>.dll | Windows：Dispatcher 動態連結程式庫檔案。 |
-| dispatcher-apache&lt;x.y>-&lt;rel-nr>.so | UNIX®： Dispatcher共用物件程式庫檔案。 |
-| mod_dispatcher.so | unix®：範例連結。 |
+| dispatcher-apache&lt;x.y>-&lt;rel-nr>.so | UNIX®：Dispatcher 共用物件程式庫檔案。 |
+| mod_dispatcher.so | UNIX®：範例連結。 |
 | http.conf.disp&lt;x> | Apache Server 的設定檔範例。 |
 | dispatcher.any | Dispatcher 的設定檔範例。 |
-| 讀我檔案 | 包含安裝指示和最新資訊的讀我檔案。 **注意**：請在開始安裝前檢視此檔案。 |
+| 讀我檔案 | 包含安裝指示和最新資訊的讀我檔案。 **注意**：在開始安裝前查看此檔案。 |
 | 變更記錄 | 列出目前和過去的版本中已修正的問題的變更記錄檔案。 |
 
 使用以下步驟，將 Dispatcher 新增到 Apache Web Server：
@@ -309,9 +309,9 @@ Dispatcher 會以下列形式提供：
 1. 將 Dispatcher 檔案放到適當的 Apache 模組目錄中：
 
    * **Windows**：將 `disp_apache<x.y>.dll` 放到 `<APACHE_ROOT>/modules`
-   * **UNIX®**：找出 `<APACHE_ROOT>/libexec` 或 `<APACHE_ROOT>/modules`根據您的安裝目錄。\
+   * **UNIX®**：根據您的安裝找到 `<APACHE_ROOT>/libexec` 或 `<APACHE_ROOT>/modules` 目錄。\
      將 `dispatcher-apache<options>.so` 複製到此目錄中。\
-     若要簡化長期維護作業，您也可以建立名為的符號連結 `mod_dispatcher.so` 傳送給Dispatcher：\
+     若要簡化長期維護作業，您也可以建立指向 Dispatcher、名為 `mod_dispatcher.so` 的符號連結：\
      `ln -s dispatcher-apache<x>-<os>-<rel-nr>.so mod_dispatcher.so`
 
 1. 將 dispatcher.any 檔案複製到 `<APACHE_ROOT>/conf` 目錄。
@@ -320,17 +320,17 @@ Dispatcher 會以下列形式提供：
 
 ### Apache Web Server - 設定 SELinux 屬性 {#apache-web-server-configure-selinux-properties}
 
-如果您在啟用SELinux的Red Hat® Linux® Kernel 2.6上執行Dispatcher，您可能會在Dispatcher記錄檔中看到與此類似的錯誤訊息。
+如果您正在啟用了 SELinux 的 Red Hat® Linux® Kernel 2.6 上執行 Dispatcher，您可能會在 Dispatcher 記錄檔中看到與此類似的錯誤訊息。
 
 `Mon Jun 30 00:03:59 2013] [E] [16561(139642697451488)] Unable to connect to backend rend01 (10.122.213.248:4502): Permission denied`
 
-這可能是因為啟用了 SELinux 安全性的緣故。 之後，您需要執行下列工作：
+這可能是因為啟用了 SELinux 安全性的緣故。 然後您需要執行下列工作：
 
-* 設定Dispatcher模組檔案的SELinux上下文。
+* 設定 Dispatcher 模組檔案的 SELinux 內容。
 * 啟用 HTTPD 指令碼和模組，以建立網路連線。
 * 設定快取檔案儲存所在的 docroot 的 SELinux 上下文。
 
-在終端機視窗中輸入以下命令，取代 `[path to the dispatcher.so file]` 以及已安裝至Apache Web Server的Dispatcher模組的路徑，以及 *`path to the docroot`* docroot所在的路徑(例如， `/opt/cq/cache`)：
+在終端機視窗中輸入以下命令，將 `[path to the dispatcher.so file]` 替換為您安裝到 Apache Web Server 的 Dispatcher 模組的路徑，並將 *`path to the docroot`* 替換為 docroot 所在的路徑 (例如 `/opt/cq/cache`)：
 
 ```shell
 semanage fcontext -a -t httpd_modules_t [path to the dispatcher.so file]
@@ -341,7 +341,7 @@ semanage fcontext -a -t httpd_sys_rw_content_t "[path to the docroot](/.*)?"
 
 ### Apache Web Server - 為 Dispatcher 設定 Apache Web Server {#apache-web-server-configure-apache-web-server-for-dispatcher}
 
-必須使用設定Apache Web Server `httpd.conf`. 在Dispatcher安裝套件中，找到名為的設定檔範例 `httpd.conf.disp<x>`.
+必須使用 `httpd.conf` 設定 Apache Web Server。 在 Dispatcher 安裝套件中，找到名為 `httpd.conf.disp<x>` 的設定檔範例。
 
 這些步驟是必要的：
 
@@ -349,14 +349,14 @@ semanage fcontext -a -t httpd_sys_rw_content_t "[path to the docroot](/.*)?"
 1. 開啟 `httpd.conf` 進行編輯。
 1. 必須依照列出的順序新增以下設定項目：
 
-   * **LoadModule** ，以在啟動時載入模組。
-   * Dispatcher專屬的設定專案，包括 **DispatcherConfig， DispatcherLog**、和 **DispatcherLogLevel**.
+   * **LoadModule**，可在啟動時載入此模組。
+   * Dispatcher 專屬的設定項目，包括 **DispatcherConfig、DispatcherLog** 和 **DispatcherLogLevel**。
    * **SetHandler**，可啟用 Dispatcher。 **LoadModule**。
    * **ModMimeUsePathInfo**，可設定 **mod_mime** 的行為。
 
 1. (選擇性) 建議您變更 htdocs 目錄的所有者：
 
-   * Apache Server會以root身分啟動，但子處理程式會以精靈形式啟動（基於安全理由）。 DocumentRoot (`<APACHE_ROOT>/htdocs`) 必須屬於使用者精靈：
+   * Apache Server 會以 root 身分啟動，但是子處理程序會以精靈形式啟動 (基於安全理由)。 DocumentRoot (`<APACHE_ROOT>/htdocs`) 必須屬於使用者精靈：
 
      ```xml
      cd <APACHE_ROOT>  
@@ -370,7 +370,7 @@ semanage fcontext -a -t httpd_sys_rw_content_t "[path to the docroot](/.*)?"
 |  |  |
 |--- |--- |
 | Windows | `... LoadModule dispatcher_module modules\disp_apache.dll ...` |
-| UNIX® （假設符號連結） | `... LoadModule dispatcher_module libexec/mod_dispatcher.so ...` |
+| UNIX® (假定符號連結) | `... LoadModule dispatcher_module libexec/mod_dispatcher.so ...` |
 
 >[!NOTE]
 >
@@ -380,9 +380,9 @@ semanage fcontext -a -t httpd_sys_rw_content_t "[path to the docroot](/.*)?"
 
 **Dispatcher 專屬設定項目**
 
-Dispatcher 專屬設定項目會放在 LoadModule 項目後面。 下表列出同時適用於UNIX®和Windows的設定範例：
+Dispatcher 專屬設定項目會放在 LoadModule 項目後面。 下表列出同時適用於 UNIX® 和 Windows 的設定範例：
 
-**Windows和UNIX®**
+**Windows &amp; UNIX®**
 
 ```
 ...
@@ -399,21 +399,21 @@ DispatcherKeepAliveTimeout 60
 
 >[!NOTE]
 >
->明確地從版本4.3.3升級到版本4.3.4的客戶應該注意到為不可快取的內容設定快取標頭的方式具有不同的行為。 若要進一步瞭解這項變更，請參閱 [發行說明](/help/using/release-notes.md#nov) 頁面。
+>明確地從版本 4.3.3 升級到版本 4.3.4 的客戶應會注意到，為無法快取的內容設定快取標頭的方式具有不同的行為。 若要進一步了解這項變更，參閱[發行說明](/help/using/release-notes.md#nov)頁面。
 
 個別設定參數：
 
 | 參數 | 說明 |
 |--- |--- |
-| DispatcherConfig | Dispatcher 設定檔的位置和名稱。 <br/>當此屬性位於主要伺服器設定中時，所有虛擬主機都會繼承此屬性值。 不過，虛擬主機可以包含 DispatcherConfig 屬性以覆寫主要伺服器設定。 |
+| DispatcherConfig | Dispatcher 設定檔的位置和名稱。 <br/>當這個屬性在主要伺服器設定內時，所有虛擬主機都會繼承此屬性值。 不過，虛擬主機可以包含 DispatcherConfig 屬性以覆寫主要伺服器設定。 |
 | DispatcherLog | 記錄檔的位置和名稱。 |
-| DispatcherLogLevel | 記錄檔的記錄層級： <br/>0 — 錯誤 <br/>1 — 警告 <br/>2 — 資訊 <br/>3 — 偵錯 <br/>**注意**：在安裝和測試期間將記錄層級設為3，然後在生產環境執行時則設為0。 |
-| DispatcherNoServerHeader | *此引數已棄用且無效。*<br/><br/> 定義要使用的伺服器標頭：<br/><ul><li>未定義或 0 - HTTP 伺服器標頭包含 AEM 版本。 </li><li>1 - 使用 Apache 伺服器標頭。</li></ul> |
-| DispatcherDeclineRoot | 定義是否拒絕對根「/」的請求： <br/>**0**  — 接受對/的請求 <br/>**1** - Dispatcher不會處理對/的請求；請使用mod_alias來取得正確的對應。 |
-| DispatcherUseProcessedURL | 定義是否要使用已預先處理的 URL 以供 Dispatcher 的所有進一步處理使用：<br/>**0** - 使用傳遞給網頁伺服器的原始 URL。 <br/>**1** - Dispatcher會使用已由其前面的處理常式處理的URL (亦即 `mod_rewrite`)，而非傳遞給網頁伺服器的原始URL。 例如，不是原始 URL 就是處理過的 URL 會符合 Dispatcher 篩選條件。 此URL也會用作快取檔案結構的基礎。 請參閱Apache網站檔案以取得mod_rewrite的相關資訊，例如Apache 2.4。使用mod_rewrite時，請使用標幟&#39;passthrough&#39; （傳遞給下一個處理常式） ，以強制重寫引擎將內部request_rec結構的URI欄位設定為檔案名稱欄位的值。 |
-| DispatcherPassError | 定義如何支援 ErrorDocument 處理的錯誤碼：<br/>**0** - Dispatcher 將所有錯誤回應多工緩衝到用戶端。 <br/>**1** - Dispatcher不會將錯誤回應多工緩衝到使用者端（其狀態代碼大於或等於400）。 而是將狀態代碼傳遞給Apache，以允許ErrorDocument指示詞處理此類狀態代碼。 <br/>**代碼範圍** - 指定將回應傳遞給 Apache 所適用的錯誤碼範圍。 其他錯誤碼則會傳遞給用戶端。 例如，以下設定會將錯誤 412 的回應傳遞給用戶端，並將其他所有錯誤傳遞給 Apache：DispatcherPassError 400-411,413-417 |
+| DispatcherLogLevel | 記錄檔的記錄層級：<br/>0 - 錯誤 <br/>1 - 警告 <br/>2 - 資訊 <br/>3 - 偵錯 <br/>**注意**：在安裝和測試期間將記錄層級設為 3，然後在生產環境執行時則設為 0。 |
+| DispatcherNoServerHeader | *該參數已被棄用且無效。*<br/><br/> 定義要使用的伺服器標頭：<br/><ul><li>未定義或 0 - HTTP 伺服器標頭包含 AEM 版本。 </li><li>1 - 使用 Apache 伺服器標頭。</li></ul> |
+| DispatcherDeclineRoot | 定義是否拒絕對根目錄「/」的請求：<br/>**0** - 接受對 / 的請求 <br/>**1** - 對 / 的請求不是由 Dispatcher 處理；使用 mod_alias 可獲得正確的對應。 |
+| DispatcherUseProcessedURL | 定義是否要使用已預先處理的 URL 以供 Dispatcher 的所有進一步處理使用：<br/>**0** - 使用傳遞給網頁伺服器的原始 URL。 <br/>**1** - Dispatcher 會使用已由 Dispatcher 前面處理常式處理的 URL (亦即 `mod_rewrite`)，而不是使用傳遞給網頁伺服器的原始 URL。 例如，不是原始 URL 就是處理過的 URL 會符合 Dispatcher 篩選條件。 此 URL 也會用作快取檔案結構的基礎。 請參閱 Apache 網站文件以取得 mod_rewrite 的相關資訊 (例如 Apache 2.4)。使用 mod_rewrite 時，要使用標籤「passthrough」(傳遞給下一個處理常式)，以強制重寫引擎將內部 request_rec 結構的 URI 欄位設定為檔案名稱欄位的值。 |
+| DispatcherPassError | 定義如何支援 ErrorDocument 處理的錯誤碼：<br/>**0** - Dispatcher 將所有錯誤回應多工緩衝到用戶端。 <br/>**1**  - Dispatcher 不會將錯誤回應多工緩衝到用戶端 (此時的狀態代碼大於或等於 400)。相反，它會將狀態代碼傳遞給 Apache，以允許 ErrorDocument 指示詞處理這類狀態代碼。 <br/>**代碼範圍** - 指定將回應傳遞給 Apache 所適用的錯誤碼範圍。 其他錯誤碼則會傳遞給用戶端。 例如，以下設定會將錯誤 412 的回應傳遞給用戶端，並將其他所有錯誤傳遞給 Apache：DispatcherPassError 400-411,413-417 |
 | DispatcherKeepAliveTimeout | 指定保持連線逾時值 (以秒為單位)。 從 Dispatcher 版本 4.2.0 開始，預設保持連線值為 60。 0 的值會停用保持連線。 |
-| DispatcherNoCanonURL | 將此引數設定為「開啟」會將原始URL傳遞到後端，而不是傳遞規範化URL，並覆寫DispatcherUseProcessedURL的設定。 預設值為關閉。 <br/>**注意**：Dispatcher設定中的篩選規則一律會根據經過清理的URL （而不是原始URL）進行評估。 |
+| DispatcherNoCanonURL | 將此參數設為「開啟」會將原始 URL 傳遞到後端，而不是傳遞規範化 URL，而且會覆寫 DispatcherUseProcessedURL 的設定。 預設值為關閉。 <br/>**注意**：Dispatcher 設定中的篩選規則一律會根據經過清理的 URL (而不是原始 URL) 進行評估。 |
 
 >[!NOTE]
 >
@@ -427,7 +427,7 @@ DispatcherKeepAliveTimeout 60
 >
 >`DispatcherNoServerHeader 0`
 >
->其中會顯示AEM版本，以供統計之用。 如果您想在標題中停用此類資訊，您可以設定下列專案：
+>這會顯示 AEM 版本 (基於統計目的)。 如果您想要停用在標頭中提供這類資訊的功能，您可以設定以下內容：
 >
 >`ServerTokens Prod`
 >
@@ -437,7 +437,7 @@ DispatcherKeepAliveTimeout 60
 
 在這些項目後，您必須將 **SetHandler** 陳述式新增到您設定的上下文 (`<Directory>`、`<Location>`) 好讓 Dispatcher 處理傳入的請求。 以下範例會設定 Dispatcher 處理完整網站的請求：
 
-**Windows和UNIX®**
+**Windows 和 UNIX®**
 
 ```
 ...  
@@ -496,25 +496,25 @@ AllowOverride None
 
 **ModMimeUsePathInfo**
 
-在 **SetHandler** 陳述式中，您也應該新增 **ModMimeUsePathInfo** 定義。
+在 **SetHandler** 陳述式之後，您也應該新增 **ModMimeUsePathInfo** 定義。
 
 >[!NOTE]
 >
->僅使用和設定 `ModMimeUsePathInfo` 引數（如果您使用Dispatcher 4.0.9或更新版本）。
+>如果是使用 Dispatcher 4.0.9 或更高版本，只要使用及設定 `ModMimeUsePathInfo` 參數即可。
 >
->(Dispatcher版本4.0.9已於2011年發行。 如果您使用較舊的版本，升級到最近的 Dispatcher 版本會比較恰當)。
+>(Dispatcher 版本 4.0.9 已在 2011 年發行。 如果您使用較舊的版本，升級到最近的 Dispatcher 版本會比較恰當)。
 
 所有 Apache 設定都應該將 **ModMimeUsePathInfo** 參數設為 `On`：
 
 `ModMimeUsePathInfo On`
 
-mod_mime模組(例如， [Apache模組mod_mime](https://httpd.apache.org/docs/2.4/mod/mod_mime.html))將內容中繼資料指派給為HTTP回應選取的內容。 預設設定表示當mod_mime決定內容型別時，只會考慮對應到檔案或目錄的URL部分。
+mod_mime 模組 (例如，[Apache 模組 mod_mime](https://httpd.apache.org/docs/2.4/mod/mod_mime.html)) 是用來將內容中繼資料指派給為 HTTP 回應選取的內容。 預設設定表示當 mod_mime 判斷內容類型時，只會考量對應到檔案或目錄的 URL 部分。
 
-時間 `On`，則 `ModMimeUsePathInfo` 引數指定 `mod_mime` 是根據 *complete* URL；這表示虛擬資源已根據其副檔名套用中繼資訊。
+當設為 `On` 時，`ModMimeUsePathInfo` 參數會指定 `mod_mime` 根據&#x200B;*完整* URL 來判斷內容類型；這表示虛擬資源會根據其副檔名套用中繼資訊。
 
 以下範例會啟用 **ModMimeUsePathInfo**：
 
-**Windows和UNIX®**
+**Windows 和 UNIX®**
 
 ```
 ...  
@@ -530,7 +530,7 @@ AllowOverride None
 ...
 ```
 
-### 啟用對HTTPS (UNIX®和Linux®)的支援 {#enable-support-for-https-unix-and-linux}
+### 啟用對 HTTPS 的支援 (UNIX® and Linux®){#enable-support-for-https-unix-and-linux}
 
 Dispatcher 會使用 OpenSSL 來實作透過 HTTP 的安全通訊。 從 Dispatcher 版本 **4.2.0** 開始，就有支援 OpenSSL 1.0.0 和 OpenSSL 1.0.1。 Dispatcher 預設會使用 OpenSSL 1.0.0。 若要使用 OpenSSL 1.0.1，請使用以下程序來建立符號連結，好讓 Dispatcher 使用安裝的 OpenSSL 程式庫。
 
@@ -553,52 +553,52 @@ Dispatcher 會使用 OpenSSL 來實作透過 HTTP 的安全通訊。 從 Dispatc
 
 ### 後續步驟 {#next-steps-1}
 
-在您可以開始使用Dispatcher之前，您現在必須執行以下操作：
+在您可以開始使用 Dispatcher 之前，您現在必須進行以下事項：
 
 * [設定](dispatcher-configuration.md) Dispatcher
-* [設定AEM](page-invalidate.md) 以搭配Dispatcher使用。
+* [設定 AEM](page-invalidate.md) 以搭配 Dispatcher 使用。
 
 ## Sun Java™ System Web Server / iPlanet {#sun-java-system-web-server-iplanet}
 
 >[!NOTE]
 >
->這裡有涵蓋Windows和UNIX®環境的指示。
+>這裡有涵蓋 Windows 和 UNIX® 環境的相關指示。
 >
->在選取要執行的專案時，請務必小心。
+>在選取要執行的操作時，務必謹慎。
 
-### Sun Java™ System Web Server / iPlanet — 安裝您的Web伺服器 {#sun-java-system-web-server-iplanet-installing-your-web-server}
+### Sun Java™ System Web Server / iPlanet - 安裝您的網頁伺服器 {#sun-java-system-web-server-iplanet-installing-your-web-server}
 
-如需如何安裝這些Web伺服器的完整資訊，請參閱其各自的檔案：
+如需如何安裝這些網頁伺服器的完整資訊，可參閱其各別所屬文件：
 
 * Sun Java™ System Web Server
 * iPlanet Web Server
 
-### Sun Java™ System Web Server / iPlanet — 新增Dispatcher模組 {#sun-java-system-web-server-iplanet-add-the-dispatcher-module}
+### Sun Java™ System Web Server / iPlanet - 新增 Dispatcher 模組 {#sun-java-system-web-server-iplanet-add-the-dispatcher-module}
 
 Dispatcher 會以下列形式提供：
 
 * **Windows**：動態連結程式庫 (DLL)
-* **UNIX®**：動態共用物件(DSO)
+* **UNIX®**：動態共用物件 (DSO)
 
-安裝封存檔案包含以下檔案 — 取決於您選取的是Windows還是UNIX®：
+安裝封存檔案包含以下檔案 - 這取決於您已選取 Windows 還是 UNIX®：
 
 | 檔案 | 說明 |
 |---|---|
 | `disp_ns.dll` | Windows：Dispatcher 動態連結程式庫檔案。 |
-| `dispatcher.so` | UNIX®： Dispatcher共用物件程式庫檔案。 |
-| `dispatcher.so` | unix®：範例連結。 |
-| `obj.conf.disp` | iPlanet / Sun Java™ System Web Server的設定檔範例。 |
+| `dispatcher.so` | UNIX®：Dispatcher 共用物件程式庫檔案。 |
+| `dispatcher.so` | UNIX®：範例連結。 |
+| `obj.conf.disp` | iPlanet / Sun Java™ System Web Server 的設定檔範例。 |
 | `dispatcher.any` | Dispatcher 的設定檔範例。 |
-| 讀我檔案 | 包含安裝指示和最新資訊的讀我檔案。 **注意：** 請先檢查此檔案，然後再開始安裝。 |
+| 讀我檔案 | 包含安裝指示和最新資訊的讀我檔案。 **注意：**&#x200B;在開始安裝前查看此檔案。 |
 | 變更記錄 | 列出目前和過去的版本中已修正的問題的變更記錄檔案。 |
 
 使用以下步驟，將 Dispatcher 新增到您的網頁伺服器：
 
 1. 將 Dispatcher 檔案放到網頁伺服器的 `plugin` 目錄中：
 
-### Sun Java™ System Web Server / iPlanet — 為Dispatcher進行配置 {#sun-java-system-web-server-iplanet-configure-for-the-dispatcher}
+### Sun Java™ System Web Server / iPlanet - 為 Dispatcher 進行設定 {#sun-java-system-web-server-iplanet-configure-for-the-dispatcher}
 
-必須使用設定網頁伺服器 `obj.conf`. 在Dispatcher安裝套件中，找到名為的設定檔範例 `obj.conf.disp`.
+必須使用 `obj.conf` 設定網頁伺服器。 在 Dispatcher 安裝套件中，找到名為 `obj.conf.disp` 的設定檔範例。
 
 1. 導覽至 `<WEBSERVER_ROOT>/config`。
 1. 開啟 `obj.conf` 進行編輯。
@@ -624,7 +624,7 @@ Dispatcher 會以下列形式提供：
 
 下表列出可以使用的範例；確切的項目是根據您專屬的網頁伺服器：
 
-**Windows和UNIX®**
+**Windows 和 UNIX®**
 
 ```
 ...  
@@ -640,10 +640,10 @@ keepalivetimeout="60"
 |--- |--- |
 | config | 設定檔 `dispatcher.any.` 的位置和名稱 |
 | logfile | 記錄檔的位置和名稱。 |
-| loglevel | 將訊息寫入記錄檔時的記錄層級： <br/>**0** 錯誤 <br/>**1** 警告 <br/>**2** 資訊 <br/>**3** 偵錯 <br/>**注意：** 在安裝和測試期間將記錄層級設為3，在生產環境中執行時則設為0。 |
+| loglevel | 將訊息寫入記錄檔時的記錄層級：<br/>**0** 錯誤 <br/>**1** 警告 <br/>**2** 資訊 <br/>**3** 偵錯 <br/>**注意：**&#x200B;在安裝和測試期間將記錄層級設為 3，然後在生產環境執行時則設為 0。 |
 | keepalivetimeout | 指定保持連線逾時值 (以秒為單位)。 從 Dispatcher 版本 4.2.0 開始，預設保持連線值為 60。 0 的值會停用保持連線。 |
 
-您可以根據您的需求，將Dispatcher定義為物件的服務。 若要為整個網站設定Dispatcher，請編輯預設物件：
+您可以根據您的需求，將 Dispatcher 定義為物件的服務。 若要為整個網站設定 Dispatcher，可編輯預設物件：
 
 **Windows**
 
@@ -667,7 +667,7 @@ Service fn="dispService" method="(GET|HEAD|POST)" type="\*/\*"
 
 ### 後續步驟 {#next-steps-2}
 
-在您可以開始使用Dispatcher之前，您現在必須：
+在您可以開始使用 Dispatcher 之前，您必須知道：
 
 * [設定](dispatcher-configuration.md) Dispatcher
-* [設定AEM](page-invalidate.md) 以搭配Dispatcher使用。
+* [設定 AEM](page-invalidate.md) 以搭配 Dispatcher 使用。

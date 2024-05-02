@@ -1,11 +1,11 @@
 ---
-title: Dispatcher熱門問題
-description: Adobe Experience Manager Dispatcher熱門問題。
+title: Dispatcher 熱門問題
+description: Adobe Experience Manager Dispatcher 熱門問題。
 exl-id: 4dcc7318-aba5-4b17-8cf4-190ffefbba75
 source-git-commit: 2d90738d01fef6e37a2c25784ed4d1338c037c23
-workflow-type: tm+mt
+workflow-type: ht
 source-wordcount: '1542'
-ht-degree: 87%
+ht-degree: 100%
 
 ---
 
@@ -17,7 +17,7 @@ ht-degree: 87%
 
 ### 什麼是 Dispatcher？
 
-Dispatcher 是 Adobe Experience Manager 的快取及/或負載平衡工具，可協助實現快速且動態的網頁撰寫環境。 對於快取，Dispatcher 會當作 HTTP 伺服器 (例如 Apache) 的一部分來運作。 其目的是為了儲存（或「快取」）儘可能多的靜態網站內容，並儘可能少地存取網站引擎的版面。 在負載平衡角色中，Dispatcher 會將使用者請求 (負載) 分散到不同的 AEM 執行個體 (轉譯器)。
+Dispatcher 是 Adobe Experience Manager 的快取及/或負載平衡工具，可協助實現快速且動態的網頁撰寫環境。 對於快取，Dispatcher 會當作 HTTP 伺服器 (例如 Apache) 的一部分來運作。 其目的是為了儲存 (或「快取」) 盡可能多的靜態網站內容，並盡量少存取網站引擎的版面配置。 在負載平衡角色中，Dispatcher 會將使用者請求 (負載) 分散到不同的 AEM 執行個體 (轉譯器)。
 
 對於快取，Dispatcher 模組會使用網頁伺服器的功能提供靜態內容。 Dispatcher 會將快取的文件置於網頁伺服器的主目錄。
 
@@ -80,9 +80,9 @@ Dispatcher 會使用網頁伺服器的功能提供靜態內容。 Dispatcher 會
 
 ### Dispatcher 和 AEM Publish 執行個體可以位在相同的實體電腦上嗎？
 
-可以，如果電腦的能力夠強大的話。 不過，您應在不同的電腦上設定Dispatcher和AEM Publish執行個體。
+可以，如果電腦的能力夠強大的話。 但是，您應該在不同的電腦上設定 Dispatcher 和 AEM Publish 執行個體。
 
-通常Publishing執行個體位在防火牆內，而Dispatcher則位在DMZ中。 如果您決定讓Publishing執行個體和Dispatcher位在相同實體電腦上，請確定防火牆設定會禁止從外部網路直接存取Publishing執行個體。
+通常發佈執行個體位在防火牆內，Dispatcher 則位在 DMZ 中。 如果您決定讓發佈執行個體和 Dispatcher 位在相同實體電腦上，請確定防火牆設定會禁止直接從外部網路存取該發佈執行個體。
 
 ### 我可以只快取特定副檔名的檔案嗎？
 
@@ -103,9 +103,7 @@ Content-Length: 0
 
 Dispatcher 會刪除名稱符合 CQ-Handle 標頭值的快取檔案和資料夾。 例如，`/content/geomtrixx-outdoors/en` 的 CQ-Handle 符合以下項目：
 
-geometrixx-outdoors目錄中名為en的所有檔案（副檔名不限）。
-任何命名的目錄 `_jcr_content` en目錄底下（如果存在的話，會包含頁面的子節點的快取呈現）。
-目錄 `en` 只有當 `CQ-Action` 為`Delete` 或`Deactivate` 時才會刪除。
+Geometrixx Outdoors 目錄中名為 en 的所有檔案 (副檔名不限)。en 目錄底下名為 `_jcr_content` 的任何目錄 (如果存在的話，會包含頁面的子節點的快取呈現)。目錄 `en` 只有當 `CQ-Action` 為`Delete` 或`Deactivate` 時才會刪除。
 
 如需這個主題的詳細資訊，請參閱[手動讓 Dispatcher 快取失效](page-invalidate.md)。
 
@@ -139,7 +137,7 @@ geometrixx-outdoors目錄中名為en的所有檔案（副檔名不限）。
 
 ### 該如何從 Dispatcher 快取中清除 DAM 資產？
 
-您可以使用「連鎖複寫」功能。 啟用此功能後，Dispatcher的排清代理程式會在收到來自編寫執行個體的復寫時傳送排清請求。
+您可以使用「連鎖複寫」功能。 當啟用此功能時，Dispatcher 清除代理程式會在收到來自編寫執行個體的複寫時傳送清除請求。
 
 若要啟用此功能：
 
@@ -148,10 +146,10 @@ geometrixx-outdoors目錄中名為en的所有檔案（副檔名不限）。
 
 ## 其他
 
-Dispatcher如何判斷某個檔案是不是最新的？
-為了判斷檔案是否為最新版本，Dispatcher會執行下列動作：
+Dispatcher 如何判斷文件是不是最新版本？
+若要判斷文件是不是最新版本，Dispatcher 會執行以下操作：
 
-它會檢查文件是否會自動失效。 如果不會，則將該檔案視為最新版本。
+它會檢查文件是否會自動失效。 如果不會，則將該文件視為最新版本。
 如果文件已設定為會自動失效，Dispatcher 會檢查其是否比最後一次可用變更來得舊或更新。如果版本較舊，Dispatcher 會請求來自 AEM 執行個體的最新版本，並取代快取中的版本。
 
 ### Dispatcher 如何傳回文件？

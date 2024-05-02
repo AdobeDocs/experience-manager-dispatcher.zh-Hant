@@ -10,9 +10,9 @@ topic-tags: dispatcher
 content-type: reference
 exl-id: 29f338ab-5d25-48a4-9309-058e0cc94cff
 source-git-commit: 2d90738d01fef6e37a2c25784ed4d1338c037c23
-workflow-type: tm+mt
+workflow-type: ht
 source-wordcount: '538'
-ht-degree: 96%
+ht-degree: 100%
 
 ---
 
@@ -26,7 +26,7 @@ ht-degree: 96%
 
 >[!NOTE]
 >
->檢查 [Dispatcher知識庫](https://helpx.adobe.com/tw/experience-manager/kb/index/dispatcher.html)， [疑難排解Dispatcher排清問題](https://experienceleague.adobe.com/search.html?lang=zh-Hant#q=troubleshooting%20dispatcher%20flushing%20issues&amp;sort=relevancy&amp;f:el_product=[Experience%20Manager])，以及 [Dispatcher熱門問題常見問題集](dispatcher-faq.md) 以取得進一步資訊。
+>請參考 [Dispatcher 知識庫](https://helpx.adobe.com/tw/experience-manager/kb/index/dispatcher.html)、[疑難排解 Dispatcher 清除問題](https://experienceleague.adobe.com/search.html?lang=zh-Hant#q=troubleshooting%20dispatcher%20flushing%20issues&amp;sort=relevancy&amp;f:el_product=[Experience%20Manager])和 [Dispatcher 熱門問題常見問題集](dispatcher-faq.md)以了解進一步資訊。
 
 ## 檢查基本配置 {#check-the-basic-configuration}
 

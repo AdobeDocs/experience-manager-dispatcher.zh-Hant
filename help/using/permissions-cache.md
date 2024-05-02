@@ -7,9 +7,9 @@ topic-tags: dispatcher
 content-type: reference
 exl-id: 3d8d8204-7e0d-44ad-b41b-6fec2689c6a6
 source-git-commit: 2d90738d01fef6e37a2c25784ed4d1338c037c23
-workflow-type: tm+mt
+workflow-type: ht
 source-wordcount: '910'
-ht-degree: 89%
+ht-degree: 100%
 
 ---
 
@@ -32,7 +32,7 @@ Dispatcher 包含的 AuthChecker 模組會實作權限敏感型快取。 在啟�
 ![](assets/chlimage_1.png)
 
 1. Dispatcher 判斷請求的內容已快取且有效。
-1. Dispatcher 傳送請求訊息給轉譯器。 HEAD區段包含來自瀏覽器請求的所有標頭行。
+1. Dispatcher 傳送請求訊息給轉譯器。 HEAD 區段包含來自瀏覽器請求的所有標頭行。
 1. 轉譯器呼叫 Auth Checker servlet 來執行安全性檢查，並回應 Dispatcher。 回應訊息包含 HTTP 狀態代碼 200，表示已授權使用者。
 1. Dispatcher 傳送回應訊息給瀏覽器，該訊息包含來自轉譯器回應的標題行以及內文中的快取內容。
 
@@ -69,8 +69,8 @@ Dispatcher 包含的 AuthChecker 模組會實作權限敏感型快取。 在啟�
 
 >[!NOTE]
 >
->當Dispatcher前面有CDN （或任何其他快取）時，您應該相應地設定快取標題，以便CDN不會快取私人內容。 例如：`Header always set Cache-Control private`。
->如需AEMas a Cloud Service資訊，請參閱 [快取](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/implementing/content-delivery/caching) 頁面，以取得有關如何設定私人快取標頭的詳細資訊。
+>當 Dispatcher 前面有 CDN (或任何其他快取) 時，您應該據此設定快取標頭，使 CDN 不至於快取私人內容。例如：`Header always set Cache-Control private`。
+>對於 AEM as a Cloud Service，請參閱[快取](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/implementing/content-delivery/caching)頁面，了解更多有關如何設定私人快取標頭的詳細資訊。
 
 ## 建立 Auth Checker servlet {#create-the-auth-checker-servlet}
 
@@ -78,7 +78,7 @@ Dispatcher 包含的 AuthChecker 模組會實作權限敏感型快取。 在啟�
 
 此 servlet 必須可供所有使用者存取。 因此，您的 servlet 應該擴充 `org.apache.sling.api.servlets.SlingSafeMethodsServlet` 類別，以提供對系統的唯讀存取權。
 
-此servlet只會接收來自轉譯器的HEAD請求，因此您只能實作 `doHead` 方法。
+此 servlet 只會從轉譯器接收 HEAD 請求，所以您只必須實作 `doHead` 方法。
 
 轉譯器包含請求的資源的 URI 以當作 HTTP 請求的參數。 例如，授權 servlet 是透過 `/bin/permissioncheck` 進行存取。 為了在 /content/geometrixx-outdoors/en.html 頁面上執行安全性檢查，轉譯器在 HTTP 請求中包含以下 URL：
 
@@ -147,7 +147,7 @@ public class AuthcheckerServlet extends SlingSafeMethodsServlet {
 
 >[!NOTE]
 >
->如果您的要求允許快取經驗證的文件，請將 /cache 部分下的 /allowAuthorized 屬性設定為 `/allowAuthorized 1`。請參閱主題 [使用驗證時快取](/help/using/dispatcher-configuration.md) 以取得更多詳細資料。
+>如果您的要求允許快取經驗證的文件，請將 /cache 部分下的 /allowAuthorized 屬性設定為 `/allowAuthorized 1`。有關更多詳細資訊，可參閱[使用驗證時快取](/help/using/dispatcher-configuration.md)主題。
 
 dispatcher.any 檔案的 auth_checker 區段會控制權限敏感型快取的行為。 auth_checker 區段包含以下子區段：
 

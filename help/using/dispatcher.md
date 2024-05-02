@@ -6,9 +6,9 @@ topic-tags: dispatcher
 content-type: reference
 exl-id: c9266683-6890-4359-96db-054b7e856dd0
 source-git-commit: 2d90738d01fef6e37a2c25784ed4d1338c037c23
-workflow-type: tm+mt
+workflow-type: ht
 source-wordcount: '3058'
-ht-degree: 94%
+ht-degree: 100%
 
 ---
 
@@ -18,7 +18,7 @@ ht-degree: 94%
 >
 >Dispatcher 版本與 AEM 無關。如果您依循了內嵌到舊版 AEM 文件中的 Dispatcher 文件的連結，您可能會被重新導向至本頁。
 
-Dispatcher是Adobe Experience Manager的快取和負載平衡工具，用於企業級網頁伺服器。
+Dispatcher 是 Adobe Experience Manager 的快取及負載平衡工具，搭配企業級網頁伺服器使用。
 
 部署 Dispatcher 的程序與所選的網頁伺服器和作業系統平台無關：
 
@@ -58,7 +58,7 @@ Dispatcher是Adobe Experience Manager的快取和負載平衡工具，用於企�
 網路出版的基本方式有兩種：
 
 * **靜態網頁伺服器**：例如 Apache 或 IIS，既簡便而快速。
-* **內容管理伺服器**：提供動態且即時的智慧型內容，但需要較多的運算時間和其他資源。
+* **內部管理伺服器**：提供動態且即時的智慧型內容，但是需要較多的運算時間和其他資源。
 
 Dispatcher 有助於實現快速和動態的環境。這可當成是靜態 HTML 伺服器 (例如 Apache) 的一部分，但其目的是：
 
@@ -81,7 +81,7 @@ Dispatcher 包含的機制可根據動態網站上的內容來產生和更新靜
 
 靜態網頁伺服器 (例如 Apache 或 IIS) 會為網站的訪客提供靜態 HTML 檔案。靜態頁面只需建立一次，之後會針對每項請求傳送相同的內容。
 
-此過程非常簡單且有效率。 如果訪客要求檔案 (例如 HTML 頁面)，則通常會直接從記憶體擷取檔案，不然頂多是從本機磁碟讀取檔案。 靜態Web伺服器已上市相當長一段時間，因此已經有多種管理和安全管理工具，並且與網路基礎架構高度整合。
+此過程非常簡單且有效率。 如果訪客要求檔案 (例如 HTML 頁面)，則通常會直接從記憶體擷取檔案，不然頂多是從本機磁碟讀取檔案。 靜態網頁伺服器已上市相當長一段時間，因此已經有多種管理和安全管理工具，並且與網路基礎架構適當整合。
 
 ### 內容管理伺服器 {#content-management-servers}
 
@@ -99,7 +99,7 @@ Dispatcher 包含的機制可根據動態網站上的內容來產生和更新靜
 
 >[!NOTE]
 >
->當缺少 HTTP 標頭快取的設定時，Dispatcher 只會儲存頁面的 HTML 程式碼，不會儲存 HTTP 標頭。如果您的網站使用不同的編碼，這種情況可能會發生問題，因為這些頁面可能會遺失。 若要啟用HTTP標題快取，請參閱 [設定Dispatcher快取。](https://experienceleague.adobe.com/en/docs/experience-manager-dispatcher/using/configuring/dispatcher-configuration)
+>當缺少 HTTP 標頭快取的設定時，Dispatcher 只會儲存頁面的 HTML 程式碼，不會儲存 HTTP 標頭。如果您的網站使用不同的編碼，這種情況可能會發生問題，因為這些頁面可能會遺失。 若要啟用 HTTP 標頭快取，可參閱設定 [Dispatcher 快取。](https://experienceleague.adobe.com/en/docs/experience-manager-dispatcher/using/configuring/dispatcher-configuration)
 
 >[!NOTE]
 >
@@ -172,11 +172,12 @@ Dispatcher 會將快取的檔案儲存在網頁伺服器上，就像是靜態網
 * 如果已快取該文件，則 Dispatcher 會將檔案傳回。
 * 如果未快取，則 Dispatcher 會從 AEM 執行個體要求該文件。
 
-### 確定檔案是否為最新版本
+### 確定文件是否為最新版本
 
 為了要瞭解文件是否為最新版本，Dispatcher 會執行下列兩個步驟:
 
-1. 它會檢查文件是否會自動失效。如果不會，則將該檔案視為最新版本。
+1. 它會檢查文件是否會自動失效。如果不會，則將該文件視為最新版本。
+
 1. 如果文件已設定為會自動失效，Dispatcher 會檢查其是否比最後一次可用變更來得舊或更新。如果版本較舊，Dispatcher 會請求來自 AEM 執行個體的最新版本，並取代快取中的版本。
 
 >[!NOTE]
@@ -201,7 +202,7 @@ Dispatcher 會將快取的檔案儲存在網頁伺服器上，就像是靜態網
 
 >[!NOTE]
 >
->雖然負載平衡可以有效率地分散負載，但快取可有助於降低負載。因此，在設定上傳平衡之前，請嘗試最佳化快取並降低整體負載。 良好的快取可以提高負載平衡器的效能，或不需要進行負載平衡。
+>雖然負載平衡可以有效率地分散負載，但快取可有助於降低負載。因此，在設定上傳平衡之前，請嘗試最佳化快取並降低整體的負載。良好的快取可以提高負載平衡器的效能，或不需要進行負載平衡。
 
 >[!CAUTION]
 >
@@ -260,7 +261,7 @@ CDN 為 HTTP 基礎架構元件，其運作方式與 Dispatcher 類似。當 CDN
 
 ## 控制 CDN 快取 {#controlling-a-cdn-cache}
 
-有數種方式可控制CDN從Dispatcher擷取資源之前，其快取資源的時間。
+有數種方法可控制 CDN 從 Dispatcher 重新擷取資源前，快取資源多久的時間。
 
 1. 明確設定\
    視 MIME 類型、副檔名、請求類型等，設定 CDN 快取保存特定資源的時長。
@@ -273,7 +274,7 @@ CDN 為 HTTP 基礎架構元件，其運作方式與 Dispatcher 類似。當 CDN
 1. API 型失效\
    大部分的 CDN 也提供 REST 和/或 SOAP API，可從快取中移除資源。
 
-在一般的AEM設定中，可依副檔名、路徑或兩者進行設定，上述第1點及第2點皆可提供，讓您設定合理的快取期間。 這是針對不經常變更的常用資源完成的。 這類範例包括設計影像和使用者端資料庫。 部署新版本時，通常需要手動失效。
+在一般的 AEM 設定中，只要按副檔名、路徑或兩者進行設定 (可透過上述第 1 和第 2 點達成)，即可提供設定合理快取期限的可能性。 這是針對不經常變更的常用資源而進行。此類範例包括設計影像和用戶端資料庫。部署新版本時，通常需要手動失效。
 
 如果將此方法用於快取受管理的內容，則表示只有在已設定的快取期限到期，並且已再次從 Dispatcher 中擷取文件後，使用者才能看到內容變更。
 
