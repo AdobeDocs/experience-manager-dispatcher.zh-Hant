@@ -9,10 +9,10 @@ products: SG_EXPERIENCEMANAGER/DISPATCHER
 topic-tags: dispatcher
 content-type: reference
 exl-id: 29f338ab-5d25-48a4-9309-058e0cc94cff
-source-git-commit: 2d90738d01fef6e37a2c25784ed4d1338c037c23
-workflow-type: ht
-source-wordcount: '538'
-ht-degree: 100%
+source-git-commit: 0a1aa854ea286a30c3527be8fc7c0998726a663f
+workflow-type: tm+mt
+source-wordcount: '539'
+ht-degree: 90%
 
 ---
 
@@ -20,9 +20,9 @@ ht-degree: 100%
 
 >[!NOTE]
 >
->Dispatcher版本與AEM無關，但Dispatcher文檔嵌入到文檔AEM中。 請始終使用文檔中嵌入的Dispatcher文檔獲取最新版本AEM。
+>Dispatcher 版本與 AEM 無關。 但是，Dispatcher檔案內嵌在AEM檔案中。 請始終使用文檔中嵌入的Dispatcher文檔獲取最新版本AEM。
 >
->如果您依循連結至 Dispatcher 文件，且該連結內嵌於舊版 AEM 的文件中，您可能會被重新導向至本頁。
+>如果您依循連結前往Dispatcher檔案，您可能會被重新導向至本頁。 該連結嵌入在舊版AEM的檔案中。
 
 >[!NOTE]
 >
@@ -30,7 +30,7 @@ ht-degree: 100%
 
 ## 檢查基本配置 {#check-the-basic-configuration}
 
-與以往一樣，第一步是檢查基本資訊：
+與往常一樣，第一步是檢查基本資訊：
 
 * [確認基本操作](/help/using/dispatcher-configuration.md#confirming-basic-operation)
 * 檢查 Web 伺服器和 Dispatcher 的所有日誌檔案。 必要時，請提高`loglevel` (用於 Dispatcher [記錄](/help/using/dispatcher-configuration.md#logging))。
@@ -78,7 +78,7 @@ IIS提供各種跟蹤工具，具體取決於實際版本：
 
 1. 按一下「**是**」確認。
 1. 將出現一個顯示以下內容的錯誤訊息框：\
-   &quot; `ERROR 'Could not delete workflow model!!`&quot;.
+   `ERROR 'Could not delete workflow model!!`。
 
 **解析度**
 

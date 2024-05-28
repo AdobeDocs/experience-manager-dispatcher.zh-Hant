@@ -10,10 +10,10 @@ feature-set: Experience Manager
 feature: Dispatcher
 topic: Administration
 role: Admin
-source-git-commit: 2d90738d01fef6e37a2c25784ed4d1338c037c23
-workflow-type: ht
-source-wordcount: '78'
-ht-degree: 100%
+source-git-commit: d8e224401e5ab041bb297b99a99c71a69ca6deac
+workflow-type: tm+mt
+source-wordcount: '83'
+ht-degree: 73%
 
 ---
 
@@ -26,13 +26,13 @@ ht-degree: 100%
    + [Dispatcher 安全性檢查清單](security-checklist.md)
    + [AEM Dispatcher 發行說明](release-notes.md)
 + 設定 {#configuring}
-   + [設定 Dispatcher](dispatcher-configuration.md)
+   + [設定AEM Dispatcher](dispatcher-configuration.md)
    + [使 AEM 中的快取頁面失效](page-invalidate.md)
    + [將網站快取效能最佳化](https://experienceleague.adobe.com/en/docs/experience-manager-65/content/implementing/deploying/configuring/configuring-performance)
    + [快取安全內容](permissions-cache.md)
-   + [在多個網域中使用 Dispatcher](dispatcher-domains.md)
-   + [搭配 Dispatcher 使用 SSL](dispatcher-ssl.md)
-   + [設定 Dispatcher 以避免 CSRF 攻擊](configuring-dispatcher-to-prevent-csrf.md)
+   + [在多個網域中使用AEM Dispatcher](dispatcher-domains.md)
+   + [搭配AEM Dispatcher使用SSL](dispatcher-ssl.md)
+   + [設定AEM Dispatcher以防止CSRF攻擊](configuring-dispatcher-to-prevent-csrf.md)
 + 疑難排解 {#troubleshooting}
    + [Dispatcher 疑難排解](dispatcher-troubleshooting.md)
    + [Dispatcher 熱門問題常見問題集](dispatcher-faq.md)
