@@ -9,10 +9,10 @@ redirecttarget: https://helpx.adobe.com/experience-manager/6-4/sites/deploying/u
 index: y
 internal: n
 snippet: y
-source-git-commit: 2d90738d01fef6e37a2c25784ed4d1338c037c23
-workflow-type: ht
-source-wordcount: '1125'
-ht-degree: 100%
+source-git-commit: 0189feaf345495ba2f992d91eccf5690ec7581ce
+workflow-type: tm+mt
+source-wordcount: '1129'
+ht-degree: 81%
 
 ---
 
@@ -31,7 +31,7 @@ Last Modified Date: 2017-10-25T04:13:34.919-0400
 
 >[!NOTE]
 >
->Dispatcher 版本與 AEM 無關。如果您依循了內嵌到舊版 AEM 文件中的 Dispatcher 文件的連結，您可能會被重新導向至本頁。
+>Dispatcher 版本與 AEM 無關。 如果您依循連結前往Dispatcher檔案，您可能會被重新導向至本頁。 該連結已內嵌在舊版AEM的檔案中。
 
 Dispatcher 提供許多可用來將效能最佳化的內建機制。 本節將說明如何設計網站，好讓快取的優點最大化。
 
@@ -46,7 +46,7 @@ Dispatcher 提供許多可用來將效能最佳化的內建機制。 本節將�
 
 ## 使用一致的頁面編碼 {#using-consistent-page-encoding}
 
-不會快取 HTTP 請求標頭，所以如果您在標頭中儲存頁面編碼資訊，可能會發生問題。 在此情況下，當 Dispatcher 從快取中提供頁面時，將會對此頁面使用網頁伺服器的預設編碼。 有兩種方式可避免此問題：
+不會快取 HTTP 請求標頭，所以如果您在標頭中儲存頁面編碼資訊，可能會發生問題。 在此情況下，當Dispatcher從快取中提供頁面時，將會對此頁面使用網頁伺服器的預設編碼。 有兩種方式可避免此問題：
 
 * 如果您只使用一種編碼，請確定在網頁伺服器上使用的編碼與 AEM 網站的預設編碼相同。
 * 若要設定編碼，可在 HTML `head` 區段中使用 `<META>` 標記，如以下範例所示：
@@ -57,7 +57,7 @@ Dispatcher 提供許多可用來將效能最佳化的內建機制。 本節將�
 
 ## 避免 URL 參數 {#avoid-url-parameters}
 
-可能的話，請避免針對您想要快取的頁面使用 URL 參數。 例如，如果您有圖片庫，則絕對不會快取以下 URL (除非 Dispatcher [已適當地設定](dispatcher-configuration.md#main-pars_title_24))：
+可能的話，請避免針對您想要快取的頁面使用 URL 參數。 例如，如果您有圖片庫，則絕對不會快取以下URL (除非AEM Dispatcher [已進行相應設定](dispatcher-configuration.md#main-pars_title_24))：
 
 ```xml
 www.myCompany.com/pictures/gallery.html?event=christmas&amp;page=1
@@ -87,9 +87,9 @@ www.myCompany.com/news/main.large.html
 
 >[!NOTE]
 >
->對於大多數版面方面，也可以使用樣式表及/或用戶端指令碼。 這些通常會與快取運作得當。
+>對於大多數版面方面，也可以使用樣式表或/和使用者端指令碼。 其中之一或兩者皆適用於快取。
 >
->這也適用於列印版本，您可以在列印版本中使用類似以下的 URL：
+>此方法也適用於列印版本，您可以在其中使用URL，例如：
 >
 >`www.myCompany.com/news/main.print.html`
 >
@@ -108,15 +108,15 @@ www.myCompany.com/news/main.large.html
 
 >[!NOTE]
 >
->影像檔案不一定實際存在於 AEM 執行個體上。 您可以使用可動態建立影像檔案的指令碼。 然後 Dispatcher 會將檔案儲存在網頁伺服器上。
+>影像檔案不一定存在於AEM執行個體上。 您可以使用可動態建立影像檔案的指令碼。 然後 Dispatcher 會將檔案儲存在網頁伺服器上。
 
 ## 讓用於導覽的影像檔案失效 {#invalidating-image-files-used-for-navigation}
 
 如果您將圖片用於導覽項目，此方法基本上與標題相同，但是稍微複雜一點。 將所有導覽影像與目標頁面一起儲存。 如果您將兩張圖片用於一般和活躍情境，可以使用以下指令碼：
 
 * 正常顯示頁面的指令碼。
-* 處理「.normal」請求並傳回正常圖片的指令碼。
-* 處理「.active」請求並傳回已啟用的圖片的指令碼。
+* 處理程式的指令碼 `.normal` 要求並傳回一般圖片。
+* 處理程式的指令碼 `.active` 要求並傳回已啟用的圖片。
 
 請務必使用與頁面相同的命名識別碼來建立這些圖片，以確保內容更新會刪除這些圖片及頁面。
 
@@ -133,7 +133,7 @@ Dispatcher 無法快取個人化資料，所以建議您將個人化限制在必
 >
 >如果您將每個頁面個人化 (例如，將使用者的名稱放在標題列)，您就無法快取頁面，這可能會對效能產生重大影響。
 >
->不過，如果您必須這樣做，您可以：
+>不過，如果您必須這樣做，您可以執行下列動作：
 >
 >* 使用 iFrame 將頁面分割成對所有使用者都相同的部分，以及對使用者的所有頁面都相同的部分。 然後您可以快取這兩個部分。
 >* 使用用戶端 JavaScript 來顯示個人化資訊。 不過，您必須確保當使用者關閉 JavaScript 時，該頁面還是會正常顯示。
@@ -141,7 +141,7 @@ Dispatcher 無法快取個人化資料，所以建議您將個人化限制在必
 
 ## 黏性連線 {#sticky-connections}
 
-[黏性連線](dispatcher.md#TheBenefitsofLoadBalancing)可確保同一個使用者的文件都會在相同伺服器上編寫。 如果使用者離開此資料夾並於稍後返回，連線仍然保持不變。 定義一個資料夾，以便保存所有需要網站的黏性連線的文件。 試著不要將其他文件放在該資料夾中。 如果您使用個人化頁面和工作階段資料，這會影響負載平衡。
+[黏性連線](dispatcher.md#TheBenefitsofLoadBalancing)可確保同一個使用者的文件都會在相同伺服器上編寫。 如果使用者離開此資料夾並於稍後返回，連線仍然保持不變。 定義一個資料夾，以便保存所有需要網站的黏性連線的文件。 試著不要將其他文件放在該資料夾中。 如果您使用個人化頁面和工作階段資料，這樣做會影響負載平衡。
 
 ## MIME 類型 {#mime-types}
 
@@ -150,17 +150,17 @@ Dispatcher 無法快取個人化資料，所以建議您將個人化限制在必
 1. 按副檔名 (例如，.html、.gif 和 .jpg)
 1. 透過伺服器隨著檔案一起傳送的 MIME 類型。
 
-對於大多數檔案，MIME 類型會隱含在副檔名中。 即：
+對於大多數檔案，MIME型別會隱含在副檔名中：
 
 1. 按副檔名 (例如，.html、.gif 和 .jpg)
 1. 透過伺服器隨著檔案一起傳送的 MIME 類型。
 
 如果檔案名稱沒有副檔名，則會顯示為純文字。
 
-MIME 類型是 HTTP 標頭的一部分，因此 Dispatcher 不會快取它。 如果您的 AEM 應用程式傳回的檔案沒有可辨識的檔案結尾，而是依賴 MIME 類型，這些檔案可能無法正確顯示。
+MIME 類型是 HTTP 標頭的一部分，因此 Dispatcher 不會快取它。 您的AEM應用程式可能會傳回副檔名無法辨識的檔案。 如果檔案依賴MIME型別，這些檔案可能無法正確顯示。
 
 若要確保檔案可以正確地快取，請遵循以下準則：
 
 * 確定檔案總是有適當的副檔名。
-* 避免使用具有像是 download.jsp?file=2214 等 URL 的通用檔案服務指令碼。 重寫指令碼，以便使用包含檔案規格的 URL以前面的範例來說，就是 `download.2214.pdf`。
+* 避免使用具有像是 download.jsp?file=2214 等 URL 的通用檔案服務指令碼。 重寫指令碼，以便使用包含檔案規格的 URL在上一個範例中，它是 `download.2214.pdf`.
 
