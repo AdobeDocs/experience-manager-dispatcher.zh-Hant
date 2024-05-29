@@ -6,16 +6,16 @@ products: SG_EXPERIENCEMANAGER/DISPATCHER
 topic-tags: dispatcher
 content-type: reference
 exl-id: 3d8d8204-7e0d-44ad-b41b-6fec2689c6a6
-source-git-commit: 2d90738d01fef6e37a2c25784ed4d1338c037c23
-workflow-type: ht
-source-wordcount: '910'
-ht-degree: 100%
+source-git-commit: 9be9f5935c21ebbf211b5da52280a31772993c2e
+workflow-type: tm+mt
+source-wordcount: '924'
+ht-degree: 86%
 
 ---
 
 # 快取安全內容 {#caching-secured-content}
 
-權限敏感型快取可讓您快取安全頁面。 Dispatcher 在傳遞快取頁面之前會檢查使用者對頁面的存取權限。
+權限敏感型快取可讓您快取安全頁面。 Dispatcher在傳遞快取頁面之前會檢查使用者對頁面的存取許可權。
 
 Dispatcher 包含的 AuthChecker 模組會實作權限敏感型快取。 在啟用此模組時，Dispatcher 會呼叫 AEM servlet 來針對請求的內容執行使用者驗證和授權。 此 servlet 回應會決定是否從快取中將內容傳遞給網頁瀏覽器。
 
@@ -42,7 +42,7 @@ Dispatcher 包含的 AuthChecker 模組會實作權限敏感型快取。 在啟�
 
 1. Dispatcher 判斷內容未快取或需要更新。
 1. Dispatcher 將原始請求轉送給轉譯器。
-1. 轉譯器呼叫 AEM 授權程式 servlet (這不是 Dispatcher AuthChcker servlet) 來執行安全性檢查。 當使用者獲得授權時，轉譯器會將轉譯的頁面納入回應訊息的內文中。
+1. 轉譯器呼叫AEM授權程式servlet （此servlet不是Dispatcher AuthChcker servlet）來執行安全性檢查。 當使用者獲得授權時，轉譯器會將轉譯的頁面納入回應訊息的內文中。
 1. Dispatcher 將回應轉送給瀏覽器。 Dispatcher 將轉譯器的回應訊息內文新增到快取中。
 
 ## 使用者未獲得授權 {#user-is-not-authorized}
@@ -51,9 +51,9 @@ Dispatcher 包含的 AuthChecker 模組會實作權限敏感型快取。 在啟�
 
 1. Dispatcher 檢查快取。
 1. Dispatcher 傳送請求訊息給轉譯器，該訊息包含來自瀏覽器的請求的所有標題行。
-1. 轉譯器呼叫 Auth Checker servlet 來執行安全性檢查，結果檢查失敗，然後轉譯器將原始請求轉送給 Dispatcher。
+1. 轉譯器呼叫Auth Checker servlet來執行安全性檢查，結果檢查失敗，然後轉譯器將原始請求轉送給Dispatcher。
 1. Dispatcher 將原始請求轉送給轉譯器。
-1. 轉譯器呼叫 AEM 授權程式 servlet (這不是 Dispatcher AuthChcker servlet) 來執行安全性檢查。 當使用者獲得授權時，轉譯器會將轉譯的頁面納入回應訊息的內文中。
+1. 轉譯器呼叫AEM授權程式servlet （此servlet不是Dispatcher AuthChcker servlet）來執行安全性檢查。 當使用者獲得授權時，轉譯器會將轉譯的頁面納入回應訊息的內文中。
 1. Dispatcher 將回應轉送給瀏覽器。 Dispatcher 將轉譯器的回應訊息內文新增到快取中。
 
 ## 實作權限敏感型快取 {#implementing-permission-sensitive-caching}
@@ -74,7 +74,7 @@ Dispatcher 包含的 AuthChecker 模組會實作權限敏感型快取。 在啟�
 
 ## 建立 Auth Checker servlet {#create-the-auth-checker-servlet}
 
-建立並部署一個 servlet 來針對請求網頁內容的使用者執行驗證和授權工作。 此 servlet 可使用任何驗證和授權方法，例如 AEM 使用者帳戶和存放庫 ACL 或是 LDAP 查詢服務。 您將此 servlet 部署到 Dispatcher 當作轉譯器使用的 AEM 執行個體。
+建立並部署一個 servlet 來針對請求網頁內容的使用者執行驗證和授權工作。 此servlet可以使用任何驗證。 它也可以使用任何授權方法。 例如，它可以使用AEM使用者帳戶和存放庫ACL。 或者，它可以使用LDAP查詢服務。 您將此 servlet 部署到 Dispatcher 當作轉譯器使用的 AEM 執行個體。
 
 此 servlet 必須可供所有使用者存取。 因此，您的 servlet 應該擴充 `org.apache.sling.api.servlets.SlingSafeMethodsServlet` 類別，以提供對系統的唯讀存取權。
 
@@ -161,7 +161,7 @@ dispatcher.any 檔案的 auth_checker 區段會控制權限敏感型快取的行
 
 `AuthChecker: initialized with URL 'configured_url'.`
 
-以下範例的 auth_checker 區段會設定 Dispatcher 使用前一個主題中的 servlet。 篩選區段會讓權限檢查工作僅針對安全 HTML 資源來執行。
+以下範例auth_checker區段會設定Dispatcher使用前一個主題的servlet。 篩選區段會讓權限檢查工作僅針對安全 HTML 資源來執行。
 
 ### 設定範例 {#example-configuration}
 

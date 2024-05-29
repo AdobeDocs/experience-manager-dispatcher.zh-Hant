@@ -1,13 +1,13 @@
 ---
-source-git-commit: 2d90738d01fef6e37a2c25784ed4d1338c037c23
-workflow-type: ht
-source-wordcount: '72'
-ht-degree: 100%
+source-git-commit: 9be9f5935c21ebbf211b5da52280a31772993c2e
+workflow-type: tm+mt
+source-wordcount: '70'
+ht-degree: 88%
 
 ---
-# Adobe Experience Manager Dispatcher 文件
+# Adobe Experience Manager 模式偵測
 
-這是 Adobe Experience Manager Dispatcher 文件的存放庫。
+此Adobe Experience Manager模式偵測存放庫。
 
 歡迎您協助撰寫本說明文件。請參閱下列資源：
 

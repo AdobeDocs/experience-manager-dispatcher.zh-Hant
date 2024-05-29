@@ -1,6 +1,6 @@
 ---
 title: 搭配 Dispatcher 使用 SSL
-description: 了解如何設定 Dispatcher 以便使用 SSL 連線與 AEM 通訊。
+description: 瞭解如何設定Dispatcher使用SSL連線與AEM通訊。
 contentOwner: User
 products: SG_EXPERIENCEMANAGER/DISPATCHER
 topic-tags: dispatcher
@@ -9,16 +9,16 @@ index: y
 internal: n
 snippet: y
 exl-id: ec378409-ddb7-4917-981d-dbf2198aca98
-source-git-commit: 2d90738d01fef6e37a2c25784ed4d1338c037c23
-workflow-type: ht
-source-wordcount: '1302'
-ht-degree: 100%
+source-git-commit: 9be9f5935c21ebbf211b5da52280a31772993c2e
+workflow-type: tm+mt
+source-wordcount: '1310'
+ht-degree: 89%
 
 ---
 
 # 搭配 Dispatcher 使用 SSL {#using-ssl-with-dispatcher}
 
-在 Dispatcher 與轉譯器電腦之間使用 SSL 連線：
+在Dispatcher和轉譯電腦之間使用SSL連線：
 
 * [單向 SSL](#use-ssl-when-dispatcher-connects-to-aem)
 * [雙向 SSL](#configuring-mutual-ssl-between-dispatcher-and-aem)
@@ -29,7 +29,7 @@ ht-degree: 100%
 
 ## 在 Dispatcher 連線到 AEM 時使用 SSL {#use-ssl-when-dispatcher-connects-to-aem}
 
-設定 Dispatcher 以便使用 SSL 連線與 AEM 或 CQ 轉譯器執行個體通訊。
+設定Dispatcher使用SSL連線與AEM或CQ轉譯器執行個體通訊。
 
 在設定 Dispatcher 之前，請設定 AEM 或 CQ 使用 SSL：
 
@@ -117,11 +117,11 @@ X-Forwarded-SSL-Session-ID: 814825E8CD055B4C166C2EF6D75E1D0FE786FFB29DEB6DE1E239
 若要使用雙向 SSL，請設定 Dispatcher 與轉譯器電腦之間的連線 (通常是 AEM 或 CQ 發佈執行個體)：
 
 * Dispatcher 會透過 SSL 連線到轉譯器執行個體。
-* 轉譯器執行個體會驗證 Dispatcher 的憑證是否有效。
+* 轉譯器執行個體會驗證Dispatcher的憑證是否有效。
 * Dispatcher 會驗證轉譯器執行個體憑證的 CA 是否值得信任。
 * (選擇性) Dispatcher 會驗證轉譯器執行個體的憑證是否符合轉譯器執行個體的伺服器位址。
 
-若要設定雙向 SSL，您需要由受信任的憑證授權單位 (CA) 簽署的憑證。 自我簽署憑證是不夠的。 您可以充當 CA 或使用第三方 CA 的服務來簽署您的憑證。 若要設定雙向 SSL，您需要以下項目：
+若要設定雙向SSL，您需要由受信任的憑證授權單位(CA)簽署的憑證。 自我簽署憑證是不夠的。 您可以充當 CA 或使用第三方 CA 的服務來簽署您的憑證。 若要設定雙向 SSL，您需要以下項目：
 
 * 轉譯器執行個體和 Dispatcher 適用的已簽署憑證
 * CA 憑證 (如果您充當 CA)
@@ -130,8 +130,8 @@ X-Forwarded-SSL-Session-ID: 814825E8CD055B4C166C2EF6D75E1D0FE786FFB29DEB6DE1E239
 若要設定雙向 SSL，請執行以下步驟：
 
 1. [安裝](dispatcher-install.md)您的平台適用的最新版 Dispatcher。 使用支援 SSL 的 Dispatcher 二進位檔案 (SSL 位於檔案名稱中，例如 `dispatcher-apache2.4-linux-x86-64-ssl10-4.1.7.tar`)。
-1. [建立或取得 CA 簽署的憑證](dispatcher-ssl.md#main-pars-title-3)，該憑證適用於 Dispatcher 和轉譯器執行個體。
-1. [建立包含轉譯器憑證的金鑰儲存區](dispatcher-ssl.md#main-pars-title-6)並設定轉譯器的 HTTP 服務。
+1. [建立或取得CA簽署的憑證](dispatcher-ssl.md#main-pars-title-3) 用於Dispatcher和轉譯器執行個體。
+1. [建立包含轉譯器憑證的金鑰存放區](dispatcher-ssl.md#main-pars-title-6) 和設定轉譯器的HTTP服務。
 1. [設定 Dispatcher 網頁伺服器模組](dispatcher-ssl.md#main-pars-title-4)以供雙向 SSL 使用。
 
 ### 建立或取得 CA 簽署的憑證 {#creating-or-obtaining-ca-signed-certificates}
@@ -157,7 +157,7 @@ X-Forwarded-SSL-Session-ID: 814825E8CD055B4C166C2EF6D75E1D0FE786FFB29DEB6DE1E239
 
 使用 OpenSSL 建立要傳送給第三方 CA 或透過您的 CA 簽署的憑證請求。
 
-當您建立憑證時，OpenSSL 會使用一般名稱屬性來識別憑證持有者。 對於轉譯器執行個體的憑證，如果您將 Dispatcher 設定為接受憑證，請使用執行個體電腦的主機名稱當作一般名稱。 只有在符合發佈執行個體的主機名稱時才如此進行。請參閱 [DispatcherCheckPeerCN](dispatcher-ssl.md#main-pars-title-11) 屬性。
+當您建立憑證時，OpenSSL 會使用一般名稱屬性來識別憑證持有者。 對於轉譯器執行個體的憑證，如果您將 Dispatcher 設定為接受憑證，請使用執行個體電腦的主機名稱當作一般名稱。 只有在符合發佈執行個體的主機名稱時，才執行此程式。 請參閱 [DispatcherCheckPeerCN](dispatcher-ssl.md#main-pars-title-11) 屬性。
 
 1. 開啟終端機，並將目前目錄切換到包含您的 OpenSSL 程式庫的 CH.sh 檔案的目錄。
 1. 輸入以下命令，然後在收到提示時提供值。 必要時，請使用發佈執行個體的主機名稱當作一般名稱。 主機名稱是轉譯器的 IP 位址的 DNS 可解析名稱：
@@ -285,8 +285,8 @@ Last Modified Date: 2014-08-12T13:11:21.401-0400
 
 將以下屬性新增到 [Dispatcher 模組設定](dispatcher-install.md#main-pars-55-35-1022) (在 `httpd.conf` 中)：
 
-* `DispatcherCertificateFile`：指向 Dispatcher 統一憑證檔案的路徑，該檔案包含公開憑證和未加密的私密金鑰。 當 SSL 伺服器請求 Dispatcher 用戶端憑證時，就會使用這個檔案。
-* `DispatcherCACertificateFile`：指向 CA 憑證檔案的路徑，在 SSL 伺服器提供的 CA 未受到根授權單位信任時使用。
+* `DispatcherCertificateFile`：指向 Dispatcher 統一憑證檔案的路徑，該檔案包含公開憑證和未加密的私密金鑰。 當SSL伺服器請求Dispatcher使用者端憑證時，就會使用此檔案。
+* `DispatcherCACertificateFile`：CA憑證檔案的路徑。 在SSL伺服器提供根授權單位不信任的CA時使用。
 * `DispatcherCheckPeerCN`：是要啟用 (`On`) 還是停用 (`Off`) 對遠端伺服器憑證的主機名稱檢查。
 
 以下程式碼為設定範例：

@@ -9,10 +9,10 @@ products: SG_EXPERIENCEMANAGER/DISPATCHER
 topic-tags: dispatcher
 content-type: reference
 exl-id: 90eb6a78-e867-456d-b1cf-f62f49c91851
-source-git-commit: 0a1aa854ea286a30c3527be8fc7c0998726a663f
+source-git-commit: 9be9f5935c21ebbf211b5da52280a31772993c2e
 workflow-type: tm+mt
-source-wordcount: '1411'
-ht-degree: 73%
+source-wordcount: '1407'
+ht-degree: 74%
 
 ---
 
@@ -124,11 +124,11 @@ Comment Type: draft
 
 若要讓 Dispatcher 快取失效 (或將其清除) 而不啟用頁面，您可以發出 HTTP 請求給 Dispatcher。 例如，您可以建立 AEM 應用程式，好讓管理員或其他應用程式可以清除快取。
 
-HTTP請求會讓AEM Dispatcher從快取中刪除特定檔案。 然後 Dispatcher 會選擇性地以新複本重新整理快取。
+HTTP請求會讓Dispatcher從快取中刪除特定檔案。 然後 Dispatcher 會選擇性地以新複本重新整理快取。
 
 ### 刪除快取檔案 {#delete-cached-files}
 
-發出HTTP請求讓AEM Dispatcher從快取中刪除檔案。 Dispatcher 只有在收到頁面的用戶端請求時才會再次快取檔案。 以這種方式刪除快取檔案適用於不太可能接收相同頁面的同時請求的網站。
+發出HTTP請求讓Dispatcher從快取中刪除檔案。 Dispatcher 只有在收到頁面的用戶端請求時才會再次快取檔案。 以這種方式刪除快取檔案適用於不太可能接收相同頁面的同時請求的網站。
 
 HTTP 請求具有以下形式：
 
@@ -151,7 +151,7 @@ Dispatcher 會清除 (刪除) 名稱符合 `CQ-Handler` 標頭值的快取檔案
 
 ### 刪除並重新快取檔案 {#delete-and-recache-files}
 
-發出HTTP請求讓AEM Dispatcher刪除快取檔案，然後立即擷取並重新快取檔案。 當網站可能接收相同頁面的同時用戶端請求時，刪除並立即重新快取檔案。 立即重新快取可確保 Dispatcher 只會擷取及快取頁面一次，而不是針對每個同時用戶端請求擷取及快取頁面一次。
+發出HTTP請求讓Dispatcher刪除快取檔案，然後立即擷取並重新快取檔案。 當網站可能接收相同頁面的同時用戶端請求時，刪除並立即重新快取檔案。 立即重新快取可確保 Dispatcher 只會擷取及快取頁面一次，而不是針對每個同時用戶端請求擷取及快取頁面一次。
 
 **注意：**&#x200B;刪除及重新快取檔案應該只能在發佈執行個體上執行。 從編寫執行個體執行時，如果在發佈資源前嘗試重新快取資源，則會發生競爭情況。
 
@@ -185,7 +185,7 @@ Content-Length: 36
 
 以下程式碼會實作一個 servlet，以便將失效請求傳送給 Dispatcher。 此 servlet 會收到包含 `handle` 和 `page` 參數的請求訊息。 這兩個參數分別會提供 `CQ-Handle` 標頭的值以及要重新快取的頁面的路徑。 此 servlet 會使用這些值來為 Dispatcher 建構 HTTP 請求。
 
-將servlet部署到發佈執行個體時，以下URL會導致AEM Dispatcher刪除/content/geometrixx-outdoors/en.html頁面，然後快取新的復本。
+將servlet部署到發佈執行個體時，以下URL會導致Dispatcher刪除/content/geometrixx-outdoors/en.html頁面，然後快取新的復本。
 
 `10.36.79.223:4503/bin/flushcache/html?page=/content/geometrixx-outdoors/en.html&handle=/content/geometrixx-outdoors/en/men.html`
 

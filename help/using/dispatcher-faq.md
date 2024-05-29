@@ -2,10 +2,10 @@
 title: Dispatcher 熱門問題
 description: Adobe Experience Manager Dispatcher 熱門問題。
 exl-id: 4dcc7318-aba5-4b17-8cf4-190ffefbba75
-source-git-commit: 2d90738d01fef6e37a2c25784ed4d1338c037c23
-workflow-type: ht
-source-wordcount: '1542'
-ht-degree: 100%
+source-git-commit: 9be9f5935c21ebbf211b5da52280a31772993c2e
+workflow-type: tm+mt
+source-wordcount: '1547'
+ht-degree: 89%
 
 ---
 
@@ -17,13 +17,13 @@ ht-degree: 100%
 
 ### 什麼是 Dispatcher？
 
-Dispatcher 是 Adobe Experience Manager 的快取及/或負載平衡工具，可協助實現快速且動態的網頁撰寫環境。 對於快取，Dispatcher 會當作 HTTP 伺服器 (例如 Apache) 的一部分來運作。 其目的是為了儲存 (或「快取」) 盡可能多的靜態網站內容，並盡量少存取網站引擎的版面配置。 在負載平衡角色中，Dispatcher 會將使用者請求 (負載) 分散到不同的 AEM 執行個體 (轉譯器)。
+Dispatcher也是Adobe Experience Manager的快取或/及負載平衡工具，可協助實現快速且動態的Web製作環境。 對於快取，Dispatcher 會當作 HTTP 伺服器 (例如 Apache) 的一部分來運作。 其目的是為了儲存（或「快取」）儘可能多的靜態網站內容。 此外，儘可能不經常存取網站引擎的版面。 在負載平衡角色中，Dispatcher 會將使用者請求 (負載) 分散到不同的 AEM 執行個體 (轉譯器)。
 
-對於快取，Dispatcher 模組會使用網頁伺服器的功能提供靜態內容。 Dispatcher 會將快取的文件置於網頁伺服器的主目錄。
+對於快取，Dispatcher 模組會使用網頁伺服器的功能提供靜態內容。 Dispatcher會將快取的檔案置於網頁伺服器的主目錄。
 
 ### Dispatcher 如何執行快取？
 
-Dispatcher 會使用網頁伺服器的功能提供靜態內容。 Dispatcher 會將快取的文件存放於網頁伺服器的主目錄。 Dispatcher 有兩種主要方法，用於在對網站進行更改時更新快取內容。
+Dispatcher 會使用網頁伺服器的功能提供靜態內容。 Dispatcher會將快取的檔案儲存在網頁伺服器的主目錄。 Dispatcher 有兩種主要方法，用於在對網站進行更改時更新快取內容。
 
 * **內容更新**&#x200B;會移除已變更的頁面，以及與其直接相關的檔案。
 * **自動失效**&#x200B;功能會自動讓那些在更新後可能過期的快取失效。例如，此功能會有效地將相關頁面標示為過期，而不會刪除任何內容。
@@ -70,7 +70,7 @@ Dispatcher 會使用網頁伺服器的功能提供靜態內容。 Dispatcher 會
 
 您可以使用[黏性連線](dispatcher-configuration.md#identifying-a-sticky-connection-folder-stickyconnectionsfor)功能，此功能可確保某個使用者的所有文件都會在 AEM 的相同執行個體上處理。 如果您使用個人化頁面和工作階段資料，此功能會很重要。 資料會儲存在執行個體上。 因此，來自相同使用者的後續請求必須傳給該執行個體，否則資料會遺失。
 
-由於黏性連線會限制 Dispatcher 最佳化請求的能力，因此您應該視需要使用此做法。 您可以指定包含「黏性」文件的資料夾，藉此確保該資料夾中的所有文件都會在使用者的相同執行個體上處理。
+由於黏性連線會限制 Dispatcher 最佳化請求的能力，因此您應該視需要使用此做法。 您可以指定包含「粘著」檔案的資料夾，藉此確保該資料夾中的所有檔案都會在使用者的相同執行個體中處理。
 
 ### 我可以同時使用黏性連線和快取嗎？
 
@@ -117,7 +117,7 @@ Geometrixx Outdoors 目錄中名為 en 的所有檔案 (副檔名不限)。en �
 
 ### Dispatcher 問題：`jcr:content` 已變成 `jcr%3acontent`
 
-**問**：企業最近在 Dispatcher 層級遇到了問題。 從 CQ 存放庫獲取一些資料的 AJAX 呼叫之一包含 `jcr:content`。 這被編碼至 `jcr%3acontent` 而導致錯誤的結果集。
+**問**：企業最近在 Dispatcher 層級遇到了問題。 從CQ存放庫取得一些資料的AJAX呼叫之一具有 `jcr:content` 在其中。 這被編碼至 `jcr%3acontent` 而導致錯誤的結果集。
 
 **答**：請使用 `ResourceResolver.map()` 方法以使用/發出從中獲得請求的「易記」URL，並解決與 Dispatcher 相關的快取問題。 map() 方法將 `:` 冒號編碼為下劃線，而 resolve() 方法將它們重新解碼為 SLING JCR 可讀格式。 使用 map() 方法產生在 Ajax 呼叫中使用的 URL。
 
@@ -137,12 +137,13 @@ Geometrixx Outdoors 目錄中名為 en 的所有檔案 (副檔名不限)。en �
 
 ### 該如何從 Dispatcher 快取中清除 DAM 資產？
 
-您可以使用「連鎖複寫」功能。 當啟用此功能時，Dispatcher 清除代理程式會在收到來自編寫執行個體的複寫時傳送清除請求。
+您可以使用「連鎖複寫」功能。 啟用此功能後，Dispatcher的排清代理程式會在收到來自編寫執行個體的復寫時傳送排清請求。
 
 若要啟用此功能：
 
 1. [依照這裡的步驟](page-invalidate.md#invalidating-dispatcher-cache-from-a-publishing-instance)在發佈執行個體上建立清除代理程式
-1. 前往每個代理程式的設定，然後在「**觸發器**」標籤上勾選「**接收時**」方塊。
+1. 前往每個代理程式的設定。
+1. 在 **觸發器** 索引標籤，核取 **接收時** 方塊。
 
 ## 其他
 

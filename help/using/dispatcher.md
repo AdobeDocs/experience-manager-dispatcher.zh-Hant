@@ -5,10 +5,10 @@ pageversionid: 1193211344162
 topic-tags: dispatcher
 content-type: reference
 exl-id: c9266683-6890-4359-96db-054b7e856dd0
-source-git-commit: 0a1aa854ea286a30c3527be8fc7c0998726a663f
+source-git-commit: 9be9f5935c21ebbf211b5da52280a31772993c2e
 workflow-type: tm+mt
-source-wordcount: '3083'
-ht-degree: 81%
+source-wordcount: '3079'
+ht-degree: 82%
 
 ---
 
@@ -20,7 +20,7 @@ ht-degree: 81%
 
 Dispatcher 是 Adobe Experience Manager 的快取及負載平衡工具，搭配企業級網頁伺服器使用。
 
-部署AEM Dispatcher的程式與所選的網頁伺服器和作業系統平台無關：
+部署Dispatcher的程式與所選的網頁伺服器和作業系統平台無關：
 
 1. 了解 Dispatcher (本頁)。 此外，也請參閱[關於 Dispatcher 的常見問題集](/help/using/dispatcher-faq.md)。
 1. 根據網頁伺服器文件安裝[支援的網頁伺服器](https://experienceleague.adobe.com/en/docs/experience-manager-65/content/implementing/deploying/introduction/technical-requirements)。
@@ -30,7 +30,7 @@ Dispatcher 是 Adobe Experience Manager 的快取及負載平衡工具，搭配�
 
 >[!NOTE]
 >
->若要更瞭解AEM Dispatcher如何搭配AEM使用：
+>若要更瞭解Dispatcher如何搭配AEM使用：
 >
 >* 請觀看 [2017 年 7 月的向 AEM 社群專家詢問](https://communities.adobeconnect.com/pf0gem7igw1f/)。
 >* 存取[此存放庫](https://github.com/adobe/aem-dispatcher-experiments)。 其中包含一系列「帶回家」實驗室格式的實驗。
@@ -41,7 +41,7 @@ Dispatcher 是 Adobe Experience Manager 的快取及負載平衡工具，搭配�
 * [Dispatcher 安全性檢查清單](security-checklist.md)
 * [Dispatcher 知識庫](https://helpx.adobe.com/tw/experience-manager/kb/index/dispatcher.html)
 * [將網站快取效能最佳化](https://experienceleague.adobe.com/en/docs/experience-manager-65/content/implementing/deploying/configuring/configuring-performance)
-* [在多個網域中使用AEM Dispatcher](dispatcher-domains.md)
+* [在多個網域中使用Dispatcher](dispatcher-domains.md)
 * [搭配 Dispatcher 使用 SSL](dispatcher-ssl.md)
 * [實作權限敏感型快取](permissions-cache.md)
 * [Dispatcher 疑難排解](dispatcher-troubleshooting.md)
@@ -129,7 +129,7 @@ Dispatcher 有兩種主要方法，用於在對網站進行更改時更新快取
 請注意下列幾點：
 
 * 內容更新通常用於編寫系統，該系統「知道」必須替換的內容。
-* 影響檔案的內容更新會移除，但不會立即取代。 下次請求此類檔案時，AEM Dispatcher會從AEM執行個體擷取新檔案，並將其置於快取中，覆寫舊內容。
+* 影響檔案的內容更新會移除，但不會立即取代。 下次請求此類檔案時，Dispatcher會從AEM執行個體擷取新檔案，並將其置於快取中，覆寫舊內容。
 * 通常，包含頁面文字的自動產生圖片，會儲存在開頭為相同名稱的圖片檔案中，因而可確保要刪除的檔案的關聯性存在。例如您可以將頁面 mypage.html 的標題文字儲存為相同檔案夾中名稱為 mypage.titlePicture.gif 的圖片。如此一來，每次更新頁面時，圖片都會自動從快取中刪除，因此您可以確定圖片會一律反映頁面的最新版本。
 * 您可能有數個 statfile，例如每個語言檔案夾一個。如果頁面已更新，AEM 會尋找下一個包含 statfile 的上層檔案夾，並&#x200B;*接觸*&#x200B;該檔案。
 

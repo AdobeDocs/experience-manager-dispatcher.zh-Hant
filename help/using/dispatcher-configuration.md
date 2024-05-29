@@ -1,10 +1,10 @@
 ---
 title: 設定AEM Dispatcher
-description: 瞭解如何設定AEM Dispatcher。 瞭解對IPv4和IPv6的支援、設定檔案、環境變數和命名執行個體。 閱讀定義陣列、識別虛擬主機等資訊。
+description: 瞭解如何設定Dispatcher。 瞭解對IPv4和IPv6的支援、設定檔案、環境變數和命名執行個體。 閱讀定義陣列、識別虛擬主機等資訊。
 exl-id: 91159de3-4ccb-43d3-899f-9806265ff132
-source-git-commit: 0189feaf345495ba2f992d91eccf5690ec7581ce
+source-git-commit: 9be9f5935c21ebbf211b5da52280a31772993c2e
 workflow-type: tm+mt
-source-wordcount: '8898'
+source-wordcount: '8876'
 ht-degree: 82%
 
 ---
@@ -25,7 +25,7 @@ AEM 和 Dispatcher 的所有元素都可以安裝在 IPv4 和 IPv6 網路上。�
 
 根據預設，Dispatcher 設定會儲存在 `dispatcher.any` 文字檔中，但是您在安裝期間可以變更此檔案的名稱和位置。
 
-設定檔案包含一系列單值或多值屬性，這些屬性控制AEM Dispatcher的行為：
+設定檔案包含一系列單值或多值屬性，這些屬性控制Dispatcher的行為：
 
 * 屬性名稱的前置詞為正斜線 `/`。
 * 多值屬性會使用大括號 `{ }` 括住子項目。
@@ -152,7 +152,7 @@ AEM 和 Dispatcher 的所有元素都可以安裝在 IPv4 和 IPv6 網路上。�
 
 `/farms` 屬性可定義一組或多組 Dispatcher 行為，每一組行為會與不同網站或 URL 有關聯。`/farms` 屬性可以包含單一陣列或多個陣列：
 
-* 當您希望AEM Dispatcher以相同方式處理您的所有網頁或網站時，請使用單一陣列。
+* 當您希望Dispatcher以相同方式處理您的所有網頁或網站時，請使用單一陣列。
 * 當您網站的不同區域或是不同網站需要不同的 Dispatcher 行為時，請建立多個陣列。
 
 `/farms` 屬性是設定結構中的最上層屬性。若要定義陣列，請在 `/farms` 屬性中新增子屬性。使用在 Dispatcher 執行個體中可唯一識別陣列的屬性名稱。
@@ -197,7 +197,7 @@ AEM 和 Dispatcher 的所有元素都可以安裝在 IPv4 和 IPv6 網路上。�
 | [/virtualhosts](#identifying-virtual-hosts-virtualhosts) | 此陣列的虛擬主機。 |
 | [/sessionmanagement](#enabling-secure-sessions-sessionmanagement) | 對工作階段管理和驗證的支援。 |
 | [/renders](#defining-page-renderers-renders) | 提供轉譯的頁面的伺服器 (通常是 AEM 發佈執行個體)。 |
-| [/filter](#configuring-access-to-content-filter) | 定義AEM Dispatcher允許存取的URL。 |
+| [/filter](#configuring-access-to-content-filter) | 定義Dispatcher允許存取的URL。 |
 | [/vanity_urls](#enabling-access-to-vanity-urls-vanity-urls) | 設定對虛名 URL 的存取權。 |
 | [/propagateSyndPost](#forwarding-syndication-requests-propagatesyndpost) | 對轉送整合請求的支援。 |
 | [/cache](#configuring-the-dispatcher-cache-cache) | 設定快取行為。 |
@@ -259,7 +259,7 @@ Comment Type: draft
 
 `/clientheaders` 屬性會定義 Dispatcher 從用戶端 HTTP 請求傳送給轉譯器 (AEM 執行個體) 的 HTTP 標題清單。
 
-依預設，AEM Dispatcher會將標準HTTP標頭轉送給AEM執行個體。 在某些情況下，您可能會想要轉送其他標題或移除特定標題：
+依預設，Dispatcher會將標準HTTP標頭轉送給AEM執行個體。 在某些情況下，您可能會想要轉送其他標題或移除特定標題：
 
 * 在 HTTP 請求中新增您的 AEM 執行個體所期望的標題，例如自訂標題。
 * 移除僅與網頁伺服器有關的標頭，例如驗證標頭。
@@ -455,7 +455,7 @@ Dispatcher 會依照以下順序尋找最符合的虛擬主機值：
 
 ## 定義頁面轉譯器 {#defining-page-renderers-renders}
 
-此 `/renders` 屬性會定義URL，AEM Dispatcher會傳送請求給該URL以轉譯檔案。 以下範例 `/renders` 區段會識別用於轉譯的單一 AEM 執行個體：
+此 `/renders` 屬性會定義URL，Dispatcher會傳送請求到該URL以轉譯檔案。 以下範例 `/renders` 區段會識別用於轉譯的單一 AEM 執行個體：
 
 ```xml
 /renders
@@ -618,7 +618,7 @@ HTTP/1.1 會依據以下方式定義[請求行](https://www.w3.org/Protocols/rfc
 
 #### 範例篩選條件：全部拒絕 {#example-filter-deny-all}
 
-以下範例篩選區段會讓AEM Dispatcher拒絕所有檔案的請求。 拒絕存取所有檔案，然後允許存取特定區域。
+以下範例篩選區段會讓Dispatcher拒絕所有檔案的請求。 拒絕存取所有檔案，然後允許存取特定區域。
 
 ```xml
 /0001  { /type "deny" /url "*"  }
@@ -695,7 +695,7 @@ HTTP/1.1 會依據以下方式定義[請求行](https://www.w3.org/Protocols/rfc
 
 ### 範例 `/filter` 區段 {#example-filter-section}
 
-設定AEM Dispatcher時，請儘可能限制外部存取。 以下範例為外部訪客提供最低限度的存取權：
+當您設定 Dispatcher 時，要盡可能限制外部存取。 以下範例為外部訪客提供最低限度的存取權：
 
 * `/content`
 * 像是設計和用戶端資料庫等其他內容。例如：
@@ -914,7 +914,7 @@ Last Modified Date: 2015-03-25T14:23:05.185-0400
 <p style="font-family: tahoma, arial, helvetica, sans-serif; font-size: 12px;">The "com.adobe.granite.dispatcher.vanityurl.content" package needs to be made public before publishing this contnet.</p>
  -->
 
-設定AEM Dispatcher以啟用對於為您的AEM頁面設定的虛名URL的存取權。
+設定Dispatcher以啟用對虛名URL的存取權，這些是為您的AEM頁面設定的虛名URL。
 
 在啟用對虛名 URL 的存取權時，Dispatcher 會定期呼叫在轉譯器執行個體上執行的服務來取得虛名 URL 清單。Dispatcher 會將此清單儲存在本機檔案中。當由於 `/filter` 區段中的篩選條件而拒絕頁面的請求時，Dispatcher 會查詢虛名 URL 清單。如果被拒絕的 URL 在此清單上，Dispatcher 會允許存取虛名 URL。
 
@@ -932,7 +932,7 @@ Last Modified Date: 2015-03-25T14:23:05.185-0400
 
 * `/url`：在轉譯器執行個體上執行的虛名 URL 服務的路徑。這個屬性的值必須是 `"/libs/granite/dispatcher/content/vanityUrls.html"`。
 
-* `/file`：Dispatcher 用來儲存虛名 URL 清單的本機檔案的路徑。請確定AEM Dispatcher具有此檔案的寫入許可權。
+* `/file`：Dispatcher 用來儲存虛名 URL 清單的本機檔案的路徑。請確定Dispatcher具有此檔案的寫入許可權。
 * `/delay`：(秒) 對虛名 URL 服務的兩次呼叫之間的時間。
 
 >[!NOTE]
@@ -1003,7 +1003,7 @@ Last Modified Date: 2015-03-25T14:23:05.185-0400
 
 >[!NOTE]
 >
->該值必須與網頁伺服器的主目錄的路徑相同，以便AEM Dispatcher和網頁伺服器可處理相同的檔案。\
+>該值必須與網頁伺服器的主目錄的路徑相同，以便Dispatcher和網頁伺服器處理相同的檔案。\
 >網頁伺服器負責在使用 Dispatcher 快取檔案時傳遞正確的狀態代碼，這就是為什麼能夠找到該檔案非常重要的原因。
 
 如果您使用多個陣列，每個陣列都必須使用不同的主目錄。
@@ -1012,7 +1012,7 @@ Last Modified Date: 2015-03-25T14:23:05.185-0400
 
 `/statfile` 屬性可識別要當作 statfile 使用的檔案。Dispatcher 會使用這個檔案來登錄最近一次內容更新的時間。statfile 可以是網頁伺服器上的任何檔案。
 
-statfile 沒有任何內容。內容更新時，AEM Dispatcher會更新時間戳記。 預設 statfile 命名為 `.stat`，並儲存在 docroot 中。Dispatcher 會封鎖對 statfile 的存取權。
+statfile 沒有任何內容。當內容更新時，Dispatcher會更新時間戳記。 預設 statfile 命名為 `.stat`，並儲存在 docroot 中。Dispatcher 會封鎖對 statfile 的存取權。
 
 >[!NOTE]
 >
@@ -1020,9 +1020,9 @@ statfile 沒有任何內容。內容更新時，AEM Dispatcher會更新時間戳
 
 ### 在發生錯誤時提供過時文件 {#serving-stale-documents-when-errors-occur}
 
-`/serveStaleOnError` 屬性可控制當轉譯伺服器傳回錯誤時，Dispatcher 是否會傳回失效的文件。根據預設，在接觸了statfile並讓快取內容失效時，AEM Dispatcher會刪除快取內容。 此動作會在下次請求時完成。
+`/serveStaleOnError` 屬性可控制當轉譯伺服器傳回錯誤時，Dispatcher 是否會傳回失效的文件。根據預設，在接觸了statfile並讓快取內容失效時，Dispatcher會刪除快取內容。 此動作會在下次請求時完成。
 
-如果 `/serveStaleOnError` 設為 `"1"`， Dispatcher不會從快取中刪除失效的內容。 也就是說，除非轉譯伺服器傳回成功的回應。 來自AEM的5xx回應或連線逾時導致AEM Dispatcher提供過時的內容和HTTP狀態111 （重新驗證失敗）的回應。
+如果 `/serveStaleOnError` 設為 `"1"`， Dispatcher不會從快取中刪除失效的內容。 也就是說，除非轉譯伺服器傳回成功的回應。 來自AEM的5xx回應或連線逾時導致Dispatcher提供過時的內容和HTTP狀態111 （重新驗證失敗）的回應。
 
 ### 在使用驗證時快取 {#caching-when-authentication-is-used}
 
@@ -1349,7 +1349,7 @@ GET /mypage.html?nocache=true&willbecached=true
 
 >[!NOTE]
 >
->如果您需要AEM Dispatcher儲存並傳遞AEM中的ETag回應標頭，請執行以下操作：
+>如果您需要Dispatcher儲存並傳遞AEM中的ETag回應標頭，請執行以下操作：
 >
 >* 在 `/cache/headers` 區段中新增標題名稱。
 >* 在 Dispatcher 相關區段中新增以下 [Apache 指示詞](https://httpd.apache.org/docs/2.4/mod/core.html#fileetag)：
@@ -1389,7 +1389,7 @@ GET /mypage.html?nocache=true&willbecached=true
 在 Dispatcher 4.3.5 之前，TTL 失效邏輯僅根據設定的 TTL 值。 使用 Dispatcher 4.3.5，設定的 TTL **和** Dispatcher 快取失效規則都會列入考量。 因此，對於快取的檔案：
 
 1. 如果 `/enableTTL` 設定為 1，會檢查檔案是否過期。如果根據設定的 TTL 確定檔案已過期，則不執行其他檢查，並從後端重新請求快取的檔案。
-2. 如果檔案尚未過期，或 `/enableTTL` 未設定，則會套用標準快取失效規則，例如 [`/statfileslevel`](#invalidating-files-by-folder-level) 和 [`/invalidate`](#automatically-invalidating-cached-files) 設定。 此流程意味著AEM Dispatcher可以使TTL尚未過期的檔案失效。
+2. 如果檔案尚未過期，或 `/enableTTL` 未設定，則會套用標準快取失效規則，例如 [`/statfileslevel`](#invalidating-files-by-folder-level) 和 [`/invalidate`](#automatically-invalidating-cached-files) 設定。 此流程意味著Dispatcher可以使TTL尚未過期的檔案失效。
 
 此新實作支援檔案TTL較長的使用案例（例如，在CDN上）。 但是，即使TTL尚未過期，這些檔案仍可以失效。 它有利於內容處於最新狀態，而不是 Dispatcher 上的快取命中率。
 
@@ -1431,7 +1431,7 @@ Dispatcher 最多可支援 8 個統計類別。 如果您定義 8 個以上的�
 
 **轉譯器選擇**
 
-每當AEM Dispatcher需要轉譯頁面時，它都會使用以下演演算法來選取轉譯器：
+每當Dispatcher需要轉譯頁面時，它都會使用以下演演算法來選取轉譯器：
 
 1. 如果請求在 `renderid` Cookie 中包含轉譯器名稱，Dispatcher 會使用該轉譯器。
 1. 如果請求未包含 `renderid` Cookie，Dispatcher 會比較轉譯器統計資料：
@@ -1455,7 +1455,7 @@ Dispatcher 最多可支援 8 個統計類別。 如果您定義 8 個以上的�
 
 類別 `name` 對該陣列而言必須是獨一無二的。[為 glob 屬性設計模式](#designing-patterns-for-glob-properties)一節中有說明 `pattern`。
 
-為了判斷URI的類別，AEM Dispatcher會將URI與每個類別模式比較，直到找到相符專案為止。 Dispatcher 會從清單中的第一個類別開始，然後依順序繼續進行。 所以，請將具有更具體模式的類別放在前面。
+為了判斷URI的類別，Dispatcher會將URI與每個類別模式比較，直到找到相符專案為止。 Dispatcher 會從清單中的第一個類別開始，然後依順序繼續進行。 所以，請將具有更具體模式的類別放在前面。
 
 例如，Dispatcher 預設 `dispatcher.any` 檔案會定義 HTML 類別以及一個其他類別。HTML 類別比較具體，所以會先出現：
 
@@ -1548,7 +1548,7 @@ Dispatcher 最多可支援 8 個統計類別。 如果您定義 8 個以上的�
 
 ### 指定頁面重試延遲 {#specifying-the-page-retry-delay}
 
-`/retryDelay` 屬性會設定 Dispatcher 嘗試與陣列轉譯器建立的連線輪次之間等待的時間 (以秒為單位)。對於每一輪，AEM Dispatcher嘗試與轉譯器建立連線的次數上限為陣列中的轉譯器數目。
+`/retryDelay` 屬性會設定 Dispatcher 嘗試與陣列轉譯器建立的連線輪次之間等待的時間 (以秒為單位)。對於每一輪，Dispatcher嘗試與轉譯器建立連線的次數上限為陣列中的轉譯器數目。
 
 如果未明確定義 `/retryDelay`，Dispatcher 會使用 `"1"` 的值。預設值通常適當。
 
@@ -1560,7 +1560,7 @@ Dispatcher 最多可支援 8 個統計類別。 如果您定義 8 個以上的�
 
 `/numberOfRetries` 屬性會設定 Dispatcher 嘗試與轉譯器建立的連線輪次的數目上限。如果 Dispatcher 在超過此重試次數後還是無法成功連線到轉譯器，Dispatcher 會傳回失敗的回應。
 
-對於每一輪，AEM Dispatcher嘗試與轉譯器建立連線的次數上限為陣列中的轉譯器數目。 因此，AEM Dispatcher嘗試建立連線的次數上限為( `/numberOfRetries`) x （轉譯器數目）。
+對於每一輪，Dispatcher嘗試與轉譯器建立連線的次數上限為陣列中的轉譯器數目。 因此，Dispatcher嘗試建立連線的次數上限為( `/numberOfRetries`) x （轉譯器數目）。
 
 如果未明確定義此值，預設值為 `5`。
 
@@ -1575,7 +1575,7 @@ Dispatcher 最多可支援 8 個統計類別。 如果您定義 8 個以上的�
 * 當傳送給轉譯器的請求傳回HTTP狀態503 （無法使用）時，Dispatcher會將請求傳送給不同的轉譯器。
 * 當傳送給轉譯器的請求傳回HTTP狀態50x （而不是503）時，Dispatcher會為設定的頁面傳送請求 `health_check` 屬性。
    * 如果健康情況檢查傳回 500 (INTERNAL_SERVER_ERROR)，Dispatcher 會將原始請求傳送給不同的轉譯器。
-   * 如果健康情況檢查傳回HTTP狀態200，AEM Dispatcher會將最初的HTTP 500錯誤傳回給使用者端。
+   * 如果健康情況檢查傳回HTTP狀態200，Dispatcher會將最初的HTTP 500錯誤傳回給使用者端。
 
 若要啟用容錯移轉，請在陣列 (或網站) 中新增下面這一行：
 
