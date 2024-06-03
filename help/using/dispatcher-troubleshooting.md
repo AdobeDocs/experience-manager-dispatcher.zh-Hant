@@ -10,9 +10,9 @@ topic-tags: dispatcher
 content-type: reference
 exl-id: 29f338ab-5d25-48a4-9309-058e0cc94cff
 source-git-commit: 0a1aa854ea286a30c3527be8fc7c0998726a663f
-workflow-type: tm+mt
+workflow-type: ht
 source-wordcount: '539'
-ht-degree: 90%
+ht-degree: 100%
 
 ---
 
@@ -20,9 +20,9 @@ ht-degree: 90%
 
 >[!NOTE]
 >
->Dispatcher 版本與 AEM 無關。 但是，Dispatcher檔案內嵌在AEM檔案中。 請始終使用文檔中嵌入的Dispatcher文檔獲取最新版本AEM。
+>Dispatcher 版本與 AEM 無關。但是，Dispatcher 文件內嵌在 AEM 文件中。請始終使用文件中嵌入的 Dispatcher 文件獲取最新版本 AEM。
 >
->如果您依循連結前往Dispatcher檔案，您可能會被重新導向至本頁。 該連結嵌入在舊版AEM的檔案中。
+>如果您點按 Dispatcher 文件連結，您可能會被重新導向至本頁。該連結內嵌於舊版 AEM 的文件中。
 
 >[!NOTE]
 >
@@ -30,7 +30,7 @@ ht-degree: 90%
 
 ## 檢查基本配置 {#check-the-basic-configuration}
 
-與往常一樣，第一步是檢查基本資訊：
+與以往一樣，第一步是檢查基本資訊：
 
 * [確認基本操作](/help/using/dispatcher-configuration.md#confirming-basic-operation)
 * 檢查 Web 伺服器和 Dispatcher 的所有日誌檔案。 必要時，請提高`loglevel` (用於 Dispatcher [記錄](/help/using/dispatcher-configuration.md#logging))。
