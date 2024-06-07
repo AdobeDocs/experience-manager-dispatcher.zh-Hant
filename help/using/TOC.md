@@ -11,9 +11,9 @@ feature: Dispatcher
 topic: Administration
 role: Admin
 source-git-commit: 9be9f5935c21ebbf211b5da52280a31772993c2e
-workflow-type: tm+mt
+workflow-type: ht
 source-wordcount: '82'
-ht-degree: 96%
+ht-degree: 100%
 
 ---
 
@@ -26,9 +26,9 @@ ht-degree: 96%
    + [Dispatcher 安全性檢查清單](security-checklist.md)
    + [AEM Dispatcher 發行說明](release-notes.md)
 + 設定 {#configuring}
-   + [設定Dispatcher](dispatcher-configuration.md)
+   + [設定 Dispatcher](dispatcher-configuration.md)
    + [使 AEM 中的快取頁面失效](page-invalidate.md)
-   + [將網站快取效能最佳化](https://experienceleague.adobe.com/tw/docs/experience-manager-65/content/implementing/deploying/configuring/configuring-performance)
+   + [將網站快取效能最佳化](https://experienceleague.adobe.com/zh-hant/docs/experience-manager-65/content/implementing/deploying/configuring/configuring-performance)
    + [快取安全內容](permissions-cache.md)
    + [在多個網域中使用 AEM Dispatcher](dispatcher-domains.md)
    + [將 SSL 與 AEM Dispatcher 搭配使用](dispatcher-ssl.md)
