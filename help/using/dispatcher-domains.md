@@ -7,8 +7,8 @@ products: SG_EXPERIENCEMANAGER/DISPATCHER
 topic-tags: dispatcher
 content-type: reference
 exl-id: 1470b636-7e60-48cc-8c31-899f8785dafa
-source-git-commit: 9be9f5935c21ebbf211b5da52280a31772993c2e
-workflow-type: ht
+source-git-commit: 3b24e3eb54aa48c4891943b7458c57525897517f
+workflow-type: tm+mt
 source-wordcount: '2929'
 ht-degree: 100%
 
@@ -348,7 +348,7 @@ Dispatcher 快取會反映存放庫節點的結構。因此，當發生頁面啟
 
 * 每個虛擬網域的主目錄為 Dispatcher 快取中包含網站頁面的目錄。(第 20 和 33 行)
 * 每個虛擬網域的 URL 重寫規則都是規則運算式。該規則運算式以請求的頁面路徑做為前置詞。以快取中的頁面路徑做為前置詞。(第 19 和 35 行)
-* `DispatherUseProcessedURL` 屬性會設定為 `1`。(第 10 行)
+* `DispatcherUseProcessedURL` 屬性會設定為 `1`。(第 10 行)
 
 例如，網頁伺服器在收到帶有 `https://brandA.com/en/products.html` URL 的請求時會執行以下操作：
 
