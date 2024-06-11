@@ -6,9 +6,9 @@ content-type: reference
 products: SG_EXPERIENCEMANAGER/6.4
 exl-id: b55c7a34-d57b-4d45-bd83-29890f1524de
 source-git-commit: e38352c25737c2b2a2ccd71fe23ce673a2390f51
-workflow-type: tm+mt
+workflow-type: ht
 source-wordcount: '1062'
-ht-degree: 96%
+ht-degree: 100%
 
 ---
 
@@ -27,7 +27,7 @@ ht-degree: 96%
 
 ## 系統需求和先決條件 {#system-requirements-and-prerequisites}
 
-若要了解更多關於要求和先決條件，請參閱「[支援平台](https://experienceleague.adobe.com/tw/docs/experience-manager-64/deploying/introduction/technical-requirements)」。
+若要了解更多關於要求和先決條件，請參閱「[支援平台](https://experienceleague.adobe.com/zh-hant/docs/experience-manager-64/deploying/introduction/technical-requirements)」。
 
 Adobe 建議您使用最新版 AEM Dispatcher 以受益於最新功能、最近的錯誤修正和最佳效能。
 
@@ -50,7 +50,7 @@ Adobe 建議您使用最新版 AEM Dispatcher 以受益於最新功能、最近�
 
 **改良功能**：
 
-* DISP-911 AEM-05 - X-Edge-Key可能會在disp_apache2.c中洩漏。
+* DISP-911 AEM‑05 - X‑Edge‑Key 可能在 disp_apache2.c 中洩漏。
 * DISP-937 記錄所有選擇器。
 * DISP-998 使啟動時載入虛名 URL 可設定。
 
@@ -66,7 +66,7 @@ Adobe 建議您使用最新版 AEM Dispatcher 以受益於最新功能、最近�
 **錯誤修正**：
 
 * DISP-833 - X-Forwarded-Host 標題可能包含以逗號分隔的主機名稱清單。
-* DISP-835 - DispatcherUseForwardedHost會吸收最後出現的主機標頭。
+* DISP-835 - DispatcherUseForwardedHost 會在 Host 標頭最後出現時吸收該標頭。
 
 **改良功能**：
 
@@ -197,10 +197,10 @@ Adobe 建議您使用最新版 AEM Dispatcher 以受益於最新功能、最近�
 
 | 平台 | 架構 | OpenSSL 支援 | 按一下以下載 |
 |---|---|---|---|
-| Windows | x86 （32位元） | 無 | [`dispatcher-iis-windows-x86-4.3.7.zip`](https://download.macromedia.com/dispatcher/download/dispatcher-iis-windows-x86-4.3.7.zip) |
-| Windows | x86 （32位元） | 1.0 | [`dispatcher-iis-windows-x86-ssl1.0-4.3.7.zip`](https://download.macromedia.com/dispatcher/download/dispatcher-iis-windows-x86-ssl1.0-4.3.7.zip) |
-| Windows | x86 （32位元） | 1.1 | [`dispatcher-iis-windows-x86-ssl1.1-4.3.7.zip`](https://download.macromedia.com/dispatcher/download/dispatcher-iis-windows-x86-ssl1.1-4.3.7.zip) |
-| Windows | x64 （64位元） | 無 | [`dispatcher-iis-windows-x64-4.3.7.zip`](https://download.macromedia.com/dispatcher/download/dispatcher-iis-windows-x64-4.3.7.zip) |
-| Windows | x64 （64位元） | 1.0 | [`dispatcher-iis-windows-x64-ssl1.0-4.3.7.zip`](https://download.macromedia.com/dispatcher/download/dispatcher-iis-windows-x64-ssl1.0-4.3.7.zip) |
-| Windows | x64 （64位元） | 1.1 | [`dispatcher-iis-windows-x64-ssl1.1-4.3.7.zip`](https://download.macromedia.com/dispatcher/download/dispatcher-iis-windows-x64-ssl1.1-4.3.7.zip) |
-| Windows | x64 （64位元） | 3.0 | [`dispatcher-iis-windows-x64-ssl3.0-4.3.7.zip`](https://download.macromedia.com/dispatcher/download/dispatcher-iis-windows-x64-ssl3.0-4.3.7.zip) |
+| Windows | x86 (32 位元) | 無 | [`dispatcher-iis-windows-x86-4.3.7.zip`](https://download.macromedia.com/dispatcher/download/dispatcher-iis-windows-x86-4.3.7.zip) |
+| Windows | x86 (32 位元) | 1.0 | [`dispatcher-iis-windows-x86-ssl1.0-4.3.7.zip`](https://download.macromedia.com/dispatcher/download/dispatcher-iis-windows-x86-ssl1.0-4.3.7.zip) |
+| Windows | x86 (32 位元) | 1.1 | [`dispatcher-iis-windows-x86-ssl1.1-4.3.7.zip`](https://download.macromedia.com/dispatcher/download/dispatcher-iis-windows-x86-ssl1.1-4.3.7.zip) |
+| Windows | x64 (64 位元) | 無 | [`dispatcher-iis-windows-x64-4.3.7.zip`](https://download.macromedia.com/dispatcher/download/dispatcher-iis-windows-x64-4.3.7.zip) |
+| Windows | x64 (64 位元) | 1.0 | [`dispatcher-iis-windows-x64-ssl1.0-4.3.7.zip`](https://download.macromedia.com/dispatcher/download/dispatcher-iis-windows-x64-ssl1.0-4.3.7.zip) |
+| Windows | x64 (64 位元) | 1.1 | [`dispatcher-iis-windows-x64-ssl1.1-4.3.7.zip`](https://download.macromedia.com/dispatcher/download/dispatcher-iis-windows-x64-ssl1.1-4.3.7.zip) |
+| Windows | x64 (64 位元) | 3.0 | [`dispatcher-iis-windows-x64-ssl3.0-4.3.7.zip`](https://download.macromedia.com/dispatcher/download/dispatcher-iis-windows-x64-ssl3.0-4.3.7.zip) |
