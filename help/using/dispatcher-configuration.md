@@ -3,7 +3,7 @@ title: 設定 AEM Dispatcher
 description: 了解如何設定 Dispatcher。了解對 IPv4 和 IPv6 的支援、設定檔案、環境變數、為執行個體命名。了解如何定義陣列、識別虛擬主機等。
 exl-id: 91159de3-4ccb-43d3-899f-9806265ff132
 source-git-commit: 9be9f5935c21ebbf211b5da52280a31772993c2e
-workflow-type: ht
+workflow-type: tm+mt
 source-wordcount: '8876'
 ht-degree: 100%
 
