@@ -5,10 +5,10 @@ topic-tags: release-notes
 content-type: reference
 products: SG_EXPERIENCEMANAGER/6.4
 exl-id: b55c7a34-d57b-4d45-bd83-29890f1524de
-source-git-commit: e38352c25737c2b2a2ccd71fe23ce673a2390f51
+source-git-commit: 5f743be9c143e1e720e59304feebaa2e272dad87
 workflow-type: tm+mt
 source-wordcount: '1062'
-ht-degree: 100%
+ht-degree: 99%
 
 ---
 
@@ -27,7 +27,7 @@ ht-degree: 100%
 
 ## 系統需求和先決條件 {#system-requirements-and-prerequisites}
 
-若要了解更多關於要求和先決條件，請參閱「[支援平台](https://experienceleague.adobe.com/zh-hant/docs/experience-manager-64/deploying/introduction/technical-requirements)」。
+若要了解更多關於要求和先決條件，請參閱「[支援平台](https://experienceleague.adobe.com/en/docs/experience-manager-65/content/implementing/deploying/introduction/technical-requirements#dispatcher-platforms-web-servers)」。
 
 Adobe 建議您使用最新版 AEM Dispatcher 以受益於最新功能、最近的錯誤修正和最佳效能。
 
