@@ -2,10 +2,10 @@
 title: 設定 AEM Dispatcher
 description: 了解如何設定 Dispatcher。了解對 IPv4 和 IPv6 的支援、設定檔案、環境變數、為執行個體命名。了解如何定義陣列、識別虛擬主機等。
 exl-id: 91159de3-4ccb-43d3-899f-9806265ff132
-source-git-commit: 9be9f5935c21ebbf211b5da52280a31772993c2e
+source-git-commit: 23dde3b2ebc6a63d5e1c50e5877338c3bd09d5d2
 workflow-type: tm+mt
-source-wordcount: '8876'
-ht-degree: 100%
+source-wordcount: '8938'
+ht-degree: 99%
 
 ---
 
@@ -946,6 +946,21 @@ Last Modified Date: 2015-03-25T14:23:05.185-0400
 1. 在 `/farms` 底下新增 `/vanity_urls` 區段。
 1. 重新啟動 Apache Web Server。
 
+使用Dispatcher **版本4.3.6**&#x200B;時，已新增新的`/loadOnStartup`引數。 您可以使用此引數設定啟動時虛名URL的載入，如下所示：
+
+透過新增`/loadOnStartup 0` （請參閱下面的範例），您可以在啟動時停用虛名URL的載入。
+
+```
+/vanity_urls {
+        /url "/libs/granite/dispatcher/content/vanityUrls.html"
+        /file "/tmp/vanity_urls"
+        /loadOnStartup 0
+        /delay 60
+      } 
+```
+
+當`/loadOnStartup 1`在啟動時載入虛名URL。 請記住，`/loadOnStartup 1`是此引數的目前預設值。
+
 ## 轉送整合請求 - `/propagateSyndPost` {#forwarding-syndication-requests-propagatesyndpost}
 
 整合請求僅適用於 Dispatcher，所以在預設情況下不會傳送給轉譯器 (例如 AEM 執行個體)。
@@ -1393,7 +1408,7 @@ GET /mypage.html?nocache=true&willbecached=true
 
 此新實作支援的使用案例是檔案有較長的 TTL (例如，在 CDN 上)。但即使 TTL 尚未過期，這些檔案仍可能失效。它有利於內容處於最新狀態，而不是 Dispatcher 上的快取命中率。
 
-相反地，如果您&#x200B;**僅**&#x200B;需要套用到檔案的到期邏輯，則將 `/enableTTL` 設定為 1，並從標準快取失效機制中排除該檔案。例如，您可以：
+相反地，如果您&#x200B;**僅**&#x200B;需要套用到檔案的過期邏輯，則將 `/enableTTL` 設定為 1，並從標準快取失效機制中排除該檔案。例如，您可以：
 
 * 若要忽略該檔案，請在快取區段設定[失效規則](#automatically-invalidating-cached-files)。在下面的程式碼片段中，所有結尾是 `.example.html` 的檔案都會忽略，並且僅當超過設定的 TTL 時才會過期。
 
@@ -1408,7 +1423,7 @@ GET /mypage.html?nocache=true&willbecached=true
 
 * 設計內容結構時將 [`/statfilelevel`](#invalidating-files-by-folder-level) 設定較高，如此檔案不會自動失效。
 
-這麼做確保不會使用 `.stat` 檔案失效，只有 TTL 到期對指定的檔案有效。
+這麼做確保不會使用 `.stat` 檔案失效，只有 TTL 期限對指定的檔案有效。
 
 >[!NOTE]
 >
