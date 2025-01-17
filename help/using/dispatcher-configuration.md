@@ -3,9 +3,9 @@ title: 設定 AEM Dispatcher
 description: 了解如何設定 Dispatcher。了解對 IPv4 和 IPv6 的支援、設定檔案、環境變數、為執行個體命名。了解如何定義陣列、識別虛擬主機等。
 exl-id: 91159de3-4ccb-43d3-899f-9806265ff132
 source-git-commit: 23dde3b2ebc6a63d5e1c50e5877338c3bd09d5d2
-workflow-type: tm+mt
+workflow-type: ht
 source-wordcount: '8938'
-ht-degree: 99%
+ht-degree: 100%
 
 ---
 
@@ -946,9 +946,9 @@ Last Modified Date: 2015-03-25T14:23:05.185-0400
 1. 在 `/farms` 底下新增 `/vanity_urls` 區段。
 1. 重新啟動 Apache Web Server。
 
-使用Dispatcher **版本4.3.6**&#x200B;時，已新增新的`/loadOnStartup`引數。 您可以使用此引數設定啟動時虛名URL的載入，如下所示：
+使用 Dispatcher **版本 4.3.6** 中已新增的`/loadOnStartup`參數。透過使用此參數，您可以設定啟動時載入虛名 URL，如下所示：
 
-透過新增`/loadOnStartup 0` （請參閱下面的範例），您可以在啟動時停用虛名URL的載入。
+透過新增 `/loadOnStartup 0` (請參閱以下範例)，您可以停用在啟動時載入虛名 URL。
 
 ```
 /vanity_urls {
@@ -959,7 +959,7 @@ Last Modified Date: 2015-03-25T14:23:05.185-0400
       } 
 ```
 
-當`/loadOnStartup 1`在啟動時載入虛名URL。 請記住，`/loadOnStartup 1`是此引數的目前預設值。
+在`/loadOnStartup 1`啟動時載入虛名 URL。請記住，`/loadOnStartup 1` 是此參數的目前預設值。
 
 ## 轉送整合請求 - `/propagateSyndPost` {#forwarding-syndication-requests-propagatesyndpost}
 
