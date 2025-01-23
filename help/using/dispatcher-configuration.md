@@ -3,9 +3,9 @@ title: 設定 AEM Dispatcher
 description: 了解如何設定 Dispatcher。了解對 IPv4 和 IPv6 的支援、設定檔案、環境變數、為執行個體命名。了解如何定義陣列、識別虛擬主機等。
 exl-id: 91159de3-4ccb-43d3-899f-9806265ff132
 source-git-commit: da9bf0c1f4cceccfc6be9f4871a21d2bb703f0a4
-workflow-type: tm+mt
+workflow-type: ht
 source-wordcount: '8938'
-ht-degree: 99%
+ht-degree: 100%
 
 ---
 
@@ -355,7 +355,7 @@ Dispatcher 會依照以下順序尋找最符合的虛擬主機值：
 * 如果沒有任何 `virtualhosts` 值具有 `scheme` 和 `uri` 部分，同時符合請求的 `scheme` 和 `uri`，則會使用遇到的第一個與請求的 `host` 相符的虛擬主機。
 * 如果沒有任何 `virtualhosts` 值具有符合請求的主機部分，則會使用最上層陣列的最上層虛擬主機。
 
-因此，您應該將預設虛擬主機放在 `virtualhosts` 屬性的最上方。將它放在`dispatcher.any`檔案的最上層陣列中。
+因此，您應該將預設虛擬主機放在 `virtualhosts` 屬性的最上方。放在 `dispatcher.any` 檔案的最上層陣列中。
 
 ### 範例虛擬主機解析 {#example-virtual-host-resolution}
 
