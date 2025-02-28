@@ -7,10 +7,10 @@ products: SG_EXPERIENCEMANAGER/DISPATCHER
 topic-tags: dispatcher
 content-type: reference
 exl-id: 1470b636-7e60-48cc-8c31-899f8785dafa
-source-git-commit: 3b24e3eb54aa48c4891943b7458c57525897517f
+source-git-commit: b8dc67a9633c1a459a2851f4be99a5fcbec7fe79
 workflow-type: tm+mt
-source-wordcount: '2929'
-ht-degree: 100%
+source-wordcount: '3008'
+ht-degree: 97%
 
 ---
 
@@ -195,6 +195,10 @@ DocumentRoot "/usr/lib/apache/httpd-2.4.3/htdocs"
 ```
 
 虛擬主機會繼承在主要伺服器區段中所設定的 [DispatcherConfig](dispatcher-install.md#main-pars-67-table-7) 屬性值。虛擬主機可包含其自身的 DispatcherConfig 屬性以覆寫主要伺服器設定。
+
+>[!NOTE]
+>
+>在AEM as a Cloud Service上，個別的vhost設定必須與DocumentRoot搭配使用，其層級必須高於每個子頁面。 這預設會在原型中處理，但是當使用多個DocumentRoot時，必須使用較高優先順序的vhost設定，這樣才能為整個快取處理快取失效，因為無法為每個網站單獨設定快取失效。 此新設定的ServerAlias必須接受主機標頭「localhost」。
 
 ### 設定 Dispatcher 處理多個網域 {#configure-dispatcher-to-handle-multiple-domains}
 
