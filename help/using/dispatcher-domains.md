@@ -8,9 +8,9 @@ topic-tags: dispatcher
 content-type: reference
 exl-id: 1470b636-7e60-48cc-8c31-899f8785dafa
 source-git-commit: b8dc67a9633c1a459a2851f4be99a5fcbec7fe79
-workflow-type: tm+mt
+workflow-type: ht
 source-wordcount: '3008'
-ht-degree: 97%
+ht-degree: 100%
 
 ---
 
@@ -198,7 +198,7 @@ DocumentRoot "/usr/lib/apache/httpd-2.4.3/htdocs"
 
 >[!NOTE]
 >
->在AEM as a Cloud Service上，個別的vhost設定必須與DocumentRoot搭配使用，其層級必須高於每個子頁面。 這預設會在原型中處理，但是當使用多個DocumentRoot時，必須使用較高優先順序的vhost設定，這樣才能為整個快取處理快取失效，因為無法為每個網站單獨設定快取失效。 此新設定的ServerAlias必須接受主機標頭「localhost」。
+>在 AEM as a Cloud Service 上，必須使用單獨的 vhost 設定，且 DocumentRoot 的層級必須高於每個子頁面。這預設會在原型中處理，但是當使用多個 DocumentRoots 時，必須使用優先順序更高的 vhost 設定，以便可以針對整個快取處理快取失效，因為無法針對每個網站單獨設定。此新設定的 ServerAlias 必須接受主機標頭「localhost」。
 
 ### 設定 Dispatcher 處理多個網域 {#configure-dispatcher-to-handle-multiple-domains}
 
