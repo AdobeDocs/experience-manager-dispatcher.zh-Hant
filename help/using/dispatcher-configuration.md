@@ -3,9 +3,9 @@ title: 設定 AEM Dispatcher
 description: 了解如何設定 Dispatcher。了解對 IPv4 和 IPv6 的支援、設定檔案、環境變數、為執行個體命名。了解如何定義陣列、識別虛擬主機等。
 exl-id: 91159de3-4ccb-43d3-899f-9806265ff132
 source-git-commit: a9ef9d7d2fe5c421cd8039579fd84961ea901def
-workflow-type: tm+mt
+workflow-type: ht
 source-wordcount: '8941'
-ht-degree: 99%
+ht-degree: 100%
 
 ---
 
@@ -1037,7 +1037,7 @@ statfile 沒有任何內容。當更新內容時，Dispatcher 會更新時間戳
 
 `/serveStaleOnError` 屬性可控制當轉譯伺服器傳回錯誤時，Dispatcher 是否會傳回失效的文件。根據預設，在接觸了 statfile 並讓快取內容失效時，Dispatcher 在下次請求該內容時會刪除快取的內容。此動作將在下次請求時執行。
 
-如果 `/serveStaleOnError` 設定為 `"1"`，則 Dispatcher 不會從快取中刪除失效的內容。也就是說，除非轉譯伺服器傳回成功的回應。來自AEM的502、503或504回應或連線逾時導致Dispatcher提供過時的內容和HTTP狀態111 （重新驗證失敗）的回應。
+如果 `/serveStaleOnError` 設定為 `"1"`，則 Dispatcher 不會從快取中刪除失效的內容。也就是說，除非轉譯伺服器傳回成功的回應。來自 AEM 的 502、503 或 504 回應或連線逾時會導致 Dispatcher 提供過時的內容，並回應 HTTP 狀態 111 (重新驗證失敗)。
 
 ### 在使用驗證時快取 {#caching-when-authentication-is-used}
 
