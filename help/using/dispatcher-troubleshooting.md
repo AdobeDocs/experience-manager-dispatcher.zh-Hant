@@ -1,5 +1,5 @@
 ---
-title: 疑難排解 Dispatcher 問題
+title: 疑難排解Dispatcher問題
 description: 瞭解Dispatcher問題的疑難解答。
 cmgrlastmodified: 01.11.2007 08 22 29 [aheimoz]
 pageversionid: 1193211344162
@@ -9,26 +9,26 @@ products: SG_EXPERIENCEMANAGER/DISPATCHER
 topic-tags: dispatcher
 content-type: reference
 exl-id: 29f338ab-5d25-48a4-9309-058e0cc94cff
-source-git-commit: 0a1aa854ea286a30c3527be8fc7c0998726a663f
+source-git-commit: c41b4026a64f9c90318e12de5397eb4c116056d9
 workflow-type: tm+mt
-source-wordcount: '539'
-ht-degree: 100%
+source-wordcount: '472'
+ht-degree: 93%
 
 ---
 
-# 疑難排解 Dispatcher 問題 {#troubleshooting-dispatcher-problems}
+# 疑難排解Dispatcher問題 {#troubleshooting-dispatcher-problems}
 
 >[!NOTE]
 >
->Dispatcher 版本與 AEM 無關。但是，Dispatcher 文件內嵌在 AEM 文件中。請始終使用文件中嵌入的 Dispatcher 文件獲取最新版本 AEM。
+>Dispatcher 版本與 AEM 無關。但是，Dispatcher 文件嵌入在 AEM 文件中。請始終使用文件中嵌入的 Dispatcher 文件獲取最新版本 AEM。
 >
->如果您點按 Dispatcher 文件連結，您可能會被重新導向至本頁。該連結內嵌於舊版 AEM 的文件中。
+>如果您點按 Dispatcher 文件連結，您可能會被重新導向至本頁。該連結嵌入於舊版 AEM 的文件中。
 
 >[!NOTE]
 >
->請參考 [Dispatcher 知識庫](https://helpx.adobe.com/tw/experience-manager/kb/index/dispatcher.html)、[疑難排解 Dispatcher 清除問題](https://experienceleague.adobe.com/search.html?lang=zh-Hant#q=troubleshooting%20dispatcher%20flushing%20issues&amp;sort=relevancy&amp;f:el_product=[Experience%20Manager])和 [Dispatcher 熱門問題常見問題集](dispatcher-faq.md)以了解進一步資訊。
+>如需詳細資訊，請參閱<!-- URL is 404[Dispatcher Knowledge Base](https://helpx.adobe.com/experience-manager/kb/index/dispatcher.html), -->[Dispatcher排清問題疑難排解](https://experienceleague.adobe.com/search.html?lang=zh-Hant#q=troubleshooting%20dispatcher%20flushing%20issues&sort=relevancy&f:el_product=[Experience%20Manager])和[Dispatcher常見問題集](dispatcher-faq.md)。
 
-## 檢查基本配置 {#check-the-basic-configuration}
+## 檢查基本設定 {#check-the-basic-configuration}
 
 與以往一樣，第一步是檢查基本資訊：
 
@@ -54,16 +54,17 @@ IIS提供各種跟蹤工具，具體取決於實際版本：
 
 這些工具可幫助您監控活動。
 
-## IIS 和 404 找不到 {#iis-and-not-found}
+<!-- Both URLs in this topic 404! >
+## IIS and 404 Not Found {#iis-and-not-found}
 
-當您使用 IIS 時，可能會在各種情況下遇到網頁傳回 `404 Not Found`。 如果是，請參閱以下知識文庫文章。
+When using IIS, you might experience `404 Not Found` being returned in various scenarios. If so, see the following Knowledge Base articles.
 
-* [IIS 6/7：POST 方法返回 404](https://helpx.adobe.com/tw/experience-manager/kb/IIS6IsapiFilters.html)
-* [IIS 6：請求包含基本路徑 `/bin` 的 URL 時傳回 `404 Not Found`](https://helpx.adobe.com/tw/experience-manager/kb/RequestsToBinDirectoryFailInIIS6.html)
+* [IIS 6/7: POST method returns 404](https://helpx.adobe.com/experience-manager/kb/IIS6IsapiFilters.html)
+* [IIS 6: Requests to URLs that contain the base path `/bin` return a `404 Not Found`](https://helpx.adobe.com/experience-manager/kb/RequestsToBinDirectoryFailInIIS6.html)
 
-另請參考 Dispatcher 快取根目錄和 IIS 文件根目錄是否設定為同一目錄。
+Also check that the Dispatcher cache root and the IIS document root are set to the same directory. -->
 
-## 刪除工作流模型的問題 {#problems-deleting-workflow-models}
+## 刪除工作流程模型的問題 {#problems-deleting-workflow-models}
 
 **症狀**
 

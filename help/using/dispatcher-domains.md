@@ -1,5 +1,5 @@
 ---
-title: 在多個網域中使用 Dispatcher
+title: 在多個網域中使用Dispatcher
 description: 了解如何使用 Dispatcher，以便在多個網域中處理頁面請求。
 contentOwner: User
 cq-exporttemplate: /etc/contentsync/templates/geometrixx/page/rewrite
@@ -7,18 +7,20 @@ products: SG_EXPERIENCEMANAGER/DISPATCHER
 topic-tags: dispatcher
 content-type: reference
 exl-id: 1470b636-7e60-48cc-8c31-899f8785dafa
-source-git-commit: b8dc67a9633c1a459a2851f4be99a5fcbec7fe79
-workflow-type: ht
-source-wordcount: '3008'
-ht-degree: 100%
+source-git-commit: c41b4026a64f9c90318e12de5397eb4c116056d9
+workflow-type: tm+mt
+source-wordcount: '2986'
+ht-degree: 89%
 
 ---
 
-# 在多個網域中使用 Dispatcher {#using-dispatcher-with-multiple-domains}
+# 在多個網域中使用Dispatcher {#using-dispatcher-with-multiple-domains}
+
+<!-- This article is missing required metadata image ALT tags throughout -->
 
 >[!NOTE]
 >
->Dispatcher 版本與 AEM 無關。如果您依循了內嵌到 AEM 或 CQ 文件中的 Dispatcher 文件的連結，您可能會被重新導向至本頁。
+>Dispatcher 版本與 AEM 無關。如果您依循了嵌入到 AEM 或 CQ 文件中的 Dispatcher 文件的連結，您可能會被重新導向至本頁。
 
 使用 Dispatcher 以便在多個網域中處理頁面請求，同時支援以下情況：
 
@@ -54,17 +56,17 @@ ht-degree: 100%
 
 ## 快取失效
 
-當 Dispatcher Flush 複寫代理程式請求 Dispatcher 讓快取檔案失效時，存放庫中內容的路徑必須解析為快取中的內容。
+當`Dispatcher Flush`復寫代理程式要求Dispatcher讓快取檔案失效時，存放庫中內容的路徑必須解析為快取中的內容。
 
 ![](assets/chlimage_1-9.png)
 
 * a - AEM 編寫執行個體上會啟用一個頁面，並將內容複寫到發佈執行個體。
-* b - Dispatcher Flush 代理程式會呼叫 Dispatcher，好讓複寫內容的快取失效。
+* b - `Dispatcher Flush`代理程式會呼叫Dispatcher，使復寫內容的快取失效。
 * c - Dispatcher 會觸及一個或多個 .stat 檔案，好讓快取檔案失效。
 
 若要在多個網域中使用 Dispatcher，您必須設定 AEM、Dispatcher 和您的網頁伺服器。此頁面上所述的解決方案是通用的，適用於大多數環境。由於某些 AEM 拓撲很複雜，您的解決方案可能需要進一步的自訂設定才能解決特定問題。您可能必須改寫範例，以符合您現有的 IT 基礎結構和管理政策。
 
-## URL 對應 {#url-mapping}
+## URL對映 {#url-mapping}
 
 若要讓網域 URL 和內容路徑能夠解析為快取檔案，必須在此程序期間轉譯檔案路徑或頁面 URL。我們提供以下常用策略的說明，其中路徑或 URL 的轉譯會發生在此過程中的不同時間點：
 
@@ -115,7 +117,7 @@ ht-degree: 100%
                  | - content nodes
 ```
 
-## AEM 重寫傳入的 URL {#aem-rewrites-incoming-urls}
+## AEM重寫傳入的URL {#aem-rewrites-incoming-urls}
 
 用於解析資源的 Sling 對應可讓您將傳入的 URL 與 AEM 內容路徑建立關聯。請在 AEM 發佈執行個體上建立對應，好讓來自 Dispatcher 的轉譯器請求可解析成存放庫中的正確內容。
 
@@ -198,9 +200,9 @@ DocumentRoot "/usr/lib/apache/httpd-2.4.3/htdocs"
 
 >[!NOTE]
 >
->在 AEM as a Cloud Service 上，必須使用單獨的 vhost 設定，且 DocumentRoot 的層級必須高於每個子頁面。這預設會在原型中處理，但是當使用多個 DocumentRoots 時，必須使用優先順序更高的 vhost 設定，以便可以針對整個快取處理快取失效，因為無法針對每個網站單獨設定。此新設定的 ServerAlias 必須接受主機標頭「localhost」。
+>在AEM as a Cloud Service上，個別的vhost設定必須與DocumentRoot搭配使用，其層級必須高於每個子頁面。 此程式預設會在原型中處理。 但是，當使用多個DocumentRoot時，需要較高優先順序的vhost設定來處理整個快取的快取失效，因為無法為每個網站單獨設定它。 此新設定的ServerAlias必須接受主機標頭「localhost」。
 
-### 設定 Dispatcher 處理多個網域 {#configure-dispatcher-to-handle-multiple-domains}
+### 設定Dispatcher以處理多個網域 {#configure-dispatcher-to-handle-multiple-domains}
 
 若要支援包含網域名稱及其對應虛擬主機的 URL，請定義以下 Dispatcher 陣列：
 
@@ -282,11 +284,11 @@ Dispatcher initializing (build 4.1.2)
 [Fri Nov 02 16:27:18 2012] [I] [24974(140006182991616)] Dispatcher initialized (build 4.1.2)
 ```
 
-### 設定 Sling 對應來解析資源 {#configure-sling-mapping-for-resource-resolution}
+### 設定Sling對應以進行資源解析 {#configure-sling-mapping-for-resource-resolution}
 
-使用 Sling 對應來解析資源，好讓網域型 URL 可解析成 AEM 發佈執行個體上的內容。資源對應會將 Dispatcher 傳入的 URL (原本來自用戶端 HTTP 請求) 解譯成內容節點。
+使用`Sling`對應進行資源解析，讓網域型URL解析成AEM發佈執行個體上的內容。 資源對應會將 Dispatcher 傳入的 URL (原本來自用戶端 HTTP 請求) 解譯成內容節點。
 
-若要了解 Sling 資源對應，請參閱 Sling 文件中的[資源解析的對應](https://sling.apache.org/documentation/the-sling-engine/mappings-for-resource-resolution.html)。
+若要瞭解`Sling`資源對應，請參閱[檔案中的](https://sling.apache.org/documentation/the-sling-engine/mappings-for-resource-resolution.html)資源解析的對應`Sling`。
 
 通常以下資源需要對應，但可能也需要其他對應：
 
@@ -302,7 +304,7 @@ Dispatcher initializing (build 4.1.2)
 
 >[!NOTE]
 >
->預設 Apache Sling 重寫程式的 Linkchecker 轉換器會自動修改頁面中的超連結，以避免連結失效。不過，只有當連結目標是 HTML 或 HTM 檔案時，才會執行連結重寫。若要更新其他檔案類型的連結，請建立轉換器元件，並將其新增到 HTML 重寫程式管道。
+>預設Apache `Sling`重寫程式的Linkchecker轉換器會自動修改頁面中的超連結，以避免連結失效。 不過，只有當連結目標是 HTML 或 HTM 檔案時，才會執行連結重寫。若要更新其他檔案類型的連結，請建立轉換器元件，並將其新增到 HTML 重寫程式管道。
 
 ### 資源對應節點範例
 
@@ -316,9 +318,9 @@ Dispatcher initializing (build 4.1.2)
 | `/etc/map/http/branda.com/etc/designs` | `sling:Mapping` | `Name: sling:internalRedirect <br/>VType: String <br/>VValue: /etc/designs` |
 | `/etc/map/http/branda.com/etc/clientlibs` | `sling:Mapping` | `Name: sling:internalRedirect <br/>VType: String <br/>VValue: /etc/clientlibs` |
 
-## 設定 Dispatcher Flush 複寫代理程式 {#configuring-the-dispatcher-flush-replication-agent}
+## 設定Dispatcher Flush復寫代理程式 {#configuring-the-dispatcher-flush-replication-agent}
 
-AEM 發佈執行個體上的 Dispatcher Flush 複寫代理程式必須傳送失效請求給正確的 Dispatcher 陣列。若要鎖定某個陣列，請使用 Dispatcher Flush 複寫代理程式的 URI 屬性 (在「傳輸」索引標籤上)。針對設定用於讓快取失效的 Dispatcher 陣列包含 `/virtualhost` 屬性的值：
+AEM發佈執行個體上的`Dispatcher Flush`復寫代理程式必須傳送失效請求給正確的Dispatcher陣列。 若要鎖定某個陣列，請使用`Dispatcher Flush`復寫代理程式的URI屬性（在[傳輸]索引標籤上）。 針對設定用於讓快取失效的 Dispatcher 陣列包含 `/virtualhost` 屬性的值：
 
 `https://*webserver_name*:*port*/*virtual_host*/dispatcher/invalidate.cache`
 
@@ -326,7 +328,7 @@ AEM 發佈執行個體上的 Dispatcher Flush 複寫代理程式必須傳送失�
 
 ![](assets/chlimage_1-12.png)
 
-## 網頁伺服器重寫傳入的 URL {#the-web-server-rewrites-incoming-urls}
+## 網頁伺服器會重寫傳入的URL {#the-web-server-rewrites-incoming-urls}
 
 若要將網域型 URL 轉譯成 Dispatcher 快取中的檔案路徑，可使用網頁伺服器的內部 URL 重寫功能。例如，對 `https://brandA.com/en.html` 頁面的用戶端請求會轉譯成網頁伺服器的主目錄中的 `content/sitea/en.html` 檔案。
 
@@ -412,7 +414,7 @@ LoadModule dispatcher_module modules/mod_dispatcher.so
 DocumentRoot "/usr/lib/apache/httpd-2.4.3/htdocs"
 ```
 
-### 設定 Dispatcher 陣列 {#configure-a-dispatcher-farm}
+### 設定Dispatcher陣列 {#configure-a-dispatcher-farm}
 
 當網頁伺服器重寫 URL 時，Dispatcher 會根據[設定 Dispatcher](dispatcher-configuration.md) 中的內容要求定義單一陣列。支援網頁伺服器虛擬主機和 URL 重新命名規則需要以下設定：
 
@@ -498,23 +500,23 @@ DocumentRoot "/usr/lib/apache/httpd-2.4.3/htdocs"
 
 >[!NOTE]
 >
->由於定義了單一 Dispatcher 陣列，所以 AEM 發佈執行個體上的 Dispatcher Flush 複寫代理程式不需要特殊設定。
+>由於定義了單一Dispatcher陣列，因此AEM發佈執行個體上的`Dispatcher Flush`復寫代理程式不需要特殊設定。
 
-## 重寫非 HTML 檔案的連結 {#rewriting-links-to-non-html-files}
+## 重寫非HTML檔案的連結 {#rewriting-links-to-non-html-files}
 
 若要重寫對副檔名為 .html 或 .htm 以外的檔案的參照，請建立 Sling 重寫程式轉換器元件，並將其新增到預設重寫程式管道。
 
 當資源路徑無法在網頁伺服器上下文中正確解析時，請重寫參照。例如，當產生影像的元件建立類似 /content/sitea/en/products.navimage.png 等連結時，需要使用轉換器。[如何建立完整功能的網站](https://experienceleague.adobe.com/zh-hant/docs/experience-manager-65/content/implementing/developing/introduction/the-basics)中的 `topnav` 元件會建立這種連結。
 
-[Sling 重寫程式](https://sling.apache.org/documentation/bundles/output-rewriting-pipelines-org-apache-sling-rewriter.html)是對 Sling 輸出進行後置處理的模組。重寫程式的 SAX 管道實作是由產生器、一個或多個轉換器和序列化程式所組成：
+[`Sling`重寫程式](https://sling.apache.org/documentation/bundles/output-rewriting-pipelines-org-apache-sling-rewriter.html)是後處理`Sling`輸出的模組。 重寫程式的 SAX 管道實作是由產生器、一個或多個轉換器和序列化程式所組成：
 
-* **產生器：**&#x200B;在遇到特定元素類型時剖析 Sling 輸出資料流 (HTML 文件) 並產生 SAX 事件。
+* **產生器：**&#x200B;會剖析`Sling`輸出資料流(HTML檔案)，並在遇到特定元素型別時產生SAX事件。
 * **轉換器：**&#x200B;偵聽 SAX 事件，並在之後修改事件目標 (HTML 元素)。重寫程式管道包含零個或多個轉換器。轉換器會依序執行，將 SAX 事件傳遞給序列中的下一個轉換器。
 * **序列化程式：**&#x200B;將輸出序列化，包括來自每個轉換器的修改。
 
 ![](assets/chlimage_1-15.png)
 
-### AEM 預設重寫程式管道 {#the-aem-default-rewriter-pipeline}
+### AEM預設重寫程式管道 {#the-aem-default-rewriter-pipeline}
 
 AEM 會使用處理文字/html 類型的文件的預設管道重寫程式：
 

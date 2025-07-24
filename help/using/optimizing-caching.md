@@ -1,23 +1,23 @@
 ---
-title: 將網站快取效能最佳化
+title: 針對快取效能最佳化網站
 description: 了解如何設計網站，好讓快取的優點最大化。
 contentOwner: User
 products: SG_EXPERIENCEMANAGER/DISPATCHER
 topic-tags: dispatcher
 content-type: reference
-redirecttarget: https://helpx.adobe.com/tw/experience-manager/6-4/sites/deploying/using/configuring-performance.html
+redirecttarget: https://helpx.adobe.com/experience-manager/6-4/sites/deploying/using/configuring-performance.html
 index: y
 internal: n
 snippet: y
-source-git-commit: 9be9f5935c21ebbf211b5da52280a31772993c2e
+source-git-commit: c41b4026a64f9c90318e12de5397eb4c116056d9
 workflow-type: tm+mt
 source-wordcount: '1128'
-ht-degree: 100%
+ht-degree: 96%
 
 ---
 
 
-# 將網站快取效能最佳化 {#optimizing-a-website-for-cache-performance}
+# 最佳化網站以提升快取效能 {#optimizing-a-website-for-cache-performance}
 
 <!-- 
 
@@ -31,7 +31,7 @@ Last Modified Date: 2017-10-25T04:13:34.919-0400
 
 >[!NOTE]
 >
->Dispatcher 版本與 AEM 無關。如果您點按 Dispatcher 文件連結，您可能會被重新導向至本頁。該連結內嵌於舊版 AEM 的文件中。
+>Dispatcher 版本與 AEM 無關。如果您點按 Dispatcher 文件連結，您可能會被重新導向至本頁。該連結嵌入於舊版 AEM 的文件中。
 
 Dispatcher 提供許多可用來將效能最佳化的內建機制。本節將說明如何設計網站，好讓快取的優點最大化。
 
@@ -55,7 +55,7 @@ Dispatcher 提供許多可用來將效能最佳化的內建機制。本節將說
         <META http-equiv="Content-Type" content="text/html; charset=EUC-JP">
 ```
 
-## 避免 URL 參數 {#avoid-url-parameters}
+## 避免URL引數 {#avoid-url-parameters}
 
 可能的話，請避免針對您想要快取的頁面使用 URL 參數。例如，如果您有圖片庫，則絕對不會快取以下 URL (除非 Dispatcher [已適當地設定](dispatcher-configuration.md#main-pars_title_24))：
 
@@ -110,7 +110,7 @@ www.myCompany.com/news/main.large.html
 >
 >影像檔案不一定存在於 AEM 執行個體上。您可以使用可動態建立影像檔案的指令碼。然後 Dispatcher 會將檔案儲存在網頁伺服器上。
 
-## 讓用於導覽的影像檔案失效 {#invalidating-image-files-used-for-navigation}
+## 使用於導覽的影像檔案失效 {#invalidating-image-files-used-for-navigation}
 
 如果您將圖片用於導覽項目，此方法基本上與標題相同，但是稍微複雜一點。將所有導覽影像與目標頁面一起儲存。如果您將兩張圖片用於一般和活躍情境，可以使用以下指令碼：
 
@@ -139,11 +139,11 @@ Dispatcher 無法快取個人化資料，所以建議您將個人化限制在必
 >* 使用用戶端 JavaScript 來顯示個人化資訊。不過，您必須確保當使用者關閉 JavaScript 時，該頁面還是會正常顯示。
 >
 
-## 黏性連線 {#sticky-connections}
+## 粘性連線 {#sticky-connections}
 
 [黏性連線](dispatcher.md#TheBenefitsofLoadBalancing)可確保同一個使用者的文件都會在相同伺服器上編寫。如果使用者離開此資料夾並於稍後返回，連線仍然保持不變。定義一個資料夾，以便保存所有需要網站的黏性連線的文件。試著不要將其他文件放在該資料夾中。如果您使用個人化頁面和工作階段資料，這樣做會影響負載平衡。
 
-## MIME 類型 {#mime-types}
+## MIME型別 {#mime-types}
 
 瀏覽器可使用兩種方式來判斷檔案的類型：
 

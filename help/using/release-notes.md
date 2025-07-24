@@ -5,14 +5,14 @@ topic-tags: release-notes
 content-type: reference
 products: SG_EXPERIENCEMANAGER/6.4
 exl-id: b55c7a34-d57b-4d45-bd83-29890f1524de
-source-git-commit: 5f743be9c143e1e720e59304feebaa2e272dad87
-workflow-type: ht
+source-git-commit: c41b4026a64f9c90318e12de5397eb4c116056d9
+workflow-type: tm+mt
 source-wordcount: '1062'
-ht-degree: 100%
+ht-degree: 99%
 
 ---
 
-# AEM Dispatcher 發行說明{#aem-dispatcher-release-notes}
+# AEM Dispatcher發行說明{#aem-dispatcher-release-notes}
 
 ## 發行資訊 {#release-information}
 
@@ -35,7 +35,7 @@ Adobe 建議您使用最新版 AEM Dispatcher 以受益於最新功能、最近�
 
 如需詳細指示，請參閱[安裝 Dispatcher](dispatcher-install.md)。
 
-## 發行版記錄 {#release-history}
+## 發行版本記錄 {#release-history}
 
 ### 發行版本 4.3.7 (2024 年 3 月 27 日) {#march}
 
@@ -170,7 +170,7 @@ Adobe 建議您使用最新版 AEM Dispatcher 以受益於最新功能、最近�
 
 ## 實用資源 {#helpful-resources}
 
-* [AEM Dispatcher 總覽](dispatcher.md)
+* [AEM Dispatcher 概觀](dispatcher.md)
 
 ## 下載 {#downloads}
 

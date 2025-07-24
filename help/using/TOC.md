@@ -10,29 +10,29 @@ feature-set: Experience Manager
 feature: Dispatcher
 topic: Administration
 role: Admin
-source-git-commit: 9be9f5935c21ebbf211b5da52280a31772993c2e
+source-git-commit: c41b4026a64f9c90318e12de5397eb4c116056d9
 workflow-type: tm+mt
-source-wordcount: '82'
-ht-degree: 100%
+source-wordcount: '81'
+ht-degree: 50%
 
 ---
 
 
 # AEM Dispatcher 說明 {#using}
 
-+ [總覽](dispatcher.md)
++ [概觀](dispatcher.md)
 + 快速入門 {#getting-started}
-   + [安裝 Dispatcher](dispatcher-install.md)
-   + [Dispatcher 安全性檢查清單](security-checklist.md)
+   + [安裝Dispatcher](dispatcher-install.md)
+   + [Dispatcher安全性檢查清單](security-checklist.md)
    + [AEM Dispatcher 發行說明](release-notes.md)
 + 設定 {#configuring}
    + [設定 Dispatcher](dispatcher-configuration.md)
-   + [使 AEM 中的快取頁面失效](page-invalidate.md)
-   + [將網站快取效能最佳化](https://experienceleague.adobe.com/zh-hant/docs/experience-manager-65/content/implementing/deploying/configuring/configuring-performance)
+   + [使AEM中的快取頁面失效](page-invalidate.md)
+   + [針對快取效能最佳化網站](https://experienceleague.adobe.com/zh-hant/docs/experience-manager-65/content/implementing/deploying/configuring/configuring-performance)
    + [快取安全內容](permissions-cache.md)
-   + [在多個網域中使用 AEM Dispatcher](dispatcher-domains.md)
-   + [將 SSL 與 AEM Dispatcher 搭配使用](dispatcher-ssl.md)
-   + [設定 AEM Dispatcher 以防止 CSRF 攻擊](configuring-dispatcher-to-prevent-csrf.md)
+   + [在多個網域中使用AEM Dispatcher](dispatcher-domains.md)
+   + [透過AEM Dispatcher使用SSL](dispatcher-ssl.md)
+   + [設定AEM Dispatcher以防止CSRF攻擊](configuring-dispatcher-to-prevent-csrf.md)
 + 疑難排解 {#troubleshooting}
-   + [Dispatcher 疑難排解](dispatcher-troubleshooting.md)
+   + [疑難排解Dispatcher問題](dispatcher-troubleshooting.md)
    + [Dispatcher 熱門問題常見問題集](dispatcher-faq.md)
