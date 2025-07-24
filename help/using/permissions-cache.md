@@ -70,7 +70,7 @@ Dispatcher 包含的 AuthChecker 模組會實作權限敏感型快取。在啟�
 >[!NOTE]
 >
 >當 Dispatcher 前面有 CDN (或任何其他快取) 時，您應該據此設定快取標頭，使 CDN 不至於快取私人內容。例如：`Header always set Cache-Control private`。
->>對於 AEM as a Cloud Service，請參閱[快取](https://experienceleague.adobe.com/zh-hant/docs/experience-manager-cloud-service/content/implementing/content-delivery/caching)頁面，了解更多有關如何設定私人快取標頭的詳細資訊。
+>&#x200B;>對於 AEM as a Cloud Service，請參閱[快取](https://experienceleague.adobe.com/zh-hant/docs/experience-manager-cloud-service/content/implementing/content-delivery/caching)頁面，了解更多有關如何設定私人快取標頭的詳細資訊。
 
 ## 建立 Auth Checker servlet {#create-the-auth-checker-servlet}
 
