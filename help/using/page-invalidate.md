@@ -26,7 +26,7 @@ ht-degree: 95%
 
 如需詳細資訊，請參閱AEM安全性檢查清單的[設定復寫及傳輸使用者](https://experienceleague.adobe.com/zh-hant/docs/experience-manager-release-information/aem-release-updates/previous-updates/aem-previous-versions#VerificationSteps)一節。
 
-<!-- OLD URL from above https://helpx.adobe.com/experience-manager/6-3/sites/administering/using/security-checklist.html#VerificationSteps -->
+<!-- OLD URL from above https://helpx.adobe.com/tw/experience-manager/6-3/sites/administering/using/security-checklist.html#VerificationSteps -->
 
 ## 使作者環境中的Dispatcher快取失效 {#invalidating-dispatcher-cache-from-the-authoring-environment}
 
