@@ -1,5 +1,5 @@
 ---
-title: 使AEM中的快取頁面失效
+title: 使 AEM 中的快取頁面失效
 description: 了解如何設定 Dispatcher 與 AEM 之間的互動，以確保有效的快取管理。
 cmgrlastmodified: 01.11.2007 08 22 29 [aheimoz]
 pageversionid: 1193211344162
@@ -10,25 +10,25 @@ topic-tags: dispatcher
 content-type: reference
 exl-id: 90eb6a78-e867-456d-b1cf-f62f49c91851
 source-git-commit: c41b4026a64f9c90318e12de5397eb4c116056d9
-workflow-type: tm+mt
+workflow-type: ht
 source-wordcount: '1407'
-ht-degree: 95%
+ht-degree: 100%
 
 ---
 
-# 使AEM中的快取頁面失效 {#invalidating-cached-pages-from-aem}
+# 使 AEM 中的快取頁面失效 {#invalidating-cached-pages-from-aem}
 
 在搭配 AEM 使用 Dispatcher 時，必須設定互動以確保有效的快取管理。根據您的環境，此設定也可提高效能。
 
-## 設定AEM使用者帳戶 {#setting-up-aem-user-accounts}
+## 設定 AEM 使用者帳戶 {#setting-up-aem-user-accounts}
 
 系統會使用預設 `admin` 使用者帳戶來驗證預設情況下安裝的複寫代理程式。建立專用使用者帳戶以搭配複寫代理程式使用。
 
-如需詳細資訊，請參閱AEM安全性檢查清單的[設定復寫及傳輸使用者](https://experienceleague.adobe.com/zh-hant/docs/experience-manager-release-information/aem-release-updates/previous-updates/aem-previous-versions#VerificationSteps)一節。
+如需詳細資訊，請參閱 AEM 安全性檢查清單的[設定複寫和傳輸使用者](https://experienceleague.adobe.com/zh-hant/docs/experience-manager-release-information/aem-release-updates/previous-updates/aem-previous-versions#VerificationSteps)一節。
 
-<!-- OLD URL from above https://helpx.adobe.com/tw/experience-manager/6-3/sites/administering/using/security-checklist.html#VerificationSteps -->
+<!-- OLD URL from above https://helpx.adobe.com/experience-manager/6-3/sites/administering/using/security-checklist.html#VerificationSteps -->
 
-## 使作者環境中的Dispatcher快取失效 {#invalidating-dispatcher-cache-from-the-authoring-environment}
+## 使製作環境中的 Dispatcher 快取失效 {#invalidating-dispatcher-cache-from-the-authoring-environment}
 
 發佈頁面時，AEM 編寫執行個體上的複寫代理程式會傳送快取失效請求給 Dispatcher。Dispatcher 最終在發佈新內容時會重新整理快取中的檔案。
 
@@ -80,7 +80,7 @@ Last Modified Date: 2017-05-25T10:37:23.679-0400
 
 * 發佈及快取失效會在同一時間發生。根據時間的不同，使用者可能會在頁面從快取中移除之後以及新頁面發佈之前要求該頁面。AEM 現在會傳回舊頁面，而 Dispatcher 會再次快取該頁面。此情況比較是大型網站的問題。
 
-## 使發佈執行個體中的Dispatcher快取失效 {#invalidating-dispatcher-cache-from-a-publishing-instance}
+## 使發布實例中的 Dispatcher 快取失效 {#invalidating-dispatcher-cache-from-a-publishing-instance}
 
 在某些情況下，可以從編寫環境將快取管理轉移到發佈執行個體來獲得效能的提升。然後在收到已發佈的頁面時，會由發佈環境 (而不是 AEM 編寫環境) 傳送快取失效請求給 Dispatcher。
 
@@ -120,7 +120,7 @@ Comment Type: draft
 
 1. `<publishserver> 13:29:47 127.0.0.1 POST /dispatcher/invalidate.cache 200`
 
-## 手動讓Dispatcher快取失效 {#manually-invalidating-the-dispatcher-cache}
+## 手動讓 Dispatcher 快取失效 {#manually-invalidating-the-dispatcher-cache}
 
 若要讓 Dispatcher 快取失效 (或將其清除) 而不啟用頁面，您可以發出 HTTP 請求給 Dispatcher。例如，您可以建立 AEM 應用程式，好讓管理員或其他應用程式可以清除快取。
 
@@ -169,7 +169,7 @@ page_path1
 page_pathn
 ```
 
-立即重新快取的頁面路徑會列在訊息本文中的個別字行上。`CQ-Handle` 的值是讓重新快取的頁面失效的頁面的路徑。（請參閱`/statfileslevel`快取[設定專案的](dispatcher-configuration.md#main-pars_146_44_0010)引數。） 以下範例HTTP請求訊息會刪除並重新聯絡`/content/geometrixx-outdoors/en.html page`：
+立即重新快取的頁面路徑會列在訊息本文中的個別字行上。`CQ-Handle` 的值是讓重新快取的頁面失效的頁面的路徑。(請參閱[快取](dispatcher-configuration.md#main-pars_146_44_0010)設定項目的 `/statfileslevel` 參數。) 以下範例的 HTTP 要求訊息刪除並重新快取 `/content/geometrixx-outdoors/en.html page`：
 
 ```xml
 POST /dispatcher/invalidate.cache HTTP/1.1  

@@ -1,5 +1,5 @@
 ---
-title: Dispatcher安全性檢查清單
+title: Dispatcher 安全性檢查清單
 description: 了解在進入生產階段前應該完成的 Dispatcher 安全性檢查清單。
 contentOwner: User
 products: SG_EXPERIENCEMANAGER/DISPATCHER
@@ -11,13 +11,13 @@ internal: n
 snippet: y
 exl-id: 49009810-b5bf-41fd-b544-19dd0c06b013
 source-git-commit: c41b4026a64f9c90318e12de5397eb4c116056d9
-workflow-type: tm+mt
+workflow-type: ht
 source-wordcount: '582'
-ht-degree: 85%
+ht-degree: 100%
 
 ---
 
-# Dispatcher安全性檢查清單{#the-dispatcher-security-checklist}
+# Dispatcher 安全性檢查清單{#the-dispatcher-security-checklist}
 
 <!-- 
 
@@ -36,7 +36,7 @@ Adobe 建議您在進入生產階段前完成以下檢查清單。
 >
 >在上線之前，完成您的 AEM 版本的安全性檢查清單。 參閱相應的 [Adobe Experience Manager 文件](https://experienceleague.adobe.com/zh-hant/docs/experience-manager-65/content/security/security-checklist)。
 
-## 使用最新版Dispatcher {#use-the-latest-version-of-dispatcher}
+## 使用最新版的 Dispatcher {#use-the-latest-version-of-dispatcher}
 
 安裝您平台適用的最新可用版本。升級 Dispatcher 執行個體來使用最新版，以充分利用產品和安全性增強功能。請參閱[安裝 Dispatcher](dispatcher-install.md)。
 
@@ -48,9 +48,9 @@ Adobe 建議您在進入生產階段前完成以下檢查清單。
 >
 >若要尋找記錄檔，可在 `httpd.conf` 中檢查 Dispatcher 設定。
 
-## 限制可以清除您的快取的使用者端 {#restrict-clients-that-can-flush-your-cache}
+## 限制可以清除您的快取的用戶端 {#restrict-clients-that-can-flush-your-cache}
 
-Adobe 建議您最好[限制可以清除您的快取的用戶端。](dispatcher-configuration.md#limiting-the-clients-that-can-flush-the-cache)
+Adobe 建議[限制可以清除您的快取的用戶端。](dispatcher-configuration.md#limiting-the-clients-that-can-flush-the-cache)
 
 ## 啟用 HTTPS 以提供傳輸層安全性 {#enable-https-for-transport-layer-security}
 
@@ -75,30 +75,30 @@ Last Modified Date: 2015-06-26T04:41:28.841-0400
 
 ## 限制存取 {#restrict-access}
 
-當您設定 Dispatcher 時，要盡可能限制外部存取。 請參閱 Dispatcher 文件中的[範例 /filter 區段](dispatcher-configuration.md#main-pars_184_1_title)。
+當您設定 Dispatcher 時，要盡可能限制外部存取。 請參閱 Dispatcher 文件中的[範例/篩選器區段](dispatcher-configuration.md#main-pars_184_1_title)。
 
-## 確定對管理URL的存取權已被拒絕 {#make-sure-access-to-administrative-urls-is-denied}
+## 務必拒絕對管理 URL 的存取 {#make-sure-access-to-administrative-urls-is-denied}
 
-務必使用篩選條件來封鎖對任何管理 URL (例如網頁主控台) 的外部存取。
+務必使用篩選器來封鎖外部對任何管理 URL (例如網頁控制台) 的存取。
 
 如需必須封鎖的 URL 清單，可參閱[測試 Dispatcher 安全性](dispatcher-configuration.md#testing-dispatcher-security)。
 
 ## 使用允許清單而非封鎖清單 {#use-allowlists-instead-of-blocklists}
 
-允許清單是提供存取控制的較佳方式，因為其原本就會假定所有存取請求都應該被拒絕，除非這些請求被明確列為允許清單的一部分。 此模型對可能尚未審查或在特定設定階段被考量的新請求提供較嚴格的控管。
+允許清單是提供存取控制的更好方法，因為其原本即假設應拒絕所有存取請求，除非這些請求明確列入允許清單中。此模型對可能尚未審查或在特定設定階段被考量的新請求提供較嚴格的控管。
 
-## 以專屬的系統使用者執行Dispatcher {#run-dispatcher-with-a-dedicated-system-user}
+## 透過專用系統使用者執行 Dispatcher {#run-dispatcher-with-a-dedicated-system-user}
 
-設定Dispatcher ，讓具有最低許可權的專用使用者帳戶執行網頁伺服器。 Adobe建議您只授與Dispatcher快取資料夾的寫入許可權。
+設定 Dispatcher，以便專用的、最低權限的使用者帳戶執行網頁伺服器。Adobe 建議您僅對 Dispatcher 快取資料夾授予寫入權限。
 
 此外，IIS 使用者必須依下面來設定他們的網站：
 
 1. 在您網站的實體路徑設定中，請選取&#x200B;**以特定使用者身分連線**。
 1. 設定使用者。
 
-## 避免阻斷服務(DoS)攻擊 {#prevent-denial-of-service-dos-attacks}
+## 避免阻斷服務 (DoS) 攻擊 {#prevent-denial-of-service-dos-attacks}
 
-阻斷服務 (DoS) 攻擊指的是嘗試讓電腦資源無法提供給其目標使用者使用。
+阻斷服務 (DoS) 攻擊是指試圖讓電腦資源無法提供給其目標使用者使用。
 
 在 Dispatcher 層級，有兩個設定方法可避免 DoS 攻擊：[篩選器](https://experienceleague.adobe.com/zh-hant/docs#/filter)。
 
@@ -146,9 +146,9 @@ Last Modified Date: 2015-06-26T04:38:17.016-0400
 
  -->
 
-## 設定Dispatcher以防止CSRF攻擊 {#configure-dispatcher-to-prevent-csrf-attacks}
+## 設定 Dispatcher 以避免 CSRF 攻擊 {#configure-dispatcher-to-prevent-csrf-attacks}
 
-AEM 提供了旨在避免跨網站請求偽造攻擊的[架構](https://experienceleague.adobe.com/zh-hant/docs/experience-manager-release-information/aem-release-updates/previous-updates/aem-previous-versions#verification-steps)。 若要正確使用此架構，請透過執行下列操作，在 Dispatcher 中將 CSRF 權杖支援加入允許清單：
+AEM 提供旨在避免跨網站請求偽造攻擊的[框架](https://experienceleague.adobe.com/zh-hant/docs/experience-manager-release-information/aem-release-updates/previous-updates/aem-previous-versions#verification-steps)。若要正確使用此架構，請透過執行下列操作，在 Dispatcher 中將 CSRF 權杖支援加入允許清單：
 
 1. 建立篩選條件以允許 `/libs/granite/csrf/token.json` 路徑；
 1. 將 `CSRF-Token` 標頭新增到 Dispatcher 設定的 `clientheaders` 區段。

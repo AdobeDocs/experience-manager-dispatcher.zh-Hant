@@ -1,23 +1,23 @@
 ---
-title: 針對快取效能最佳化網站
-description: 了解如何設計網站，好讓快取的優點最大化。
+title: 將網站快取效能最佳化
+description: 了解如何設計網站才能完全發揮快取的優點。
 contentOwner: User
 products: SG_EXPERIENCEMANAGER/DISPATCHER
 topic-tags: dispatcher
 content-type: reference
-redirecttarget: https://helpx.adobe.com/tw/experience-manager/6-4/sites/deploying/using/configuring-performance.html
+redirecttarget: https://helpx.adobe.com/experience-manager/6-4/sites/deploying/using/configuring-performance.html
 index: y
 internal: n
 snippet: y
 source-git-commit: c41b4026a64f9c90318e12de5397eb4c116056d9
-workflow-type: tm+mt
+workflow-type: ht
 source-wordcount: '1128'
-ht-degree: 96%
+ht-degree: 100%
 
 ---
 
 
-# 最佳化網站以提升快取效能 {#optimizing-a-website-for-cache-performance}
+# 將網站快取效能最佳化 {#optimizing-a-website-for-cache-performance}
 
 <!-- 
 
@@ -55,7 +55,7 @@ Dispatcher 提供許多可用來將效能最佳化的內建機制。本節將說
         <META http-equiv="Content-Type" content="text/html; charset=EUC-JP">
 ```
 
-## 避免URL引數 {#avoid-url-parameters}
+## 避免 URL 參數 {#avoid-url-parameters}
 
 可能的話，請避免針對您想要快取的頁面使用 URL 參數。例如，如果您有圖片庫，則絕對不會快取以下 URL (除非 Dispatcher [已適當地設定](dispatcher-configuration.md#main-pars_title_24))：
 
@@ -95,7 +95,7 @@ www.myCompany.com/news/main.large.html
 >
 >使用範本定義的指令碼萬用字元時，您可以指定轉譯列印頁面的個別指令碼。
 
-## 讓用作標題的影像檔案失效 {#invalidating-image-files-used-as-titles}
+## 使用作標題的影像檔案失效 {#invalidating-image-files-used-as-titles}
 
 如果您將頁面標題或其他文字轉譯為圖片，可儲存檔案以便在頁面內容更新時將其刪除：
 
@@ -139,13 +139,13 @@ Dispatcher 無法快取個人化資料，所以建議您將個人化限制在必
 >* 使用用戶端 JavaScript 來顯示個人化資訊。不過，您必須確保當使用者關閉 JavaScript 時，該頁面還是會正常顯示。
 >
 
-## 粘性連線 {#sticky-connections}
+## 黏性連線 {#sticky-connections}
 
 [黏性連線](dispatcher.md#TheBenefitsofLoadBalancing)可確保同一個使用者的文件都會在相同伺服器上編寫。如果使用者離開此資料夾並於稍後返回，連線仍然保持不變。定義一個資料夾，以便保存所有需要網站的黏性連線的文件。試著不要將其他文件放在該資料夾中。如果您使用個人化頁面和工作階段資料，這樣做會影響負載平衡。
 
-## MIME型別 {#mime-types}
+## MIME 類型 {#mime-types}
 
-瀏覽器可使用兩種方式來判斷檔案的類型：
+瀏覽器可透過兩種方式來判斷檔案類型：
 
 1. 按副檔名 (例如，.html、.gif 和 .jpg)
 1. 透過伺服器隨著檔案一起傳送的 MIME 類型。

@@ -1,15 +1,15 @@
 ---
 title: 快取安全內容
-description: 了解權限敏感型快取如何在 Dispatcher 中運作。
+description: 了解 Dispatcher 如何進行權限敏感型快取。
 contentOwner: User
 products: SG_EXPERIENCEMANAGER/DISPATCHER
 topic-tags: dispatcher
 content-type: reference
 exl-id: 3d8d8204-7e0d-44ad-b41b-6fec2689c6a6
 source-git-commit: c41b4026a64f9c90318e12de5397eb4c116056d9
-workflow-type: tm+mt
+workflow-type: ht
 source-wordcount: '923'
-ht-degree: 97%
+ht-degree: 100%
 
 ---
 
@@ -56,7 +56,7 @@ Dispatcher 包含的 AuthChecker 模組會實作權限敏感型快取。在啟�
 1. 轉譯器呼叫 AEM 授權程式 servlet (此 servlet 不是 Dispatcher AuthChcker servlet) 來執行安全性檢查。當使用者獲得授權時，轉譯器會將轉譯的頁面納入回應訊息的內文中。
 1. Dispatcher 將回應轉送給瀏覽器。Dispatcher 將轉譯器的回應訊息內文新增到快取中。
 
-## 實作許可權敏感型快取 {#implementing-permission-sensitive-caching}
+## 實施權限敏感型快取 {#implementing-permission-sensitive-caching}
 
 若要實作權限敏感型快取，請執行以下工作：
 
@@ -70,7 +70,7 @@ Dispatcher 包含的 AuthChecker 模組會實作權限敏感型快取。在啟�
 >[!NOTE]
 >
 >當 Dispatcher 前面有 CDN (或任何其他快取) 時，您應該據此設定快取標頭，使 CDN 不至於快取私人內容。例如：`Header always set Cache-Control private`。
->&#x200B;>對於 AEM as a Cloud Service，請參閱[快取](https://experienceleague.adobe.com/zh-hant/docs/experience-manager-cloud-service/content/implementing/content-delivery/caching)頁面，了解更多有關如何設定私人快取標頭的詳細資訊。
+>>對於 AEM as a Cloud Service，請參閱[快取](https://experienceleague.adobe.com/zh-hant/docs/experience-manager-cloud-service/content/implementing/content-delivery/caching)頁面，了解更多有關如何設定私人快取標頭的詳細資訊。
 
 ## 建立 Auth Checker servlet {#create-the-auth-checker-servlet}
 
@@ -92,7 +92,7 @@ servlet 回應訊息必須包含以下 HTTP 狀態代碼：
 
 >[!NOTE]
 >
->必須在`Sling` Servlet Resolver (org.apache.sling.servlets.resolver.SlingServletResolver)服務中啟用sling.servlet.paths屬性的值。
+>在 `Sling` Servlet Resolver (org.apache.sling.servlets.resolver.SlingServletResolver) 服務中必須啟用 sling.servlet.paths 屬性的值。
 
 ### 範例 servlet {#example-servlet}
 

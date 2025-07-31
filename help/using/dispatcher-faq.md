@@ -3,9 +3,9 @@ title: Dispatcher 熱門問題
 description: Adobe Experience Manager Dispatcher 熱門問題。
 exl-id: 4dcc7318-aba5-4b17-8cf4-190ffefbba75
 source-git-commit: c41b4026a64f9c90318e12de5397eb4c116056d9
-workflow-type: tm+mt
+workflow-type: ht
 source-wordcount: '1538'
-ht-degree: 99%
+ht-degree: 100%
 
 ---
 
@@ -117,9 +117,9 @@ Geometrixx Outdoors 目錄中名為 en 的所有檔案 (副檔名不限)。en �
 
 ### Dispatcher 問題：`jcr:content` 已變成 `jcr%3acontent`
 
-**問**：企業最近在 Dispatcher 層級遇到了問題。從 CQ 存放庫獲取一些資料的 AJAX 呼叫之一包含 `jcr:content`。這被編碼至 `jcr%3acontent` 而導致錯誤的結果集。
+**問**：企業最近在 Dispatcher 層級遇到了問題。從 CQ 存放庫獲取一些資料的 AJAX 呼叫之一包含 `jcr:content`。而那個被編碼至 `jcr%3acontent` 並導致錯誤的結果集。
 
-**回答**：呼叫`ResourceResolver.map()`以產生GET要求的易記URL並解決Dispatcher快取問題。 map() 方法將 `:` 冒號編碼為下劃線，而 resolve() 方法將它們重新解碼為 SLING JCR 可讀格式。使用 map() 方法產生在 Ajax 呼叫中使用的 URL。
+**答案**：呼叫 `ResourceResolver.map()` 以產生易記的 GET 要求 URL，並解決 Dispatcher 快取問題。map() 方法將 `:` 冒號編碼為下劃線，而 resolve() 方法將它們重新解碼為 SLING JCR 可讀格式。使用 map() 方法產生在 Ajax 呼叫中使用的 URL。
 
 延伸閱讀：[https://sling.apache.org/documentation/the-sling-engine/mappings-for-resource-resolution.html#namespace-mangling](https://sling.apache.org/documentation/the-sling-engine/mappings-for-resource-resolution.html#namespace-mangling)
 

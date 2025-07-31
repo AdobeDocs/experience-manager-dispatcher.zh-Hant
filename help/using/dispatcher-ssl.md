@@ -1,6 +1,6 @@
 ---
-title: 透過Dispatcher使用SSL
-description: 了解如何設定 Dispatcher 以便使用 SSL 連線與 AEM 通訊。
+title: 搭配 Dispatcher 使用 SSL
+description: 了解如何設定 Dispatcher，以便使用 SSL 連線與 AEM 通訊。
 contentOwner: User
 products: SG_EXPERIENCEMANAGER/DISPATCHER
 topic-tags: dispatcher
@@ -10,13 +10,13 @@ internal: n
 snippet: y
 exl-id: ec378409-ddb7-4917-981d-dbf2198aca98
 source-git-commit: c41b4026a64f9c90318e12de5397eb4c116056d9
-workflow-type: tm+mt
+workflow-type: ht
 source-wordcount: '1305'
-ht-degree: 91%
+ht-degree: 100%
 
 ---
 
-# 透過Dispatcher使用SSL {#using-ssl-with-dispatcher}
+# 搭配 Dispatcher 使用 SSL {#using-ssl-with-dispatcher}
 
 在 Dispatcher 與轉譯器電腦之間使用 SSL 連線：
 
@@ -27,16 +27,16 @@ ht-degree: 91%
 >
 >與 SSL 憑證有關的作業會與協力廠商產品綁定。Adobe 白金級維護和支援合約中不涵蓋這些作業。
 
-## Dispatcher連線至AEM時使用SSL {#use-ssl-when-dispatcher-connects-to-aem}
+## 在 Dispatcher 連線至 AEM 時使用 SSL {#use-ssl-when-dispatcher-connects-to-aem}
 
-設定 Dispatcher 以便使用 SSL 連線與 AEM 或 CQ 轉譯器執行個體通訊。
+設定 Dispatcher 以便使用 SSL 連線與 AEM 或 CQ 轉譯實例通訊。
 
 在設定 Dispatcher 之前，請設定 AEM 或 CQ 使用 SSL。如需進一步詳細資訊，請參閱：
 
 * [預設使用 SSL/TLS](https://experienceleague.adobe.com/zh-hant/docs/experience-manager-65/content/security/ssl-by-default)
 * [在 AEM 中使用 SSL 精靈](https://experienceleague.adobe.com/zh-hant/docs/experience-manager-learn/foundation/security/use-the-ssl-wizard)
 
-### SSL相關的請求標頭 {#ssl-related-request-headers}
+### 與 SSL 相關的請求標頭 {#ssl-related-request-headers}
 
 當 Dispatcher 收到 HTTPS 請求時，Dispatcher 會在其傳送給 AEM 或 CQ 的後續請求中包含以下標頭：
 
@@ -45,7 +45,7 @@ ht-degree: 91%
 * `X-Forwarded-SSL-Keysize`
 * `X-Forwarded-SSL-Session-ID`
 
-透過帶有 `mod_ssl` 的 Apache-2.4 發送的請求包含與以下範例類似的標頭：
+透過 Apache-2.4 並使用 `mod_ssl` 處理的請求包括與以下範例類似的標頭：
 
 ```shell
 X-Forwarded-SSL: on
@@ -53,7 +53,7 @@ X-Forwarded-SSL-Cipher: DHE-RSA-AES256-SHA
 X-Forwarded-SSL-Session-ID: 814825E8CD055B4C166C2EF6D75E1D0FE786FFB29DEB6DE1E239D5C771CB5B4D
 ```
 
-### 設定Dispatcher使用SSL {#configuring-dispatcher-to-use-ssl}
+### 設定 Dispatcher 以使用 SSL {#configuring-dispatcher-to-use-ssl}
 
 若要設定 Dispatcher 來透過 SSL 與 AEM 或 CQ 連線，您的 [dispatcher.any](dispatcher-configuration.md) 檔案需要以下屬性：
 
@@ -111,7 +111,7 @@ X-Forwarded-SSL-Session-ID: 814825E8CD055B4C166C2EF6D75E1D0FE786FFB29DEB6DE1E239
 }
 ```
 
-## 設定Dispatcher與AEM之間的雙向SSL {#configuring-mutual-ssl-between-dispatcher-and-aem}
+## 設定 Dispatcher 與 AEM 之間的雙向 SSL {#configuring-mutual-ssl-between-dispatcher-and-aem}
 
 若要使用雙向 SSL，請設定 Dispatcher 與轉譯器電腦之間的連線 (通常是 AEM 或 CQ 發佈執行個體)：
 
@@ -131,15 +131,15 @@ X-Forwarded-SSL-Session-ID: 814825E8CD055B4C166C2EF6D75E1D0FE786FFB29DEB6DE1E239
 1. [安裝](dispatcher-install.md)您的平台適用的最新版 Dispatcher。使用支援 SSL 的 Dispatcher 二進位檔案 (SSL 位於檔案名稱中，例如 `dispatcher-apache2.4-linux-x86-64-ssl10-4.1.7.tar`)。
 1. [建立或取得 CA 簽署的憑證](dispatcher-ssl.md#main-pars-title-3)，該憑證適用於 Dispatcher 和轉譯器執行個體。
 1. [建立包含轉譯器憑證的金鑰儲存區](dispatcher-ssl.md#main-pars-title-6)並設定轉譯器的 HTTP 服務。
-1. [設定 Dispatcher 網頁伺服器模組](dispatcher-ssl.md#main-pars-title-4)以供雙向 SSL 使用。
+1. [設定 Dispatcher 網頁伺服器模組](dispatcher-ssl.md#main-pars-title-4)以進行雙向 SSL 連線。
 
-### 建立或取得CA簽署的憑證 {#creating-or-obtaining-ca-signed-certificates}
+### 建立或取得 CA 簽署的憑證 {#creating-or-obtaining-ca-signed-certificates}
 
-建立或取得 CA 簽署的憑證，該憑證用來驗證發佈執行個體和 Dispatcher。
+建立或取得 CA 簽署的憑證，可用於驗證發布實例和 Dispatcher。
 
-#### 建立您的CA {#creating-your-ca}
+#### 建立您的 CA {#creating-your-ca}
 
-如果您充當 CA，請使用 [OpenSSL](https://www.openssl.org/) 建立可簽署伺服器和用戶端憑證的憑證授權單位。（您必須已安裝OpenSSL程式庫。） 如果您使用第三方CA，請勿執行此程式。
+如果您的角色是 CA，請使用 [OpenSSL](https://www.openssl.org/) 建立可簽署伺服器和用戶端憑證的憑證授權單位。(您必須已安裝 OpenSSL 程式庫。) 如果您使用第三方 CA，請不要執行此程序。
 
 1. 開啟終端機，並將目前目錄切換到包含 `CA.sh` 檔案的目錄，例如 `/usr/local/ssl/misc`。
 1. 若要建立 CA，請輸入以下命令，然後在收到提示時提供值：
@@ -179,11 +179,11 @@ X-Forwarded-SSL-Session-ID: 814825E8CD055B4C166C2EF6D75E1D0FE786FFB29DEB6DE1E239
 1. 重複步驟 2 和 3，為 Dispatcher 模組建立憑證和公開金鑰。務必使用 Dispatcher 執行個體專屬的一般名稱。
 1. 將 `newcert.pem` 重新命名為 `dispcert.pem`，並將 `newkey.pem` 重新命名為 `dispkey.pem`。
 
-### 在轉譯器電腦上設定SSL {#configuring-ssl-on-the-render-computer}
+### 在轉譯器電腦上設定 SSL {#configuring-ssl-on-the-render-computer}
 
-在轉譯器執行個體上使用 `rendercert.pem` 和 `renderkey.pem` 檔案設定 SSL。
+在轉譯實例上使用 `rendercert.pem` 和 `renderkey.pem` 檔案設定 SSL。
 
-#### 將轉譯器憑證轉換為JKS (Java™ KeyStore)格式 {#converting-the-render-certificate-to-jks-format}
+#### 將轉譯器憑證轉換為 JKS (Java™ KeyStore) 格式 {#converting-the-render-certificate-to-jks-format}
 
 使用以下命令，將轉譯器憑證 (亦即 PEM 檔案) 轉換為 PKCS#12 檔案。也請包含簽署了轉譯器憑證的 CA 的憑證：
 
@@ -206,7 +206,7 @@ X-Forwarded-SSL-Session-ID: 814825E8CD055B4C166C2EF6D75E1D0FE786FFB29DEB6DE1E239
    keytool -changealias -alias 1 -destalias jettyhttp -keystore render.keystore
    ```
 
-#### 將CA憑證新增到轉譯器的信任存放區 {#adding-the-ca-cert-to-the-render-s-truststore}
+#### 將 CA 憑證新增至轉譯器的信任存放區 {#adding-the-ca-cert-to-the-render-s-truststore}
 
 如果您充當 CA，請將您的 CA 憑證匯入金鑰儲存區。然後，將執行轉譯器執行個體的 JVM 設定為信任該金鑰儲存區。
 
@@ -244,7 +244,7 @@ Last Modified Date: 2014-08-12T13:11:21.401-0400
    CQ_JVM_OPTS='-server -Xmx2048m -XX:MaxPermSize=512M -Djavax.net.ssl.trustStore=/usr/lib/cq6.0/publish/ssl/cacerts.keystore'
    ```
 
-#### 設定轉譯器執行個體 {#configuring-the-render-instance}
+#### 設定轉譯實例 {#configuring-the-render-instance}
 
 若要設定轉譯器執行個體的 HTTP 服務為使用 SSL，請依照 *`Enable SSL on the Publish Instance`* 區段中的說明示來使用轉譯器憑證：
 
@@ -252,11 +252,11 @@ Last Modified Date: 2014-08-12T13:11:21.401-0400
 * AEM 6.1：[啟用透過 SSL 的 HTTP](https://experienceleague.adobe.com/zh-hant/docs/experience-manager-release-information/aem-release-updates/previous-updates/aem-previous-versions)
 * AEM 舊版：請參閱[此頁面。](https://experienceleague.adobe.com/zh-hant/docs/experience-manager-release-information/aem-release-updates/previous-updates/aem-previous-versions)
 
-### 為Dispatcher模組設定SSL {#configuring-ssl-for-the-dispatcher-module}
+### 設定 Dispatcher 模組的 SSL {#configuring-ssl-for-the-dispatcher-module}
 
 若要設定 Dispatcher 使用雙向 SSL，請準備 Dispatcher 憑證，然後設定網頁伺服器模組。
 
-### 建立統一的Dispatcher憑證 {#creating-a-unified-dispatcher-certificate}
+### 建立統一的 Dispatcher 憑證 {#creating-a-unified-dispatcher-certificate}
 
 將 Dispatcher 憑證和未加密的私密金鑰合併到單一 PEM 檔案中。使用文字編輯器或 `cat` 命令建立類似於以下範例的檔案：
 
@@ -280,7 +280,7 @@ Last Modified Date: 2014-08-12T13:11:21.401-0400
    -----END CERTIFICATE-----
    ```
 
-### 指定要用於Dispatcher的憑證 {#specifying-the-certificate-to-use-for-dispatcher}
+### 指定要用於 Dispatcher 的憑證 {#specifying-the-certificate-to-use-for-dispatcher}
 
 將以下屬性新增到 [Dispatcher 模組設定](dispatcher-install.md#main-pars-55-35-1022) (在 `httpd.conf` 中)：
 

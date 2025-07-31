@@ -1,19 +1,19 @@
 ---
-title: 安裝Dispatcher
-description: 了解如何在 Microsoft&reg; Internet Information Server、Apache Web Server 和 Sun Java&trade; Web Server-iPlanet 上安裝 Dispatcher 模組。
+title: 安裝 Dispatcher
+description: 了解如何在 Microsoft&reg; Internet Information Server、Apache Web Server 以及 Sun Java&trade; Web Server-iPlanet 上安裝 Dispatcher 模組。
 contentOwner: User
 converted: true
 topic-tags: dispatcher
 content-type: reference
 exl-id: 9375d1c0-8d9e-46cb-9810-fa4162a8c1ba
 source-git-commit: c41b4026a64f9c90318e12de5397eb4c116056d9
-workflow-type: tm+mt
+workflow-type: ht
 source-wordcount: '3720'
-ht-degree: 94%
+ht-degree: 100%
 
 ---
 
-# 安裝Dispatcher {#installing-dispatcher}
+# 安裝 Dispatcher {#installing-dispatcher}
 
 <!-- 
 
@@ -93,7 +93,7 @@ Comment Type: draft
 * Microsoft® 自己的 Internet Information Server 相關文件
 * [「Microsoft® IIS 官方網站」](https://www.iis.net/)
 
-### 必要的IIS元件 {#required-iis-components}
+### 必要 IIS 元件 {#required-iis-components}
 
 IIS 版本 8.5 和 10 需要安裝以下 IIS 元件：
 
@@ -130,7 +130,7 @@ ZIP 檔案包含以下檔案：
       * 編寫執行個體：`author_dispatcher.any`
       * 發佈執行個體：`dispatcher.any`
 
-## Microsoft® IIS — 設定Dispatcher INI檔案 {#microsoft-iis-configure-the-dispatcher-ini-file}
+## Microsoft® IIS - 設定 Dispatcher INI 檔案 {#microsoft-iis-configure-the-dispatcher-ini-file}
 
 若要設定 Dispatcher 的安裝，請編輯 `disp_iis.ini` 檔案。`.ini` 檔案的基本格式如下：
 
@@ -150,7 +150,7 @@ replaceauthorization=0|1
 | `logfile` | `dispatcher.log` 檔案的位置。如果未設定此位置，則記錄訊息會記錄到 Windows 事件記錄檔。 |
 | `loglevel` | 定義用來將訊息輸出到事件記錄檔的記錄層級。可以在記錄檔案的記錄層級指定下列值：<br/>0 - 僅限錯誤訊息。<br/>1 - 錯誤和警告。<br/>2 - 錯誤、警告和資訊訊息 <br/>3 - 錯誤、警告、資訊訊息和偵錯訊息。<br/>**注意**：在安裝和測試期間將記錄層級設為 3，然後在生產環境執行時則設為 0。 |
 | `replaceauthorization` | 指定如何處理 HTTP 請求中的授權標頭。以下是有效的值：<br/>0 - 不修改 Authorization 標頭。<br/>1 - 將任何名為「Authorization」的標頭 (「Basic」除外) 替換為其 `Basic <IIS:LOGON\_USER>` 同等標頭。<br/> |
-| `servervariables` | 定義如何處理伺服器變數。<br/>0 - IIS 伺服器變數既不會傳送給 Dispatcher 也不會傳送給 AEM。<br/>1 — 所有IIS伺服器變數（例如`LOGON\_USER, QUERY\_STRING, ...`）都會傳送至Dispatcher，連同要求的標頭一起傳送(如果未快取也會傳送至AEM執行個體)。  <br/>伺服器變數包括 `AUTH\_USER, LOGON\_USER, HTTPS\_KEYSIZE` 和其他許多變數。請參閱 IIS 文件以取得完整變數清單，連同詳細資料。 |
+| `servervariables` | 定義如何處理伺服器變數。<br/>0 - IIS 伺服器變數既不會傳送給 Dispatcher 也不會傳送給 AEM。<br/>1 - 所有 IIS 伺服器變數 (例如 `LOGON\_USER, QUERY\_STRING, ...`) 皆會傳送至 Dispatcher，連同請求的標頭一起傳送 (如果未快取的話，也會傳送至 AEM 實例)。<br/>伺服器變數包括 `AUTH\_USER, LOGON\_USER, HTTPS\_KEYSIZE` 和其他許多變數。請參閱 IIS 文件以取得完整變數清單，連同詳細資料。 |
 | `enable_chunked_transfer` | 定義是要啟用 (1) 還是停用 (0) 用戶端回應的區塊傳輸。預設值為 0。 |
 
 設定範例：
@@ -163,21 +163,21 @@ servervariables=1
 replaceauthorization=0
 ```
 
-### 設定Microsoft® IIS {#configuring-microsoft-iis}
+### 設定 Microsoft® IIS {#configuring-microsoft-iis}
 
 設定 IIS 以整合 Dispatcher ISAPI 模組。在 IIS 中，您會使用萬用字元應用程式對應。
 
-### 設定匿名存取 — IIS 8.5和10 {#configuring-anonymous-access-iis-and}
+### 設定匿名存取權 - IIS 8.5 和 10 {#configuring-anonymous-access-iis-and}
 
-作者執行個體上的預設`Flush`復寫代理程式已設定為不隨排清要求傳送安全性認證。 因此，您使用Dispatcher快取的網站必須允許匿名存取。
+作者實例上的預設 `Flush` 複寫代理程式已設定為不隨著清除請求傳送安全性認證。因此，您要使用 Dispatcher 快取的網站必須允許匿名存取。
 
-如果您的網站使用驗證方法，則必須適當地設定`Flush`復寫代理程式。
+如果您的網站使用驗證方法，則必須正確地設定 `Flush` 複寫代理程式。
 
 1. 開啟 IIS 管理員，然後選取您要用作 Dispatcher 快取的網站。
 1. 使用「功能檢視」模式，在 IIS 區段中按兩下「驗證」。
 1. 如果未啟用「匿名驗證」，請選取「匿名驗證」，然後在「動作」區域中按一下「啟用」。
 
-### 整合Dispatcher ISAPI模組 — IIS 8.5和10 {#integrating-the-dispatcher-isapi-module-iis-and}
+### 整合 Dispatcher ISAPI 模組 - IIS 8.5 和 10 {#integrating-the-dispatcher-isapi-module-iis-and}
 
 使用以下程序，將 Dispatcher ISAPI 模組新增到 IIS。
 
@@ -199,7 +199,7 @@ replaceauthorization=0
 1. (IIS 8.0) 若要確保處理常式是用於尚未快取的檔案和資料夾，請取消選取「**只有當要求對應到下列項目時才啟動處理常式**」。按一下&#x200B;**「確定」**。
 1. (IIS 8.0) 在「編輯指令碼對應」對話框中，按一下「確定」。
 
-### 設定對快取的存取 — IIS 8.5和10 {#configuring-access-to-the-cache-iis-and}
+### 設定對快取的存取權 - IIS 8.5 和 10 {#configuring-access-to-the-cache-iis-and}
 
 為預設應用程式集區使用者提供用作 Dispatcher 快取的資料夾的寫入權限。
 
@@ -215,9 +215,9 @@ replaceauthorization=0
    `IIS AppPool\DefaultAppPool`
 
 1. 按一下「檢查名稱」按鈕。當 Windows 解析使用者帳戶時，按一下「確定」。
-1. 在 Dispatcher 資料夾的「權限」對話框中，選取您剛才新增的帳戶，並為該帳戶啟用&#x200B;**完全控制以外**&#x200B;的所有權限，然後按一下「確定」。按一下「確定」，即可關閉該資料夾的「內容」對話框。
+1. 在 Dispatcher 資料夾的「權限」對話框中，選取您剛才新增的帳戶，並為該帳戶啟用&#x200B;**完全控制以外**&#x200B;的所有權限，然後按一下「確定」。按一下「確定」，即可關閉此資料夾的「屬性」對話框。
 
-### 註冊JSON mime型別 — IIS 8.5和10 {#registering-the-json-mime-type-iis-and}
+### 登錄 JSON MIME 類型 - IIS 8.5 和 10 {#registering-the-json-mime-type-iis-and}
 
 當您希望 Dispatcher 允許 JSON 呼叫時，請使用以下程序來登錄 JSON MIME 類型。
 
@@ -227,14 +227,14 @@ replaceauthorization=0
    * 副檔名：`.json`
    * MIME 類型：`application/json`
 
-### 移除bin隱藏區段 — IIS 8.5和10 {#removing-the-bin-hidden-segment-iis-and}
+### 移除 bin 隱藏區段 - IIS 8.5 和 10 {#removing-the-bin-hidden-segment-iis-and}
 
 使用以下程序可移除 `bin` 隱藏區段。不是新的網站可以包含此隱藏區段。
 
 1. 在 IIS 管理員中，選取您的網站，並在「功能檢視」模式中按兩下「要求篩選」。
 1. 選取 `bin` 區段，並按一下「移除」，然後在確認對話框中按一下「是」。
 
-### 將IIS訊息記錄到檔案 — IIS 8.5和10 {#logging-iis-messages-to-a-file-iis-and}
+### 將 IIS 訊息記錄到檔案中 - IIS 8.5 和 10 {#logging-iis-messages-to-a-file-iis-and}
 
 使用以下程序，將 Dispatcher 記錄訊息寫入記錄檔，而不是 Windows 事件記錄檔。設定 Dispatcher 使用記錄檔，並為 IIS 提供該檔案的寫入權限。
 
@@ -274,9 +274,9 @@ replaceauthorization=0
 >
 >這裡有涵蓋 **Windows** 和 **UNIX®** 底下的安裝指示。在執行步驟時務必謹慎。
 
-### 安裝Apache Web Server {#installing-apache-web-server}
+### 安裝 Apache Web Server {#installing-apache-web-server}
 
-如需如何安裝 Apache Web Server 的相關資訊，請閱讀安裝手冊：[線上](https://httpd.apache.org/)版或散發版。
+如需如何安裝 Apache Web Server 的相關資訊，請透過[線上](https://httpd.apache.org/)或發行版本閱讀安裝手冊。
 
 >[!CAUTION]
 >
@@ -286,7 +286,7 @@ replaceauthorization=0
 
 也請參閱 Apache HTTP Server [安全性提示](https://httpd.apache.org/docs/2.4/misc/security_tips.html)和[安全性報告](https://httpd.apache.org/security_report.html)。
 
-### Apache Web Server — 新增Dispatcher模組 {#apache-web-server-add-the-dispatcher-module}
+### Apache Web Server - 新增 Dispatcher 模組 {#apache-web-server-add-the-dispatcher-module}
 
 Dispatcher 會以下列形式提供：
 
@@ -319,9 +319,9 @@ Dispatcher 會以下列形式提供：
 
    **注意：**&#x200B;只要已適當設定 Dispatcher 模組的 DispatcherLog 屬性，就可以將這個檔案放在其他位置。(請參閱底下的「Dispatcher 專屬設定項目」。)
 
-### Apache Web Server — 設定SELinux屬性 {#apache-web-server-configure-selinux-properties}
+### Apache Web Server - 設定 SELinux 屬性 {#apache-web-server-configure-selinux-properties}
 
-如果您正在啟用了 SELinux 的 Red Hat® Linux® Kernel 2.6 上執行 Dispatcher，您可能會在 Dispatcher 記錄檔中看到與此類似的錯誤訊息。
+如果您在啟用 SELinux 的 Red Hat® Linux® Kernel 2.6 上執行 Dispatcher，您可能會在 Dispatcher 記錄檔中看到與此類似的錯誤訊息。
 
 `Mon Jun 30 00:03:59 2013] [E] [16561(139642697451488)] Unable to connect to backend rend01 (10.122.213.248:4502): Permission denied`
 
@@ -531,7 +531,7 @@ AllowOverride None
 ...
 ```
 
-### 啟用對HTTPS (UNIX®和Linux®)的支援 {#enable-support-for-https-unix-and-linux}
+### 啟用對 HTTPS 的支援 (UNIX® 和 Linux®) {#enable-support-for-https-unix-and-linux}
 
 Dispatcher 會使用 OpenSSL 來實作透過 HTTP 的安全通訊。從 Dispatcher 版本 **4.2.0** 開始，就有支援 OpenSSL 1.0.0 和 OpenSSL 1.0.1。Dispatcher 預設會使用 OpenSSL 1.0.0。若要使用 OpenSSL 1.0.1，請使用以下程序來建立符號連結，好讓 Dispatcher 使用安裝的 OpenSSL 程式庫。
 
@@ -550,7 +550,7 @@ Dispatcher 會使用 OpenSSL 來實作透過 HTTP 的安全通訊。從 Dispatch
 
 >[!NOTE]
 >
->如果您使用自訂版的Apache，請務必使用相同版本的OpenSSL編譯Apache和Dispatcher。<!-- URL has connection error [OpenSSL] (https://www.openssl.org/source/). -->
+>如果您使用自訂版的 Apache，請務必使用相同版本的 OpenSSL 來編譯 Apache 和 Dispatcher。<!-- URL has connection error [OpenSSL] (https://www.openssl.org/source/). -->
 
 ### 後續步驟 {#next-steps-1}
 
@@ -574,7 +574,7 @@ Dispatcher 會使用 OpenSSL 來實作透過 HTTP 的安全通訊。從 Dispatch
 * Sun Java™ System Web Server
 * iPlanet Web Server
 
-### Sun Java™ System Web Server / iPlanet — 新增Dispatcher模組 {#sun-java-system-web-server-iplanet-add-the-dispatcher-module}
+### Sun Java™ System Web Server / iPlanet - 新增 Dispatcher 模組 {#sun-java-system-web-server-iplanet-add-the-dispatcher-module}
 
 Dispatcher 會以下列形式提供：
 

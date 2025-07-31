@@ -1,6 +1,6 @@
 ---
-title: 疑難排解Dispatcher問題
-description: 瞭解Dispatcher問題的疑難解答。
+title: Dispatcher 問題疑難排解
+description: 了解如何針對 Dispatcher 問題進行疑難排解。
 cmgrlastmodified: 01.11.2007 08 22 29 [aheimoz]
 pageversionid: 1193211344162
 template: /apps/docs/templates/contentpage
@@ -10,13 +10,13 @@ topic-tags: dispatcher
 content-type: reference
 exl-id: 29f338ab-5d25-48a4-9309-058e0cc94cff
 source-git-commit: c41b4026a64f9c90318e12de5397eb4c116056d9
-workflow-type: tm+mt
+workflow-type: ht
 source-wordcount: '472'
-ht-degree: 93%
+ht-degree: 100%
 
 ---
 
-# 疑難排解Dispatcher問題 {#troubleshooting-dispatcher-problems}
+# Dispatcher 問題疑難排解 {#troubleshooting-dispatcher-problems}
 
 >[!NOTE]
 >
@@ -26,7 +26,7 @@ ht-degree: 93%
 
 >[!NOTE]
 >
->如需詳細資訊，請參閱<!-- URL is 404[Dispatcher Knowledge Base](https://helpx.adobe.com/experience-manager/kb/index/dispatcher.html), -->[Dispatcher排清問題疑難排解](https://experienceleague.adobe.com/search.html?lang=zh-Hant#q=troubleshooting%20dispatcher%20flushing%20issues&sort=relevancy&f:el_product=[Experience%20Manager])和[Dispatcher常見問題集](dispatcher-faq.md)。
+>請參閱 <!-- URL is 404[Dispatcher Knowledge Base](https://helpx.adobe.com/experience-manager/kb/index/dispatcher.html), -->[Dispatcher 清除問題疑難排解](https://experienceleague.adobe.com/search.html?lang=zh-Hant#q=troubleshooting%20dispatcher%20flushing%20issues&sort=relevancy&f:el_product=[Experience%20Manager])和 [Dispatcher 主要常見問題集](dispatcher-faq.md)，以了解更多資訊。
 
 ## 檢查基本設定 {#check-the-basic-configuration}
 
@@ -45,7 +45,7 @@ ht-degree: 93%
 
       * 這些篩選器是否影響您正在調查的事項?
 
-## IIS診斷工具 {#iis-diagnostic-tools}
+## IIS 診斷工具 {#iis-diagnostic-tools}
 
 IIS提供各種跟蹤工具，具體取決於實際版本：
 
