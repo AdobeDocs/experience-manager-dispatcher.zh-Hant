@@ -1304,7 +1304,7 @@ printf "%-15s: %s %s" $1 $2 $3>> /opt/dispatcher/logs/invalidate.log
 >[!NOTE]
 >
 >設定 glob 屬性時，應該配合查詢參數名稱來設定。例如，如果您想忽略來自以下 URL `http://example.com/path/test.html?p1=test&p2=v2` 的 &quot;p1&quot; 參數，則 glob 屬性應為：
->> `/0002 { /glob "p1" /type "allow" }`
+>&#x200B;> `/0002 { /glob "p1" /type "allow" }`
 
 下列範例會造成 Dispatcher 忽略所有參數，`nocache` 參數除外。如此一來，Dispatcher 永遠不會快取包含 `nocache` 參數的要求 URL：
 
@@ -1644,7 +1644,7 @@ Dispatcher 設定檔案中有幾個區段會使用 `glob` 屬性當作用戶端�
 | `?` | 符合任何單一字元。使用外部字元類別。在字元類別內，依照字面上的意義解譯此字元。 | `*outdoors/??/*`<br/> 符合 geometrixx-outdoors 網站中任何語言的頁面。例如，以下 HTTP 請求符合 glob 模式：<br/><ul><li>`"GET /content/geometrixx-outdoors/en/men.html"`</li></ul><br/>以下請求不符合 glob 模式：<br/><ul><li>&quot;GET /content/geometrixx-outdoors/en.html&quot;</li></ul> |
 | `[ and ]` | 取消標記字元類別的開頭和結尾。字元類別可包含一個或多個字元範圍及單一字元。<br/>如果目標字元符合字元類別中或定義的範圍內的任何字元，就會有符合項目。<br/>如果未包含右中括號，則模式不會產生任何符合項目。 | `*[o]men.html*`<br/> 符合下列 HTTP 請求：<br/><ul><li>`"GET /content/geometrixx-outdoors/en/women.html"`</li></ul><br/>不符合下列 HTTP 請求：<br/><ul><li>`"GET /content/geometrixx-outdoors/en/men.html"`</li></ul><br/> `*[o/]men.html*` <br/>符合下列 HTTP 請求：<br/><ul><li>`"GET /content/geometrixx-outdoors/en/women.html"`</li><li>`"GET /content/geometrixx-outdoors/en/men.html"`</li></ul> |
 | `-` | 代表一連串的字元。用於字元類別中。在字元類別外，依照字面上的意義解譯此字元。 | `*[m-p]men.html*` 符合下列 HTTP 請求：<br/><ul><li>`"GET /content/geometrixx-outdoors/en/women.html"`</li></ul>不符合下列 HTTP 請求：<br/><ul><li>`"GET /content/geometrixx-outdoors/en/men.html"`</li></ul> |
-| `!` | 讓緊接在後面的字元或字元類別無效。僅用於讓字元類別內的字元或字元範圍無效。相當於 `^ wildcard`。<br/>在字元類別外，依照字面上的意義解譯此字元。 | `*[!o]men.html*`<br/> 符合下列 HTTP 請求：<br/><ul><li>`"GET /content/geometrixx-outdoors/en/men.html"`</li></ul><br/>不符合下列 HTTP 請求：<br/><ul><li>`"GET /content/geometrixx-outdoors/en/women.html"`</li></ul><br/>`*[!o!/]men.html*`<br/>不符合下列 HTTP 請求：<br/><ul><li>`"GET /content/geometrixx-outdoors/en/women.html"` 或 `"GET /content/geometrixx-outdoors/en/men. html"`</li></ul> |
+| `!` | 讓緊接在後面的字元或字元類別無效。僅用於讓字元類別內的字元或字元範圍無效。相當於 `^ wildcard`。<br/>在字元類別外，依照字面上的意義解譯此字元。 | `*[ !o]men.html*`<br/> 符合下列 HTTP 請求：<br/><ul><li>`"GET /content/geometrixx-outdoors/en/men.html"`</li></ul><br/>不符合下列 HTTP 請求：<br/><ul><li>`"GET /content/geometrixx-outdoors/en/women.html"`</li></ul><br/>`*[ !o!/]men.html*`<br/>不符合下列 HTTP 請求：<br/><ul><li>`"GET /content/geometrixx-outdoors/en/women.html"` 或 `"GET /content/geometrixx-outdoors/en/men. html"`</li></ul> |
 | `^` | 讓緊接在後面的字元或字元範圍無效。僅用於讓字元類別內的字元或字元範圍無效。相當於 `!` 萬用字元。<br/>在字元類別外，依照字面上的意義解譯此字元。 | 適用 `!` 萬用字元的範例，將範例模式中的 `!` 字元取代為 `^` 字元。 |
 
 
