@@ -2,10 +2,10 @@
 title: 設定 AEM Dispatcher
 description: 了解如何設定 Dispatcher。了解對 IPv4 和 IPv6 的支援、設定檔案、環境變數、為執行個體命名。了解如何定義陣列、識別虛擬主機等。
 exl-id: 91159de3-4ccb-43d3-899f-9806265ff132
-source-git-commit: c41b4026a64f9c90318e12de5397eb4c116056d9
-workflow-type: ht
-source-wordcount: '8937'
-ht-degree: 100%
+source-git-commit: fbfbe76b730d4037cccb400b70619fbe24b3b1bc
+workflow-type: tm+mt
+source-wordcount: '8938'
+ht-degree: 99%
 
 ---
 
@@ -209,7 +209,7 @@ AEM 和 Dispatcher 的所有元素都可以安裝在 IPv4 和 IPv6 網路上。�
 | [/failover](#using-the-failover-mechanism) | 當原始請求失敗時重新傳送請求給不同轉譯器。 |
 | [/auth_checker](permissions-cache.md) | 如需了解權限敏感型快取，請參閱[快取安全內容](permissions-cache.md)。 |
 
-## 指定預設頁面 (僅限 IIS) - `/homepage` {#specify-a-default-page-iis-only-homepage}
+## 指定預設頁面（僅限IIS） - /homepage {#specify-a-default-page-iis-only-homepage}
 
 >[!CAUTION]
 >
