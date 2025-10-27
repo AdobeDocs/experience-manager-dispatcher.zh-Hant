@@ -5,9 +5,9 @@ pageversionid: 1193211344162
 topic-tags: dispatcher
 content-type: reference
 exl-id: c9266683-6890-4359-96db-054b7e856dd0
-source-git-commit: c41b4026a64f9c90318e12de5397eb4c116056d9
-workflow-type: ht
-source-wordcount: '3073'
+source-git-commit: 5cdfdb6d49f7d37a309fef9c5a4eb72409b54b13
+workflow-type: tm+mt
+source-wordcount: '3075'
 ht-degree: 100%
 
 ---
@@ -129,7 +129,7 @@ Dispatcher 有兩種主要方法，用於在對網站進行更改時更新快取
 請注意下列幾點：
 
 * 內容更新通常與編寫系統搭配使用，因而「知道」必須取代的內容。
-* 影響檔案的內容更新會遭到移除，但不會立即被取代。下次請求此類檔案時，Dispatcher 會從 AEM 執行個體擷取新檔案，並將其置於快取中，而覆寫舊內容。
+* 受內容更新影響的檔案會遭到移除，但不會立即替換。下次請求此類檔案時，Dispatcher 會從 AEM 執行個體擷取新檔案，並將其置於快取中，藉此來覆寫舊內容。
 * 通常，包含頁面文字的自動產生圖片，會儲存在開頭為相同名稱的圖片檔案中，因而可確保要刪除的檔案的關聯性存在。例如您可以將頁面 mypage.html 的標題文字儲存為相同檔案夾中名稱為 mypage.titlePicture.gif 的圖片。如此一來，每次更新頁面時，圖片都會自動從快取中刪除，因此您可以確定圖片會一律反映頁面的最新版本。
 * 您可能有數個 statfile，例如每個語言檔案夾一個。如果頁面已更新，AEM 會尋找下一個包含 statfile 的上層檔案夾，並&#x200B;*接觸*&#x200B;該檔案。
 
