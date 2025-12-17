@@ -5,10 +5,10 @@ topic-tags: release-notes
 content-type: reference
 products: SG_EXPERIENCEMANAGER/6.4
 exl-id: b55c7a34-d57b-4d45-bd83-29890f1524de
-source-git-commit: b7ab59ad2da1b73ebbf7819670f056a68162796d
+source-git-commit: f4ed724deccf14c570ca873728a97d0ae5fe0e4f
 workflow-type: tm+mt
-source-wordcount: '1098'
-ht-degree: 94%
+source-wordcount: '1105'
+ht-degree: 93%
 
 ---
 
@@ -41,9 +41,8 @@ Adobe 建議您使用最新版 AEM Dispatcher 以受益於最新功能、最近�
 
 **改良功能**：
 
-* DISP-1040 — 修正正在重寫url的客戶
+* DISP-1040 — 在Dispatcher設定中實作`/allowedClients`，以控制哪些IP可以執行快取無效判定並封鎖或移除標題（`handle`、`cq-handle`等），除非有明確需要
 * DISP-1046 - stale-while-error也應處理來自AEM的429個回應
-* DISP-1041 — 設定失效uri (#179)
 * SKYOPS-107219 — 最佳化目前載入vanityUrls的實作
 
 ### 發行版本 4.3.7 (2024 年 3 月 27 日) {#march}
