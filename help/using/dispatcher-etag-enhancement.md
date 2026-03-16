@@ -67,6 +67,6 @@ FileETag none
 
 如需在Dispatcher中標題快取和`ETag`處理方面面向客戶的基準線指引，請參考：
 
-- [設定Dispatcher — 快取HTTP回應標頭](https://experienceleague.adobe.com/en/docs/experience-manager-dispatcher/using/configuring/dispatcher-configuration#caching-http-response-headers)
+- [設定Dispatcher — 快取HTTP回應標頭](https://experienceleague.adobe.com/zh-hant/docs/experience-manager-dispatcher/using/configuring/dispatcher-configuration#caching-http-response-headers)
 
 「此功能可在Dispatcher `2.0.264` (AEM SDK `2026.2.24464`)中使用。 啟用後，Dispatcher可針對快取的`ETag`值驗證`If-None-Match`，並在快取點選時傳回`304 Not Modified`。 AEM as a Cloud Service支援此功能，並可透過Cloud Manager環境設定加以啟用。」
