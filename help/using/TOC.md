@@ -10,10 +10,10 @@ feature-set: Experience Manager
 feature: Dispatcher
 topic: Administration
 role: Admin
-source-git-commit: c41b4026a64f9c90318e12de5397eb4c116056d9
+source-git-commit: fc4c45e045ee1a67f3d2ae6c005a88afde09f206
 workflow-type: tm+mt
-source-wordcount: '0'
-ht-degree: 0%
+source-wordcount: '99'
+ht-degree: 93%
 
 ---
 
@@ -28,6 +28,7 @@ ht-degree: 0%
 + 設定 {#configuring}
    + [設定 Dispatcher](dispatcher-configuration.md)
    + [使 AEM 中的快取頁面失效](page-invalidate.md)
+   + [CDN重新驗證的Dispatcher ETag增強功能](dispatcher-etag-enhancement.md)
    + [將網站快取效能最佳化](https://experienceleague.adobe.com/zh-hant/docs/experience-manager-65/content/implementing/deploying/configuring/configuring-performance)
    + [快取安全內容](permissions-cache.md)
    + [在多個網域中使用 AEM Dispatcher](dispatcher-domains.md)
