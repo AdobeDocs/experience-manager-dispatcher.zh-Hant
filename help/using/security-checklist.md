@@ -6,13 +6,13 @@ products: SG_EXPERIENCEMANAGER/DISPATCHER
 topic-tags: dispatcher
 content-type: reference
 jcr-lastmodifiedby: remove-legacypath-6-1
-index: y
+index: true
 internal: n
 snippet: y
 exl-id: 49009810-b5bf-41fd-b544-19dd0c06b013
-source-git-commit: c41b4026a64f9c90318e12de5397eb4c116056d9
-workflow-type: ht
-source-wordcount: '582'
+source-git-commit: 53781f068db078045ae366d3494cd7d1b78c4a7e
+workflow-type: tm+mt
+source-wordcount: '625'
 ht-degree: 100%
 
 ---
@@ -38,7 +38,7 @@ Adobe 建議您在進入生產階段前完成以下檢查清單。
 
 ## 使用最新版的 Dispatcher {#use-the-latest-version-of-dispatcher}
 
-安裝您平台適用的最新可用版本。升級 Dispatcher 執行個體來使用最新版，以充分利用產品和安全性增強功能。請參閱[安裝 Dispatcher](dispatcher-install.md)。
+安裝您平台適用的最新可用版本。 升級 Dispatcher 執行個體來使用最新版，以充分利用產品和安全性增強功能。 請參閱[安裝 Dispatcher](dispatcher-install.md)。
 
 >[!NOTE]
 >
@@ -85,11 +85,11 @@ Last Modified Date: 2015-06-26T04:41:28.841-0400
 
 ## 使用允許清單而非封鎖清單 {#use-allowlists-instead-of-blocklists}
 
-允許清單是提供存取控制的更好方法，因為其原本即假設應拒絕所有存取請求，除非這些請求明確列入允許清單中。此模型對可能尚未審查或在特定設定階段被考量的新請求提供較嚴格的控管。
+允許清單是提供存取控制的更好方法，因為其原本即假設應拒絕所有存取請求，除非這些請求明確列入允許清單中。 此模型對可能尚未審查或在特定設定階段被考量的新請求提供較嚴格的控管。
 
 ## 透過專用系統使用者執行 Dispatcher {#run-dispatcher-with-a-dedicated-system-user}
 
-設定 Dispatcher，以便專用的、最低權限的使用者帳戶執行網頁伺服器。Adobe 建議您僅對 Dispatcher 快取資料夾授予寫入權限。
+設定 Dispatcher，以便專用的、最低權限的使用者帳戶執行網頁伺服器。 Adobe 建議您僅對 Dispatcher 快取資料夾授予寫入權限。
 
 此外，IIS 使用者必須依下面來設定他們的網站：
 
@@ -116,7 +116,7 @@ Last Modified Date: 2015-06-26T04:41:28.841-0400
    * `.pdf`
    * `.ppt`
 
-  可以看到用來[限制外部存取](#restrict-access)的設定檔範例。這包括 mime 類型的限制。
+  可以看到用來[限制外部存取](#restrict-access)的設定檔範例。 這包括 mime 類型的限制。
 
 若要在發佈執行個體上啟用完整功能，請設定篩選條件來避免存取以下節點：
 
@@ -148,7 +148,7 @@ Last Modified Date: 2015-06-26T04:38:17.016-0400
 
 ## 設定 Dispatcher 以避免 CSRF 攻擊 {#configure-dispatcher-to-prevent-csrf-attacks}
 
-AEM 提供旨在避免跨網站請求偽造攻擊的[框架](https://experienceleague.adobe.com/zh-hant/docs/experience-manager-release-information/aem-release-updates/previous-updates/aem-previous-versions#verification-steps)。若要正確使用此架構，請透過執行下列操作，在 Dispatcher 中將 CSRF 權杖支援加入允許清單：
+AEM 提供旨在避免跨網站請求偽造攻擊的[框架](https://experienceleague.adobe.com/zh-hant/docs/experience-manager-release-information/aem-release-updates/previous-updates/aem-previous-versions#verification-steps)。 若要正確使用此架構，請透過執行下列操作，在 Dispatcher 中將 CSRF 權杖支援加入允許清單：
 
 1. 建立篩選條件以允許 `/libs/granite/csrf/token.json` 路徑；
 1. 將 `CSRF-Token` 標頭新增到 Dispatcher 設定的 `clientheaders` 區段。
