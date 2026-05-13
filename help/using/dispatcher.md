@@ -5,10 +5,15 @@ pageversionid: 1193211344162
 topic-tags: dispatcher
 content-type: reference
 exl-id: c9266683-6890-4359-96db-054b7e856dd0
-source-git-commit: 53781f068db078045ae366d3494cd7d1b78c4a7e
+TQID: https://experienceleague.adobe.com/Ir-slXay90FcQsvKGLioMgFhmhsaTfkYxIQJzfjDsfY
+product_v2: id: fd1f54a9-f50c-467d-8956-cebbaf4f3eb8
+feature_v2: id: b1210526-416b-4ef6-bcc0-1692e99f30e9
+role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+topic_v2: id: c1579802-ddd4-4214-8a91-97b2066abe11id: d095671a-1355-40aa-8b5f-06c33c68080bid: eddd9b14-83bd-4ff4-9072-54a4a484abb7
+source-git-commit: b68483fc6956bc0e6c2b1939d2203311da62987e
 workflow-type: tm+mt
-source-wordcount: '3227'
-ht-degree: 98%
+source-wordcount: 3227
+ht-degree: 96%
 
 ---
 
@@ -192,10 +197,10 @@ Dispatcher 會將快取的檔案儲存在網頁伺服器上，如同靜態網站
 其優點如下:
 
 * **提高處理能力**
-在實務中，提高處理能力表示 Dispatcher 會將文件請求在數個 AEM 執行個體之間分享。 由於每個執行個體現在要處理的文件數量較少，因此您的回應時間就會變快。 Dispatcher 會保留每個文件類別的內部統計資料，以便能夠估計負載並有效率地分配查詢。
+實際上，提高的處理能力意味著Dispatcher會將檔案請求在數個AEM執行個體之間分享。 由於每個執行個體現在要處理的文件數量較少，因此您的回應時間就會變快。 Dispatcher 會保留每個文件類別的內部統計資料，以便能夠估計負載並有效率地分配查詢。
 
 * **增加防故障的涵蓋範圍**
-如果 Dispatcher 沒有收到來自執行個體的回應，就會自動將請求轉送給其他執行個體之一。 如果某個執行個體無法使用，唯一的影響是網站速度變慢，與失去的運算能力成正比。 但是所有服務都會繼續。
+如果Dispatcher沒有收到來自執行個體的回應，就會自動將請求轉送給其他執行個體之一。 如果某個執行個體無法使用，唯一的影響是網站速度變慢，與失去的運算能力成正比。 但是所有服務都會繼續。
 
 * 您也可以從同一部靜態網頁伺服器上管理不同的網站。
 
@@ -281,7 +286,7 @@ CDN 為 HTTP 基礎架構元件，其運作方式與 Dispatcher 類似。 當 CD
 
 >[!NOTE]
 >
->另請參閱 [AEM (CQ) Dispatcher 安全性和內容傳遞網路 + 瀏覽器快取](https://www.slideshare.net/slideshow/dispatcher-caching-aemgemspart2jan2015/44053023)，以及 [Dispatcher 快取](https://experienceleague.adobe.com/zh-hant/docs/events/experience-manager-gems-recordings/overview#)的相關錄製簡報。
+>另請參閱 [AEM (CQ) Dispatcher 安全性和內容傳遞網路 + 瀏覽器快取](https://www.slideshare.net/slideshow/dispatcher-caching-aemgemspart2jan2015/44053023)，以及 [Dispatcher 快取](https://experienceleague.adobe.com/en/docs/events/experience-manager-gems-recordings/overview#)的相關錄製簡報。
 
 ## 搭配製作伺服器使用 Dispatcher {#using-a-dispatcher-with-an-author-server}
 
