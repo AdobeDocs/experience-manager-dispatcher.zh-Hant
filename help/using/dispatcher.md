@@ -6,19 +6,13 @@ topic-tags: dispatcher
 content-type: reference
 exl-id: c9266683-6890-4359-96db-054b7e856dd0
 TQID: https://experienceleague.adobe.com/Ir-slXay90FcQsvKGLioMgFhmhsaTfkYxIQJzfjDsfY
-product_v2:
-  - id: fd1f54a9-f50c-467d-8956-cebbaf4f3eb8
-feature_v2:
-  - id: b1210526-416b-4ef6-bcc0-1692e99f30e9
-role_v2:
-  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-topic_v2:
-  - id: c1579802-ddd4-4214-8a91-97b2066abe11
-  - id: d095671a-1355-40aa-8b5f-06c33c68080b
-  - id: eddd9b14-83bd-4ff4-9072-54a4a484abb7
+product_v2: id: fd1f54a9-f50c-467d-8956-cebbaf4f3eb8
+feature_v2: id: b1210526-416b-4ef6-bcc0-1692e99f30e9
+role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+topic_v2: id: c1579802-ddd4-4214-8a91-97b2066abe11id: d095671a-1355-40aa-8b5f-06c33c68080bid: eddd9b14-83bd-4ff4-9072-54a4a484abb7
 source-git-commit: b68483fc6956bc0e6c2b1939d2203311da62987e
 workflow-type: tm+mt
-source-wordcount: 3227
+source-wordcount: 3169
 ht-degree: 96%
 
 ---
@@ -273,14 +267,14 @@ CDN 為 HTTP 基礎架構元件，其運作方式與 Dispatcher 類似。 當 CD
 
 以下有數種方法可控制內容傳遞網路對資源進行快取多長時間，然後才可以從 Dispatcher 重新擷取。
 
-1. 明確設定。
-根據 MIME 類型、副檔名、請求類型等，設定特定資源會在內容傳遞網路快取當中留存多長時間。
+1. 明確的設定。
+根據MIME型別、副檔名、請求型別等，設定特定資源在CDN快取中的保留時間。
 
-1. 期限和快取控制標頭。
-如果是由上游伺服器傳送，大部分的 CDN 都會遵守 `Expires:` 和 `Cache-Control:` HTTP 標頭。 例如，可藉由使用 [mod_expires](https://httpd.apache.org/docs/2.4/mod/mod_expires.html) Apache 模組來達成此方法。
+1. 到期日和快取控制標頭。
+如果是由上游伺服器傳送，大部分的CDN都會遵守`Expires:`和`Cache-Control:` HTTP標頭。例如，可以使用[mod_expires](https://httpd.apache.org/docs/2.4/mod/mod_expires.html) Apache模組來達成這個方法。
 
 1. 手動失效。
-內容傳遞網路允許透過 Web 介面從快取中移除資源。
+CDN可透過Web介面從快取中移除資源。
 1. API 型失效。\
    大部分的內容傳遞網路也提供 REST 和/或 SOAP API，可從快取中移除資源。
 
@@ -292,7 +286,7 @@ CDN 為 HTTP 基礎架構元件，其運作方式與 Dispatcher 類似。 當 CD
 
 >[!NOTE]
 >
->另請參閱 [AEM (CQ) Dispatcher 安全性和內容傳遞網路 + 瀏覽器快取](https://www.slideshare.net/slideshow/dispatcher-caching-aemgemspart2jan2015/44053023)，以及 [Dispatcher 快取](https://experienceleague.adobe.com/zh-hant/docs/events/experience-manager-gems-recordings/overview#)的相關錄製簡報。
+>另請參閱 [AEM (CQ) Dispatcher 安全性和內容傳遞網路 + 瀏覽器快取](https://www.slideshare.net/slideshow/dispatcher-caching-aemgemspart2jan2015/44053023)，以及 [Dispatcher 快取](https://experienceleague.adobe.com/en/docs/events/experience-manager-gems-recordings/overview#)的相關錄製簡報。
 
 ## 搭配製作伺服器使用 Dispatcher {#using-a-dispatcher-with-an-author-server}
 
