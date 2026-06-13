@@ -3,9 +3,14 @@ title: Dispatcher 熱門問題
 description: Adobe Experience Manager Dispatcher 熱門問題。
 exl-id: 4dcc7318-aba5-4b17-8cf4-190ffefbba75
 TQID: https://experienceleague.adobe.com/NQdA2gQ1pBYAiVrjO1arci4qp6cGIKpZZHWimEfB9T0
-product_v2: id: fd1f54a9-f50c-467d-8956-cebbaf4f3eb8
-role_v2: id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
-topic_v2: id: c1579802-ddd4-4214-8a91-97b2066abe11id: d095671a-1355-40aa-8b5f-06c33c68080bid: eddd9b14-83bd-4ff4-9072-54a4a484abb7
+product_v2:
+  - id: fd1f54a9-f50c-467d-8956-cebbaf4f3eb8
+role_v2:
+  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+topic_v2:
+  - id: c1579802-ddd4-4214-8a91-97b2066abe11
+  - id: d095671a-1355-40aa-8b5f-06c33c68080b
+  - id: eddd9b14-83bd-4ff4-9072-54a4a484abb7
 source-git-commit: b68483fc6956bc0e6c2b1939d2203311da62987e
 workflow-type: tm+mt
 source-wordcount: 1530
@@ -161,7 +166,7 @@ Dispatcher如何判斷檔案是否為最新版本？
 
 ### Dispatcher 如何傳回文件？
 
-您可以使用 [ Dispatcher 設定](dispatcher-configuration.md)檔案 `dispatcher.any` 來定義 Dispatcher 是否會快取文件。 Dispatcher 會根據可快取文件清單來檢查請求。 如果文件不在此清單中，Dispatcher 會請求 AEM 執行個體的文件。
+您可以使用 [&#x200B; Dispatcher 設定](dispatcher-configuration.md)檔案 `dispatcher.any` 來定義 Dispatcher 是否會快取文件。 Dispatcher 會根據可快取文件清單來檢查請求。 如果文件不在此清單中，Dispatcher 會請求 AEM 執行個體的文件。
 
 `/rules` 屬性可控制根據文件路徑快取哪些文件。 無論 `/rules` 屬性為何，Dispatcher 在以下情況下絕對不會快取文件：
 
