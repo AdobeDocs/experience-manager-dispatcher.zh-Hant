@@ -292,7 +292,7 @@ CDN可透過Web介面從快取中移除資源。
 
 >[!NOTE]
 >
->另請參閱 [AEM (CQ) Dispatcher 安全性和內容傳遞網路 + 瀏覽器快取](https://www.slideshare.net/slideshow/dispatcher-caching-aemgemspart2jan2015/44053023)，以及 [Dispatcher 快取](https://experienceleague.adobe.com/en/docs/events/experience-manager-gems-recordings/overview#)的相關錄製簡報。
+>另請參閱 [AEM (CQ) Dispatcher 安全性和內容傳遞網路 + 瀏覽器快取](https://www.slideshare.net/slideshow/dispatcher-caching-aemgemspart2jan2015/44053023)，以及 [Dispatcher 快取](https://experienceleague.adobe.com/zh-hant/docs/events/experience-manager-gems-recordings/overview#)的相關錄製簡報。
 
 ## 搭配製作伺服器使用 Dispatcher {#using-a-dispatcher-with-an-author-server}
 
