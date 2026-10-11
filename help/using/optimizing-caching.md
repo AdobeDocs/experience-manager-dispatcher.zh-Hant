@@ -7,15 +7,16 @@ topic-tags: dispatcher
 content-type: reference
 redirecttarget: https://helpx.adobe.com/tw/experience-manager/6-4/sites/deploying/using/configuring-performance.html
 index: true
-internal: n
-snippet: y
-source-git-commit: 53781f068db078045ae366d3494cd7d1b78c4a7e
+internal: 'n'
+snippet: 'y'
+product_v2:
+  - id: fd1f54a9-f50c-467d-8956-cebbaf4f3eb8
+    internal-label: Experience Manager
+source-git-commit: e2e1f00ed10637e4cbc09d879ef91ec657cab914
 workflow-type: tm+mt
 source-wordcount: '1140'
 ht-degree: 100%
-
 ---
-
 
 # 將網站快取效能最佳化 {#optimizing-a-website-for-cache-performance}
 
@@ -112,7 +113,7 @@ www.myCompany.com/news/main.large.html
 
 ## 使用於導覽的影像檔案失效 {#invalidating-image-files-used-for-navigation}
 
-如果您將圖片用於導覽項目，此方法基本上與標題相同，但是稍微複雜一點。 將所有導覽影像與目標頁面一起儲存。 如果您將兩張圖片用於一般和活躍情境，可以使用以下指令碼：
+如果您將圖片用於導覽項目，此方法基本上與標題相同，但是稍微複雜一點。 將所有導覽影像與目標頁面一起儲存。 如果您將兩張圖片用於一般和作用中狀態，可以使用以下指令碼：
 
 * 正常顯示頁面的指令碼。
 * 處理 `.normal` 請求並傳回正常圖片的指令碼。
@@ -126,7 +127,7 @@ www.myCompany.com/news/main.large.html
 
 Dispatcher 無法快取個人化資料，所以建議您將個人化限制在必要的地方。 以下說明原因：
 
-* 如果您使用可自由地自訂的起始頁，則每次使用者請求該頁面時都必須編寫它。
+* 如果您使用可自由地自訂的起始頁，則每次使用者請求該頁面時都必須重新產生該頁面。
 * 反之，如果您提供 10 個不同起始頁的選擇，您可以快取每一個起始頁，進而提高效能。
 
 >[!NOTE]
@@ -161,6 +162,6 @@ MIME 類型是 HTTP 標頭的一部分，因此 Dispatcher 不會快取它。 �
 
 若要確保檔案可以正確地快取，請遵循以下準則：
 
-* 確定檔案總是有適當的副檔名。
+* 確定檔案一律具有適當的副檔名。
 * 避免使用具有像是 download.jsp?file=2214 等 URL 的通用檔案服務指令碼。 重寫指令碼，以便使用包含檔案規格的 URL 以前面的範例來說，就是 `download.2214.pdf`。
 
